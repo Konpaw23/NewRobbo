@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Konrad/CLionProjects/RobboMillennium/cmake-build-debug"
+			"value" : "c:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1291,7 +1291,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[mingw32;-mwindows;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2][v()]"
+			"value" : "[mingw32;-mwindows;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -1327,7 +1327,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium/cmake-build-debug"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/cmake-build-debug"
 		},
 		{
 			"name" : "RobboMillennium_IS_TOP_LEVEL",
@@ -1351,7 +1351,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium"
 		},
 		{
 			"name" : "SDL2MAIN_LIBRARY",
@@ -1363,7 +1363,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a"
 		},
 		{
 			"name" : "SDL2_INCLUDE_DIR",
@@ -1375,7 +1375,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_LIBRARY",
@@ -1387,7 +1387,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "mingw32;-mwindows;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "SDL2_LIBRARY_TEMP",
@@ -1399,7 +1399,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "mingw32;-mwindows;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
