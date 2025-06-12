@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Konrad\CLionProjects\RobboMillennium -B C:\Users\Konrad\CLionProjects\RobboMillennium\cmake-build-debug
+-- Found SDL2: mingw32;-mwindows;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/Konrad/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/lib/libSDL2.dll.a  
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/Konrad/CLionProjects/RobboMillennium/cmake-build-debug
