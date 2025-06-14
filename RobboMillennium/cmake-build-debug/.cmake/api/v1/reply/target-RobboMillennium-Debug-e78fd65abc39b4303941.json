@@ -59,7 +59,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Konrad/CLionProjects/Robbo-Millennium/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2"
+					"path" : "C:/Users/konra/CLionProjects/RobboMillennium/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/include/SDL2"
 				}
 			],
 			"language" : "CXX",
@@ -116,12 +116,12 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\Konrad\\CLionProjects\\Robbo-Millennium\\RobboMillennium\\SDL2-devel-2.30.10-mingw\\SDL2-2.30.10\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
+				"fragment" : "C:\\Users\\konra\\CLionProjects\\RobboMillennium\\SDL2-devel-2.30.10-mingw\\SDL2-2.30.10\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\Konrad\\CLionProjects\\Robbo-Millennium\\RobboMillennium\\SDL2-devel-2.30.10-mingw\\SDL2-2.30.10\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
+				"fragment" : "C:\\Users\\konra\\CLionProjects\\RobboMillennium\\SDL2-devel-2.30.10-mingw\\SDL2-2.30.10\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
 				"role" : "libraries"
 			},
 			{
