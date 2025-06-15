@@ -1,6 +1,12 @@
 #pragma once
 #include "../../basicProjectHeaders.h"
 
+/*
+ * TODO in moving objects make two type of collisions:
+ * in_collision and round_collision
+ * (both will be activated after object moves??
+ */
+
 class GameObject
 {
 public:
