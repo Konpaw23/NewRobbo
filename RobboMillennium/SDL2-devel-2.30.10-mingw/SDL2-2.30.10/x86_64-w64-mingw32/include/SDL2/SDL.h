@@ -98,7 +98,7 @@ extern "C" {
  * Initialize the SDL library.
  *
  * SDL_Init() simply forwards to calling SDL_InitSubSystem(). Therefore, the
- * two may be used interchangeably. Though for readability of your src
+ * two may be used interchangeably. Though for readability of your code
  * SDL_InitSubSystem() might be preferred.
  *
  * The file I/O (for example: SDL_RWFromFile) and threading (SDL_CreateThread)
@@ -131,7 +131,7 @@ extern "C" {
  * this call will increase the ref-count and return.
  *
  * \param flags subsystem initialization flags
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -149,7 +149,7 @@ extern DECLSPEC int SDLCALL SDL_Init(Uint32 flags);
  * In SDL2, this function and SDL_Init() are interchangeable.
  *
  * \param flags any of the flags used by SDL_Init(); see SDL_Init for details.
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -213,7 +213,7 @@ extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags);
  *
  * You can use this function with atexit() to ensure that it is run when your
  * application is shutdown, but it is not wise to do this from a library or
- * other dynamically loaded src.
+ * other dynamically loaded code.
  *
  * \since This function is available since SDL 2.0.0.
  *

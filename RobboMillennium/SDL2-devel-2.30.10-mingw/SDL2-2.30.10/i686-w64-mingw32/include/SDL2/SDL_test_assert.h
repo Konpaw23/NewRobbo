@@ -24,12 +24,12 @@
  *
  *  Include file for SDL test framework.
  *
- *  This src is a part of the SDL2_test library, not the main SDL library.
+ *  This code is a part of the SDL2_test library, not the main SDL library.
  */
 
 /*
  *
- * Assert API for test src and test cases
+ * Assert API for test code and test cases
  *
  */
 

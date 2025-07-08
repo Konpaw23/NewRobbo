@@ -113,15 +113,15 @@ typedef enum
                                   *   layout, and ASTERISK and MICRO SIGN in a
                                   *   French Windows layout.
                                   */
-    SDL_SCANCODE_NONUSHASH = 50, /**< ISO USB keyboards actually use this src
+    SDL_SCANCODE_NONUSHASH = 50, /**< ISO USB keyboards actually use this code
                                   *   instead of 49 for the same key, but all
                                   *   OSes I've seen treat the two codes
                                   *   identically. So, as an implementor, unless
                                   *   your keyboard generates both of those
                                   *   codes and your OS treats them differently,
                                   *   you should generate SDL_SCANCODE_BACKSLASH
-                                  *   instead of this src. As a user, you
-                                  *   should not rely on this src because SDL
+                                  *   instead of this code. As a user, you
+                                  *   should not rely on this code because SDL
                                   *   will never generate it with most (all?)
                                   *   keyboards.
                                   */
@@ -167,7 +167,7 @@ typedef enum
     SDL_SCANCODE_SCROLLLOCK = 71,
     SDL_SCANCODE_PAUSE = 72,
     SDL_SCANCODE_INSERT = 73, /**< insert on PC, help on some Mac keyboards (but
-                                   does send src 73, not 117) */
+                                   does send code 73, not 117) */
     SDL_SCANCODE_HOME = 74,
     SDL_SCANCODE_PAGEUP = 75,
     SDL_SCANCODE_DELETE = 76,

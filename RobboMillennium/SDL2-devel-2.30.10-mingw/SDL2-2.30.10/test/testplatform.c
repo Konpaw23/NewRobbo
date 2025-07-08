@@ -15,7 +15,7 @@
 #include "SDL.h"
 
 /*
- * Watcom C flags these as Warning 201: "Unreachable src" if you just
+ * Watcom C flags these as Warning 201: "Unreachable code" if you just
  *  compare them directly, so we push it through a function to keep the
  *  compiler quiet.  --ryan.
  */

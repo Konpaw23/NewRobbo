@@ -590,7 +590,7 @@ typedef struct SDL_UserEvent
     Uint32 type;        /**< ::SDL_USEREVENT through ::SDL_LASTEVENT-1 */
     Uint32 timestamp;   /**< In milliseconds, populated using SDL_GetTicks() */
     Uint32 windowID;    /**< The associated window if any */
-    Sint32 code;        /**< User defined event src */
+    Sint32 code;        /**< User defined event code */
     void *data1;        /**< User defined data pointer */
     void *data2;        /**< User defined data pointer */
 } SDL_UserEvent;
@@ -732,7 +732,7 @@ typedef enum
  *                SDL_FIRSTEVENT is a safe choice
  * \param maxType maximum value of the event type to be considered;
  *                SDL_LASTEVENT is a safe choice
- * \returns the number of events actually stored or a negative error src on
+ * \returns the number of events actually stored or a negative error code on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -942,12 +942,12 @@ extern DECLSPEC int SDLCALL SDL_WaitEventTimeout(SDL_Event * event,
  * the event filter but events added with SDL_PeepEvents() do not.
  *
  * For pushing application-specific events, please use SDL_RegisterEvents() to
- * get an event type that does not conflict with other src that also wants
+ * get an event type that does not conflict with other code that also wants
  * its own custom event types.
  *
  * \param event the SDL_Event to be added to the queue
  * \returns 1 on success, 0 if the event was filtered, or a negative error
- *          src on failure; call SDL_GetError() for more information. A
+ *          code on failure; call SDL_GetError() for more information. A
  *          common reason for error is the event queue being full.
  *
  * \since This function is available since SDL 2.0.0.

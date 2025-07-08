@@ -2,7 +2,7 @@
 /**
  * Automated SDL_RWops test.
  *
- * Original src written by Edgar Simo "bobbens"
+ * Original code written by Edgar Simo "bobbens"
  * Ported by Markus Kauppila (markus.kauppila@gmail.com)
  * Updated and extended for SDL_test by aschiffler at ferzkopp dot net
  *

@@ -76,7 +76,7 @@ static void RunBasicTest(void)
 
 /**************************************************************************/
 /* Atomic operation test
- * Adapted with permission from src by Michael Davidsaver at:
+ * Adapted with permission from code by Michael Davidsaver at:
  *  http://bazaar.launchpad.net/~mdavidsaver/epics-base/atomic/revision/12105#src/libCom/test/epicsAtomicTest.c
  * Original copyright 2010 Brookhaven Science Associates as operator of Brookhaven National Lab
  * http://www.aps.anl.gov/epics/license/open.php

@@ -314,7 +314,7 @@ extern DECLSPEC SDL_threadID SDLCALL SDL_GetThreadID(SDL_Thread * thread);
  * an administrator account. Be prepared for this to fail.
  *
  * \param priority the SDL_ThreadPriority to set
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -331,7 +331,7 @@ extern DECLSPEC int SDLCALL SDL_SetThreadPriority(SDL_ThreadPriority priority);
  * that references it becomes invalid and should not be referenced again. As
  * such, only one thread may call SDL_WaitThread() on another.
  *
- * The return src for the thread function is placed in the area pointed to by
+ * The return code for the thread function is placed in the area pointed to by
  * `status`, if `status` is not NULL.
  *
  * You may not wait on a thread that has been used in a call to
@@ -364,7 +364,7 @@ extern DECLSPEC void SDLCALL SDL_WaitThread(SDL_Thread * thread, int *status);
  * useful for long-running threads that nothing needs to synchronize with or
  * further manage. When a detached thread is done, it simply goes away.
  *
- * There is no way to recover the return src of a detached thread. If you
+ * There is no way to recover the return code of a detached thread. If you
  * need this, don't detach the thread and instead use SDL_WaitThread().
  *
  * Once a thread is detached, you should usually assume the SDL_Thread isn't
@@ -436,7 +436,7 @@ extern DECLSPEC void * SDLCALL SDL_TLSGet(SDL_TLSID id);
  * \param value the value to associate with the ID for the current thread
  * \param destructor a function called when the thread exits, to free the
  *                   value
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

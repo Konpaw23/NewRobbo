@@ -10,7 +10,7 @@
   freely.
 */
 
-/* Simple test of the SDL semaphore src */
+/* Simple test of the SDL semaphore code */
 
 #include <stdio.h>
 #include <stdlib.h>

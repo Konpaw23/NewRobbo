@@ -46,8 +46,8 @@ extern "C" {
  */
 typedef struct SDL_Keysym
 {
-    SDL_Scancode scancode;      /**< SDL physical key src - see ::SDL_Scancode for details */
-    SDL_Keycode sym;            /**< SDL virtual key src - see ::SDL_Keycode for details */
+    SDL_Scancode scancode;      /**< SDL physical key code - see ::SDL_Scancode for details */
+    SDL_Keycode sym;            /**< SDL virtual key code - see ::SDL_Keycode for details */
     Uint16 mod;                 /**< current key modifiers */
     Uint32 unused;
 } SDL_Keysym;
@@ -138,7 +138,7 @@ extern DECLSPEC SDL_Keymod SDLCALL SDL_GetModState(void);
 extern DECLSPEC void SDLCALL SDL_SetModState(SDL_Keymod modstate);
 
 /**
- * Get the key src corresponding to the given scancode according to the
+ * Get the key code corresponding to the given scancode according to the
  * current keyboard layout.
  *
  * See SDL_Keycode for details.
@@ -154,7 +154,7 @@ extern DECLSPEC void SDLCALL SDL_SetModState(SDL_Keymod modstate);
 extern DECLSPEC SDL_Keycode SDLCALL SDL_GetKeyFromScancode(SDL_Scancode scancode);
 
 /**
- * Get the scancode corresponding to the given key src according to the
+ * Get the scancode corresponding to the given key code according to the
  * current keyboard layout.
  *
  * See SDL_Scancode for details.
@@ -229,10 +229,10 @@ extern DECLSPEC SDL_Scancode SDLCALL SDL_GetScancodeFromName(const char *name);
 extern DECLSPEC const char *SDLCALL SDL_GetKeyName(SDL_Keycode key);
 
 /**
- * Get a key src from a human-readable name.
+ * Get a key code from a human-readable name.
  *
  * \param name the human-readable key name
- * \returns key src, or `SDLK_UNKNOWN` if the name wasn't recognized; call
+ * \returns key code, or `SDLK_UNKNOWN` if the name wasn't recognized; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

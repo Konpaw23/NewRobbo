@@ -141,10 +141,10 @@ typedef struct SDL_version
 extern DECLSPEC void SDLCALL SDL_GetVersion(SDL_version * ver);
 
 /**
- * Get the src revision of SDL that is linked against your program.
+ * Get the code revision of SDL that is linked against your program.
  *
- * This value is the revision of the src you are linked with and may be
- * different from the src you are compiling with, which is found in the
+ * This value is the revision of the code you are linked with and may be
+ * different from the code you are compiling with, which is found in the
  * constant SDL_REVISION.
  *
  * The revision is arbitrary string (a hash value) uniquely identifying the

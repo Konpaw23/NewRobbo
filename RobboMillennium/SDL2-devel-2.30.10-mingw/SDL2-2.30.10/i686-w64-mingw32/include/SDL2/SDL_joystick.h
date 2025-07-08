@@ -156,7 +156,7 @@ extern DECLSPEC void SDLCALL SDL_UnlockJoysticks(void) SDL_RELEASE(SDL_joystick_
  * Count the number of joysticks attached to the system.
  *
  * \returns the number of attached joysticks on success or a negative error
- *          src on failure; call SDL_GetError() for more information.
+ *          code on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -693,7 +693,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_JoystickGetAttached(SDL_Joystick *joystick)
  *
  * \param joystick an SDL_Joystick structure containing joystick information
  * \returns the instance ID of the specified joystick on success or a negative
- *          error src on failure; call SDL_GetError() for more information.
+ *          error code on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -710,7 +710,7 @@ extern DECLSPEC SDL_JoystickID SDLCALL SDL_JoystickInstanceID(SDL_Joystick *joys
  *
  * \param joystick an SDL_Joystick structure containing joystick information
  * \returns the number of axis controls/number of axes on success or a
- *          negative error src on failure; call SDL_GetError() for more
+ *          negative error code on failure; call SDL_GetError() for more
  *          information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -729,7 +729,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickNumAxes(SDL_Joystick *joystick);
  * Most joysticks do not have trackballs.
  *
  * \param joystick an SDL_Joystick structure containing joystick information
- * \returns the number of trackballs on success or a negative error src on
+ * \returns the number of trackballs on success or a negative error code on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -742,7 +742,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickNumBalls(SDL_Joystick *joystick);
  * Get the number of POV hats on a joystick.
  *
  * \param joystick an SDL_Joystick structure containing joystick information
- * \returns the number of POV hats on success or a negative error src on
+ * \returns the number of POV hats on success or a negative error code on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -756,7 +756,7 @@ extern DECLSPEC int SDLCALL SDL_JoystickNumHats(SDL_Joystick *joystick);
  * Get the number of buttons on a joystick.
  *
  * \param joystick an SDL_Joystick structure containing joystick information
- * \returns the number of buttons on success or a negative error src on
+ * \returns the number of buttons on success or a negative error code on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -906,7 +906,7 @@ extern DECLSPEC Uint8 SDLCALL SDL_JoystickGetHat(SDL_Joystick *joystick,
  * \param ball the ball index to query; ball indices start at index 0
  * \param dx stores the difference in the x axis position since the last poll
  * \param dy stores the difference in the y axis position since the last poll
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

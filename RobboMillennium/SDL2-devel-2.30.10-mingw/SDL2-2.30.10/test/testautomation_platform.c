@@ -1,5 +1,5 @@
 /**
- * Original src: automated SDL platform test written by Edgar Simo "bobbens"
+ * Original code: automated SDL platform test written by Edgar Simo "bobbens"
  * Extended and updated by aschiffler at ferzkopp dot net
  */
 
@@ -15,7 +15,7 @@
 /**
  * @brief Compare sizes of types.
  *
- * @note Watcom C flags these as Warning 201: "Unreachable src" if you just
+ * @note Watcom C flags these as Warning 201: "Unreachable code" if you just
  *  compare them directly, so we push it through a function to keep the
  *  compiler quiet.  --ryan.
  */

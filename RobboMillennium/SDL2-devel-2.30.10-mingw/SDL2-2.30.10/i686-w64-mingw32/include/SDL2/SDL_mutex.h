@@ -302,7 +302,7 @@ extern DECLSPEC void SDLCALL SDL_DestroySemaphore(SDL_sem * sem);
  * length of `SDL_MUTEX_MAXWAIT`.
  *
  * \param sem the semaphore wait on
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -327,7 +327,7 @@ extern DECLSPEC int SDLCALL SDL_SemWait(SDL_sem * sem);
  *
  * \param sem the semaphore to wait on
  * \returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait would
- *          block, or a negative error src on failure; call SDL_GetError()
+ *          block, or a negative error code on failure; call SDL_GetError()
  *          for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -352,7 +352,7 @@ extern DECLSPEC int SDLCALL SDL_SemTryWait(SDL_sem * sem);
  * \param sem the semaphore to wait on
  * \param timeout the length of the timeout, in milliseconds
  * \returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait does not
- *          succeed in the allotted time, or a negative error src on failure;
+ *          succeed in the allotted time, or a negative error code on failure;
  *          call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -370,7 +370,7 @@ extern DECLSPEC int SDLCALL SDL_SemWaitTimeout(SDL_sem *sem, Uint32 timeout);
  * Atomically increment a semaphore's value and wake waiting threads.
  *
  * \param sem the semaphore to increment
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -443,7 +443,7 @@ extern DECLSPEC void SDLCALL SDL_DestroyCond(SDL_cond * cond);
  * Restart one of the threads that are waiting on the condition variable.
  *
  * \param cond the condition variable to signal
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -460,7 +460,7 @@ extern DECLSPEC int SDLCALL SDL_CondSignal(SDL_cond * cond);
  * Restart all threads that are waiting on the condition variable.
  *
  * \param cond the condition variable to signal
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -488,7 +488,7 @@ extern DECLSPEC int SDLCALL SDL_CondBroadcast(SDL_cond * cond);
  *
  * \param cond the condition variable to wait on
  * \param mutex the mutex used to coordinate thread access
- * \returns 0 when it is signaled or a negative error src on failure; call
+ * \returns 0 when it is signaled or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -518,7 +518,7 @@ extern DECLSPEC int SDLCALL SDL_CondWait(SDL_cond * cond, SDL_mutex * mutex);
  *           to wait indefinitely
  * \returns 0 if the condition variable is signaled, `SDL_MUTEX_TIMEDOUT` if
  *          the condition is not signaled in the allotted time, or a negative
- *          error src on failure; call SDL_GetError() for more information.
+ *          error code on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
  *

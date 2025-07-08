@@ -131,7 +131,7 @@ extern "C" {
 /**
  * \brief A variable to control whether we trap the Android back button to handle it manually.
  *        This is necessary for the right mouse button to work on some Android devices, or
- *        to be able to trap the back button for use in your src reliably.  If set to true,
+ *        to be able to trap the back button for use in your code reliably.  If set to true,
  *        the back button will show up as an SDL_KEYDOWN / SDL_KEYUP pair with a keycode of
  *        SDL_SCANCODE_AC_BACK.
  *
@@ -1227,7 +1227,7 @@ extern "C" {
  * In some cases, it can be useful to have the KMSDRM backend even if it cannot
  * be used for rendering. An app may want to use SDL for input processing while
  * using another rendering API (such as an MMAL overlay on Raspberry Pi) or
- * using its own src to render to DRM overlays that SDL doesn't support.
+ * using its own code to render to DRM overlays that SDL doesn't support.
  *
  * This hint must be set before initializing the video subsystem.
  *
@@ -1321,7 +1321,7 @@ extern "C" {
  *    "0"       - Dispatching OpenGL context updates will block the dispatching thread until the main thread finishes processing (default).
  *    "1"       - Dispatching OpenGL context updates will allow the dispatching thread to continue execution.
  *
- *  Generally you want the default, but if you have OpenGL src in a background thread on a Mac, and the main thread
+ *  Generally you want the default, but if you have OpenGL code in a background thread on a Mac, and the main thread
  *  hangs because it's waiting for that background thread, but that background thread is also hanging because it's
  *  waiting for the main thread to do an update, this might fix your issue.
  *
@@ -2467,7 +2467,7 @@ extern "C" {
  *
  *  Network-enabled WinRT apps must include a privacy policy.  On Windows 8, 8.1, and RT,
  *  Microsoft mandates that this policy be available via the Windows Settings charm.
- *  SDL provides src to add a link there, with its label text being set via the
+ *  SDL provides code to add a link there, with its label text being set via the
  *  optional hint, SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.
  *
  *  Please note that a privacy policy's contents are not set via this hint.  A separate
@@ -2490,7 +2490,7 @@ extern "C" {
  *  All network-enabled WinRT apps must make a privacy policy available to its
  *  users.  On Windows 8, 8.1, and RT, Microsoft mandates that this policy be
  *  be available in the Windows Settings charm, as accessed from within the app.
- *  SDL provides src to add a URL-based link there, which can point to the app's
+ *  SDL provides code to add a URL-based link there, which can point to the app's
  *  privacy policy.
  *
  *  To setup a URL to an app's privacy policy, set SDL_HINT_WINRT_PRIVACY_POLICY_URL
@@ -2870,7 +2870,7 @@ extern DECLSPEC void SDLCALL SDL_DelHintCallback(const char *name,
  *
  * This function is automatically called during SDL_Quit(), and deletes all
  * callbacks without calling them and frees all memory associated with hints.
- * If you're calling this from application src you probably want to call
+ * If you're calling this from application code you probably want to call
  * SDL_ResetHints() instead.
  *
  * This function will be removed from the API the next time we rev the ABI.

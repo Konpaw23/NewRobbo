@@ -24,12 +24,12 @@
  *
  *  Include file for SDL test framework.
  *
- *  This src is a part of the SDL2_test library, not the main SDL library.
+ *  This code is a part of the SDL2_test library, not the main SDL library.
  */
 
 /*
 
- Defines some assets for tests.
+ Defines some images for tests.
 
 */
 
@@ -45,7 +45,7 @@ extern "C" {
 #endif
 
 /**
- *Type for test assets.
+ *Type for test images.
  */
 typedef struct SDLTest_SurfaceImage_s {
   int width;
@@ -54,7 +54,7 @@ typedef struct SDLTest_SurfaceImage_s {
   const char *pixel_data;
 } SDLTest_SurfaceImage_t;
 
-/* Test assets */
+/* Test images */
 SDL_Surface *SDLTest_ImageBlit(void);
 SDL_Surface *SDLTest_ImageBlitColor(void);
 SDL_Surface *SDLTest_ImageBlitAlpha(void);

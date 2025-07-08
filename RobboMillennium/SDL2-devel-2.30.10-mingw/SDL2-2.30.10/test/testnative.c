@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
         }
     }
     if (!factory) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't find native window src for %s driver\n",
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't find native window code for %s driver\n",
                      driver);
         quit(2);
     }

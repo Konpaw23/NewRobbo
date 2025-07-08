@@ -285,7 +285,7 @@ typedef enum
 /**
  * Get the number of video drivers compiled into SDL.
  *
- * \returns a number >= 1 on success or a negative error src on failure; call
+ * \returns a number >= 1 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -328,7 +328,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetVideoDriver(int index);
  *
  * \param driver_name the name of a video driver to initialize, or NULL for
  *                    the default driver
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -367,7 +367,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetCurrentVideoDriver(void);
 /**
  * Get the number of available video displays.
  *
- * \returns a number >= 1 or a negative error src on failure; call
+ * \returns a number >= 1 or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -397,7 +397,7 @@ extern DECLSPEC const char * SDLCALL SDL_GetDisplayName(int displayIndex);
  *
  * \param displayIndex the index of the display to query
  * \param rect the SDL_Rect structure filled in with the display bounds
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -427,7 +427,7 @@ extern DECLSPEC int SDLCALL SDL_GetDisplayBounds(int displayIndex, SDL_Rect * re
  * \param displayIndex the index of the display to query the usable bounds
  *                     from
  * \param rect the SDL_Rect structure filled in with the display bounds
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -463,7 +463,7 @@ extern DECLSPEC int SDLCALL SDL_GetDisplayUsableBounds(int displayIndex, SDL_Rec
  *             be NULL
  * \param vdpi a pointer filled in with the vertical DPI of the display; may
  *             be NULL
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.4.
@@ -492,7 +492,7 @@ extern DECLSPEC SDL_DisplayOrientation SDLCALL SDL_GetDisplayOrientation(int dis
  * SDL_GetNumVideoDisplays() - 1.
  *
  * \param displayIndex the index of the display to query
- * \returns a number >= 1 on success or a negative error src on failure; call
+ * \returns a number >= 1 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -517,7 +517,7 @@ extern DECLSPEC int SDLCALL SDL_GetNumDisplayModes(int displayIndex);
  * \param modeIndex the index of the display mode to query
  * \param mode an SDL_DisplayMode structure filled in with the mode at
  *             `modeIndex`
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -538,7 +538,7 @@ extern DECLSPEC int SDLCALL SDL_GetDisplayMode(int displayIndex, int modeIndex,
  * \param displayIndex the index of the display to query
  * \param mode an SDL_DisplayMode structure filled in with the current display
  *             mode
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -560,7 +560,7 @@ extern DECLSPEC int SDLCALL SDL_GetDesktopDisplayMode(int displayIndex, SDL_Disp
  * \param displayIndex the index of the display to query
  * \param mode an SDL_DisplayMode structure filled in with the current display
  *             mode
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -603,7 +603,7 @@ extern DECLSPEC SDL_DisplayMode * SDLCALL SDL_GetClosestDisplayMode(int displayI
  *
  * \param point the point to query
  * \returns the index of the display containing the point or a negative error
- *          src on failure; call SDL_GetError() for more information.
+ *          code on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.24.0.
  *
@@ -617,7 +617,7 @@ extern DECLSPEC int SDLCALL SDL_GetPointDisplayIndex(const SDL_Point * point);
  *
  * \param rect the rect to query
  * \returns the index of the display entirely containing the rect or closest
- *          to the center of the rect on success or a negative error src on
+ *          to the center of the rect on success or a negative error code on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.24.0.
@@ -632,7 +632,7 @@ extern DECLSPEC int SDLCALL SDL_GetRectDisplayIndex(const SDL_Rect * rect);
  *
  * \param window the window to query
  * \returns the index of the display containing the center of the window on
- *          success or a negative error src on failure; call SDL_GetError()
+ *          success or a negative error code on failure; call SDL_GetError()
  *          for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -653,7 +653,7 @@ extern DECLSPEC int SDLCALL SDL_GetWindowDisplayIndex(SDL_Window * window);
  * \param mode the SDL_DisplayMode structure representing the mode to use, or
  *             NULL to use the window's dimensions and the desktop's format
  *             and refresh rate
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -670,7 +670,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowDisplayMode(SDL_Window * window,
  * \param window the window to query
  * \param mode an SDL_DisplayMode structure filled in with the fullscreen
  *             display mode
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1036,7 +1036,7 @@ extern DECLSPEC void SDLCALL SDL_GetWindowSize(SDL_Window * window, int *w,
  *               border; NULL is permitted
  * \param right pointer to variable for storing the size of the right border;
  *              NULL is permitted
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -1264,7 +1264,7 @@ extern DECLSPEC void SDLCALL SDL_RestoreWindow(SDL_Window * window);
  *
  * \param window the window to change
  * \param flags `SDL_WINDOW_FULLSCREEN`, `SDL_WINDOW_FULLSCREEN_DESKTOP` or 0
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1323,7 +1323,7 @@ extern DECLSPEC SDL_Surface * SDLCALL SDL_GetWindowSurface(SDL_Window * window);
  * This function is equivalent to the SDL 1.2 API SDL_Flip().
  *
  * \param window the window to update
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1350,7 +1350,7 @@ extern DECLSPEC int SDLCALL SDL_UpdateWindowSurface(SDL_Window * window);
  * \param rects an array of SDL_Rect structures representing areas of the
  *              surface to copy, in pixels
  * \param numrects the number of rectangles
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1366,7 +1366,7 @@ extern DECLSPEC int SDLCALL SDL_UpdateWindowSurfaceRects(SDL_Window * window,
  * Destroy the surface associated with the window.
  *
  * \param window the window to update
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.28.0.
@@ -1504,7 +1504,7 @@ extern DECLSPEC SDL_Window * SDLCALL SDL_GetGrabbedWindow(void);
  * \param window The window that will be associated with the barrier.
  * \param rect A rectangle area in window-relative coordinates. If NULL the
  *             barrier for the specified window will be destroyed.
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.18.
@@ -1545,7 +1545,7 @@ extern DECLSPEC const SDL_Rect * SDLCALL SDL_GetWindowMouseRect(SDL_Window * win
  *               be changed
  * \param brightness the brightness (gamma multiplier) value to set where 0.0
  *                   is completely dark and 1.0 is normal brightness
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1584,7 +1584,7 @@ extern DECLSPEC float SDLCALL SDL_GetWindowBrightness(SDL_Window * window);
  *
  * \param window the window which will be made transparent or opaque
  * \param opacity the opacity value (0.0f - transparent, 1.0f - opaque)
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -1605,7 +1605,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowOpacity(SDL_Window * window, float opac
  *
  * \param window the window to get the current opacity value from
  * \param out_opacity the float filled in (0.0f - transparent, 1.0f - opaque)
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -1619,7 +1619,7 @@ extern DECLSPEC int SDLCALL SDL_GetWindowOpacity(SDL_Window * window, float * ou
  *
  * \param modal_window the window that should be set modal
  * \param parent_window the parent window for the modal window
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -1634,7 +1634,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowModalFor(SDL_Window * modal_window, SDL
  * obscured by other windows.
  *
  * \param window the window that should get the input focus
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -1666,7 +1666,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowInputFocus(SDL_Window * window);
  *              translation table for the green channel, or NULL
  * \param blue a 256 element array of 16-bit quantities representing the
  *             translation table for the blue channel, or NULL
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1694,7 +1694,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowGammaRamp(SDL_Window * window,
  *              translation table for the green channel, or NULL
  * \param blue a 256 element array of 16-bit quantities filled in with the
  *             translation table for the blue channel, or NULL
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1788,7 +1788,7 @@ extern DECLSPEC int SDLCALL SDL_SetWindowHitTest(SDL_Window * window,
  *
  * \param window the window to be flashed
  * \param operation the flash operation
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.16.
@@ -1873,7 +1873,7 @@ extern DECLSPEC void SDLCALL SDL_DisableScreenSaver(void);
  *
  * \param path the platform dependent OpenGL library name, or NULL to open the
  *             default OpenGL library
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1891,8 +1891,8 @@ extern DECLSPEC int SDLCALL SDL_GL_LoadLibrary(const char *path);
  * function pointers to OpenGL extensions.
  *
  * There are some quirks to looking up OpenGL functions that require some
- * extra care from the application. If you src carefully, you can handle
- * these quirks without any platform-specific src, though:
+ * extra care from the application. If you code carefully, you can handle
+ * these quirks without any platform-specific code, though:
  *
  * - On Windows, function pointers are specific to the current GL context;
  *   this means you need to have created a GL context and made it current
@@ -1916,12 +1916,12 @@ extern DECLSPEC int SDLCALL SDL_GL_LoadLibrary(const char *path);
  *   isn't supported, but you can't count on this behavior. Check for
  *   extensions you use, and if you get a NULL anyway, act as if that
  *   extension wasn't available. This is probably a bug in the driver, but you
- *   can src defensively for this scenario anyhow.
+ *   can code defensively for this scenario anyhow.
  * - Just because you're on Linux/Unix, don't assume you'll be using X11.
  *   Next-gen display servers are waiting to replace it, and may or may not
  *   make the same promises about function pointers.
  * - OpenGL function pointers must be declared `APIENTRY` as in the example
- *   src. This will ensure the proper calling convention is followed on
+ *   code. This will ensure the proper calling convention is followed on
  *   platforms where this matters (Win32) thereby avoiding stack corruption.
  *
  * \param proc the name of an OpenGL function
@@ -1987,7 +1987,7 @@ extern DECLSPEC void SDLCALL SDL_GL_ResetAttributes(void);
  *
  * \param attr an SDL_GLattr enum value specifying the OpenGL attribute to set
  * \param value the desired value for the attribute
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -2002,7 +2002,7 @@ extern DECLSPEC int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value);
  *
  * \param attr an SDL_GLattr enum value specifying the OpenGL attribute to get
  * \param value a pointer filled in with the current value of `attr`
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -2042,7 +2042,7 @@ extern DECLSPEC SDL_GLContext SDLCALL SDL_GL_CreateContext(SDL_Window *
  *
  * \param window the window to associate with the context
  * \param context the OpenGL context to associate with the window
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

@@ -130,7 +130,7 @@ typedef struct
  * \param messageboxdata the SDL_MessageBoxData structure with title, text and
  *                       other options
  * \param buttonid the pointer to which user id of hit button should be copied
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -172,7 +172,7 @@ extern DECLSPEC int SDLCALL SDL_ShowMessageBox(const SDL_MessageBoxData *message
  * \param title UTF-8 title text
  * \param message UTF-8 message text
  * \param window the parent window, or NULL for no parent
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

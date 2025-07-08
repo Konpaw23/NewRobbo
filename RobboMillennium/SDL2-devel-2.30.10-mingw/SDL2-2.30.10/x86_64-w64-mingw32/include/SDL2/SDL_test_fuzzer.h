@@ -24,7 +24,7 @@
  *
  *  Include file for SDL test framework.
  *
- *  This src is a part of the SDL2_test library, not the main SDL library.
+ *  This code is a part of the SDL2_test library, not the main SDL library.
  */
 
 /*
@@ -44,7 +44,7 @@ extern "C" {
 
 
 /*
-  Based on GSOC src by Markus Kauppila <markus.kauppila@gmail.com>
+  Based on GSOC code by Markus Kauppila <markus.kauppila@gmail.com>
 */
 
 

@@ -24,13 +24,13 @@
  *
  *  Include file for SDL test framework.
  *
- *  This src is a part of the SDL2_test library, not the main SDL library.
+ *  This code is a part of the SDL2_test library, not the main SDL library.
  */
 
 /*
   Defines types for test case definitions and the test execution harness API.
 
-  Based on original GSOC src by Markus Kauppila <markus.kauppila@gmail.com>
+  Based on original GSOC code by Markus Kauppila <markus.kauppila@gmail.com>
 */
 
 #ifndef SDL_test_h_arness_h

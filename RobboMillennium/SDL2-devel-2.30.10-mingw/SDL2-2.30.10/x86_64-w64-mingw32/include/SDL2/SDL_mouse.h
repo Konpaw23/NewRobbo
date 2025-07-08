@@ -186,7 +186,7 @@ extern DECLSPEC void SDLCALL SDL_WarpMouseInWindow(SDL_Window * window,
  *
  * \param x the x coordinate
  * \param y the y coordinate
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.4.
@@ -205,7 +205,7 @@ extern DECLSPEC int SDLCALL SDL_WarpMouseGlobal(int x, int y);
  * This function will flush any pending mouse motion.
  *
  * \param enabled SDL_TRUE to enable relative mode, SDL_FALSE to disable.
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  *          If relative mode is not supported, this returns -1.
@@ -424,7 +424,7 @@ extern DECLSPEC void SDLCALL SDL_FreeCursor(SDL_Cursor * cursor);
  * \param toggle `SDL_ENABLE` to show the cursor, `SDL_DISABLE` to hide it,
  *               `SDL_QUERY` to query the current state without changing it.
  * \returns `SDL_ENABLE` if the cursor is shown, or `SDL_DISABLE` if the
- *          cursor is hidden, or a negative error src on failure; call
+ *          cursor is hidden, or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

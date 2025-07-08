@@ -315,7 +315,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetAudioDriver(int index);
  * normally use SDL_Init() or SDL_InitSubSystem().
  *
  * \param driver_name the name of the desired audio driver
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -393,7 +393,7 @@ extern DECLSPEC const char *SDLCALL SDL_GetCurrentAudioDriver(void);
  *          format if necessary. If `obtained` is NULL, `desired` will have
  *          fields modified.
  *
- *          This function returns a negative error src on failure to open the
+ *          This function returns a negative error code on failure to open the
  *          audio device or failure to set up the audio thread; call
  *          SDL_GetError() for more information.
  *
@@ -609,7 +609,7 @@ extern DECLSPEC int SDLCALL SDL_GetDefaultAudioInfo(char **name,
  *   audio buffer, and the length in bytes of the audio buffer. This function
  *   usually runs in a separate thread, and so you should protect data
  *   structures that it accesses by calling SDL_LockAudioDevice() and
- *   SDL_UnlockAudioDevice() in your src. Alternately, you may pass a NULL
+ *   SDL_UnlockAudioDevice() in your code. Alternately, you may pass a NULL
  *   pointer here, and call SDL_QueueAudio() with some frequency, to queue
  *   more audio samples to be played (or for capture devices, call
  *   SDL_DequeueAudio() with some frequency, to obtain audio samples).
@@ -922,7 +922,7 @@ extern DECLSPEC void SDLCALL SDL_FreeWAV(Uint8 * audio_buf);
  * \param dst_channels the number of channels in the destination
  * \param dst_rate the frequency (sample-frames-per-second) of the destination
  * \returns 1 if the audio filter is prepared, 0 if no conversion is needed,
- *          or a negative error src on failure; call SDL_GetError() for more
+ *          or a negative error code on failure; call SDL_GetError() for more
  *          information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -969,7 +969,7 @@ extern DECLSPEC int SDLCALL SDL_BuildAudioCVT(SDL_AudioCVT * cvt,
  * \param cvt an SDL_AudioCVT structure that was previously set up by
  *            SDL_BuildAudioCVT().
  * \returns 0 if the conversion was completed successfully or a negative error
- *          src on failure; call SDL_GetError() for more information.
+ *          code on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
  *
@@ -1218,7 +1218,7 @@ extern DECLSPEC void SDLCALL SDL_MixAudioFormat(Uint8 * dst,
  * \param dev the device ID to which we will queue audio
  * \param data the data to queue to the device for later playback
  * \param len the number of bytes (not samples!) to which `data` points
- * \returns 0 on success or a negative error src on failure; call
+ * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.4.

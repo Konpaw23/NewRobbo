@@ -1,5 +1,5 @@
 /**
- * Original src: automated SDL surface test written by Edgar Simo "bobbens"
+ * Original code: automated SDL surface test written by Edgar Simo "bobbens"
  * Adapted/rewritten for test lib by Andreas Schiffler
  */
 

@@ -213,7 +213,7 @@ multiply_matrix(const float *lhs, const float *rhs, float *r)
  * Create shader, load in source, compile, dump debug as necessary.
  *
  * shader: Pointer to return created shader ID.
- * source: Passed-in shader source src.
+ * source: Passed-in shader source code.
  * shader_type: Passed to GL, e.g. GL_VERTEX_SHADER.
  */
 static void

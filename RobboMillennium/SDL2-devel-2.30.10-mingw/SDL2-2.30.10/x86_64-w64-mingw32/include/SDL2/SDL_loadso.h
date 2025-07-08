@@ -29,12 +29,12 @@
  *      have name mangling and intrinsic language support that varies from
  *      compiler to compiler.
  *  \li Make sure you declare your function pointers with the same calling
- *      convention as the actual library function.  Your src will crash
+ *      convention as the actual library function.  Your code will crash
  *      mysteriously if you do not do this.
  *  \li Avoid namespace collisions.  If you load a symbol from the library,
  *      it is not defined whether or not it goes into the global symbol
  *      namespace for the application.  If it does and it conflicts with
- *      symbols in your src or other shared libraries, you will not get
+ *      symbols in your code or other shared libraries, you will not get
  *      the results you expect. :)
  */
 
@@ -74,7 +74,7 @@ extern DECLSPEC void *SDLCALL SDL_LoadObject(const char *sofile);
  * compiler.
  *
  * Make sure you declare your function pointers with the same calling
- * convention as the actual library function. Your src will crash
+ * convention as the actual library function. Your code will crash
  * mysteriously if you do not do this.
  *
  * If the requested function doesn't exist, NULL is returned.

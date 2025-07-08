@@ -391,7 +391,7 @@ typedef enum {
 /* The types NativeDisplayType, NativeWindowType, and NativePixmapType
  * are aliases of window-system-dependent types, such as X Display * or
  * Windows Device Context. They must be defined in platform-specific
- * src below. The EGL-prefixed versions of Native*Type are the same
+ * code below. The EGL-prefixed versions of Native*Type are the same
  * types, renamed in EGL 1.3 so all types in the API start with "EGL".
  *
  * Khronos STRONGLY RECOMMENDS that you use the default definitions
