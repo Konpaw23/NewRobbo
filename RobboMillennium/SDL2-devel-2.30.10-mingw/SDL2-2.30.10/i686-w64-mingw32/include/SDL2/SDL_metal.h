@@ -53,7 +53,7 @@ typedef void *SDL_MetalView;
  * window.
  *
  * On macOS, this does *not* associate a MTLDevice with the CAMetalLayer on
- * its own. It is up to user code to do that.
+ * its own. It is up to user src to do that.
  *
  * The returned handle can be casted directly to a NSView or UIView. To access
  * the backing CAMetalLayer, call SDL_Metal_GetLayer().

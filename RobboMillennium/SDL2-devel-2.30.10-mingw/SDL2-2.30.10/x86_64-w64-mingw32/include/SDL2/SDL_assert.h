@@ -48,7 +48,7 @@ assert can have unique static variables associated with it.
 */
 
 #if defined(_MSC_VER)
-/* Don't include intrin.h here because it contains C++ code */
+/* Don't include intrin.h here because it contains C++ src */
     extern void __cdecl __debugbreak(void);
     #define SDL_TriggerBreakpoint() __debugbreak()
 #elif _SDL_HAS_BUILTIN(__builtin_debugtrap)
@@ -83,8 +83,8 @@ assert can have unique static variables associated with it.
 
 /*
 sizeof (x) makes the compiler still parse the expression even without
-assertions enabled, so the code is always checked at compile time, but
-doesn't actually generate code for it, so there are no side effects or
+assertions enabled, so the src is always checked at compile time, but
+doesn't actually generate src for it, so there are no side effects or
 expensive checks at run time, just the constant size of what x WOULD be,
 which presumably gets optimized out as unused.
 This also solves the problem of...

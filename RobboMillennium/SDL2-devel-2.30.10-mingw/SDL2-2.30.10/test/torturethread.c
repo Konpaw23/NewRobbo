@@ -10,7 +10,7 @@
   freely.
 */
 
-/* Simple test of the SDL threading code */
+/* Simple test of the SDL threading src */
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
 /**
- * Original code: automated SDL rect test written by Edgar Simo "bobbens"
+ * Original src: automated SDL rect test written by Edgar Simo "bobbens"
  * New/updated tests: aschiffler at ferzkopp dot net
  */
 

@@ -96,7 +96,7 @@ extern DECLSPEC int SDLCALL SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_R
  *
  * \param touchId a touch id
  * \param src a SDL_RWops to load from
- * \returns the number of loaded templates on success or a negative error code
+ * \returns the number of loaded templates on success or a negative error src
  *          (or 0) on failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

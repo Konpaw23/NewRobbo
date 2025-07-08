@@ -473,7 +473,7 @@ extern DECLSPEC SDL_Palette *SDLCALL SDL_AllocPalette(int ncolors);
  *
  * \param format the SDL_PixelFormat structure that will use the palette
  * \param palette the SDL_Palette structure that will be used
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -491,7 +491,7 @@ extern DECLSPEC int SDLCALL SDL_SetPixelFormatPalette(SDL_PixelFormat * format,
  * \param colors an array of SDL_Color structures to copy into the palette
  * \param firstcolor the index of the first palette entry to modify
  * \param ncolors the number of entries to modify
- * \returns 0 on success or a negative error code if not all of the colors
+ * \returns 0 on success or a negative error src if not all of the colors
  *          could be set; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.

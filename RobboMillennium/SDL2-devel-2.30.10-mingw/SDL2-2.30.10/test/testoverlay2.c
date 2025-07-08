@@ -316,7 +316,7 @@ int main(int argc, char **argv)
         quit(1);
     }
 
-    /* load the trojan moose images */
+    /* load the trojan moose assets */
     filename = GetResourceFilename(NULL, "moose.dat");
     if (!filename) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Out of memory\n");

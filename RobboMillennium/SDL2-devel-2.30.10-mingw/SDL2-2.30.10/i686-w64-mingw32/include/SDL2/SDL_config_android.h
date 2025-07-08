@@ -178,7 +178,7 @@
 #define SDL_VIDEO_RENDER_OGL_ES2    1
 
 /* Enable Vulkan support */
-/* Android does not support Vulkan in native code using the "armeabi" ABI. */
+/* Android does not support Vulkan in native src using the "armeabi" ABI. */
 #if defined(__ARM_ARCH) && __ARM_ARCH < 7
 #define SDL_VIDEO_VULKAN 0
 #else

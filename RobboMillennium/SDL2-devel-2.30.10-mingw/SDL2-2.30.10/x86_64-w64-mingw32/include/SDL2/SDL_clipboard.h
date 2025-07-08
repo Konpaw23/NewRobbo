@@ -42,7 +42,7 @@ extern "C" {
  * Put UTF-8 text into the clipboard.
  *
  * \param text the text to store in the clipboard
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -86,7 +86,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_HasClipboardText(void);
  * Put UTF-8 text into the primary selection.
  *
  * \param text the text to store in the primary selection
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.26.0.

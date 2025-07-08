@@ -1,5 +1,5 @@
 /**
- * Original code: automated SDL audio test written by Edgar Simo "bobbens"
+ * Original src: automated SDL audio test written by Edgar Simo "bobbens"
  * New/updated tests: aschiffler at ferzkopp dot net
  */
 
@@ -1079,7 +1079,7 @@ int audio_openCloseAudioDeviceConnected(void)
             SDLTest_AssertCheck(id > 1, "Validate device ID; expected: >1, got: %" SDL_PRIu32, id);
             if (id > 1) {
 
-/* TODO: enable test code when function is available in SDL2 */
+/* TODO: enable test src when function is available in SDL2 */
 
 #ifdef AUDIODEVICECONNECTED_DEFINED
                 /* Get connected status */

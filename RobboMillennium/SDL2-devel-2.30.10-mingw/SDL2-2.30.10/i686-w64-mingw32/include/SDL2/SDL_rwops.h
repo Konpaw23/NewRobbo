@@ -377,7 +377,7 @@ extern DECLSPEC void SDLCALL SDL_FreeRW(SDL_RWops * area);
  *
  * \param context the SDL_RWops to get the size of the data stream from
  * \returns the size of the data stream in the SDL_RWops on success, -1 if
- *          unknown or a negative error code on failure; call SDL_GetError()
+ *          unknown or a negative error src on failure; call SDL_GetError()
  *          for more information.
  *
  * \since This function is available since SDL 2.0.10.
@@ -531,7 +531,7 @@ extern DECLSPEC size_t SDLCALL SDL_RWwrite(SDL_RWops *context,
  * Prior to SDL 2.0.10, this function was a macro.
  *
  * \param context SDL_RWops structure to close
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.10.

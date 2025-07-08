@@ -1,5 +1,5 @@
 /**
- * Original code: automated SDL platform test written by Edgar Simo "bobbens"
+ * Original src: automated SDL platform test written by Edgar Simo "bobbens"
  * Extended and extensively updated by aschiffler at ferzkopp dot net
  */
 

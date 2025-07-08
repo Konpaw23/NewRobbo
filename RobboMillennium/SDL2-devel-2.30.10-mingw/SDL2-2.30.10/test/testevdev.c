@@ -29,7 +29,7 @@ static int run_test(void);
 
 static const struct
 {
-    int code;
+    int src;
     const char *name;
 } device_classes[] = {
 #define CLS(x)                  \
@@ -422,7 +422,7 @@ static const GuessTest guess_tests[] =
       .version = 0x0111,
       .expected = SDL_UDEV_DEVICE_JOYSTICK,
       .ev = { 0x0b },
-      /* XYZ, RXYZ, throttle, hat0, MISC, unregistered event code 0x29 */
+      /* XYZ, RXYZ, throttle, hat0, MISC, unregistered event src 0x29 */
       .abs = { 0x7f, 0x00, 0x03, 0x00, 0x00, 0x03 },
       .keys = {
           /* 0x00-0xff */ ZEROx8, ZEROx8, ZEROx8, ZEROx8,
@@ -656,7 +656,7 @@ static const GuessTest guess_tests[] =
       },
     },
     {
-      /* Flags guessed from kernel source code */
+      /* Flags guessed from kernel source src */
       .name = "Wiimote - Classic Controller",
       /* TODO: Should this be JOYSTICK, or maybe JOYSTICK|KEYBOARD?
        * It's unusual in the same ways as the Wiimote */
@@ -679,7 +679,7 @@ static const GuessTest guess_tests[] =
       },
     },
     {
-      /* Flags guessed from kernel source code */
+      /* Flags guessed from kernel source src */
       .name = "Wiimote - Balance Board",
       /* TODO: Should this be JOYSTICK? */
       .expected = SDL_UDEV_DEVICE_UNKNOWN,
@@ -694,7 +694,7 @@ static const GuessTest guess_tests[] =
       },
     },
     {
-      /* Flags guessed from kernel source code */
+      /* Flags guessed from kernel source src */
       .name = "Wiimote - Wii U Pro Controller",
       .expected = SDL_UDEV_DEVICE_JOYSTICK,
       /* SYN, KEY, ABS */
@@ -1005,16 +1005,16 @@ run_test(void)
         } else {
             printf("\tExpected 0x%08x\n", t->expected);
 
-            for (j = 0; device_classes[j].code != 0; j++) {
-                if (t->expected & device_classes[j].code) {
+            for (j = 0; device_classes[j].src != 0; j++) {
+                if (t->expected & device_classes[j].src) {
                     printf("\t\t%s\n", device_classes[j].name);
                 }
             }
 
             printf("\tGot      0x%08x\n", actual);
 
-            for (j = 0; device_classes[j].code != 0; j++) {
-                if (actual & device_classes[j].code) {
+            for (j = 0; device_classes[j].src != 0; j++) {
+                if (actual & device_classes[j].src) {
                     printf("\t\t%s\n", device_classes[j].name);
                 }
             }

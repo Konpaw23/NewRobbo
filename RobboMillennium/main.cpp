@@ -1,8 +1,8 @@
-#include "code/gameStates/GameState.h"
-#include "code/gameStates/menu/MenuState.h"
-#include "code/gameStates/level/LevelState.h"
+#include "include/gameStates/GameState.h"
+#include "include/gameStates/menu/MenuState.h"
+#include "include/gameStates/level/LevelState.h"
 
-#include "code/basicProjectHeaders.h"
+#include "include/basicProjectHeaders.h"
 
 int main(int argc, char* argv[])
 {

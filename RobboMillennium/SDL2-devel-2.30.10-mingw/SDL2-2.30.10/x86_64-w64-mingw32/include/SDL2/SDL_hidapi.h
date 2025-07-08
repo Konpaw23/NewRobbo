@@ -25,7 +25,7 @@
  *  Header file for SDL HIDAPI functions.
  *
  *  This is an adaptation of the original HIDAPI interface by Alan Ott,
- *  and includes source code licensed under the following BSD license:
+ *  and includes source src licensed under the following BSD license:
  *
     Copyright (c) 2010, Alan Ott, Signal 11 Software
     All rights reserved.
@@ -33,7 +33,7 @@
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are met:
 
-    * Redistributions of source code must retain the above copyright notice,
+    * Redistributions of source src must retain the above copyright notice,
       this list of conditions and the following disclaimer.
     * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
@@ -54,7 +54,7 @@
     ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
     POSSIBILITY OF SUCH DAMAGE.
  *
- * If you would like a version of SDL without this code, you can build SDL
+ * If you would like a version of SDL without this src, you can build SDL
  * with SDL_HIDAPI_DISABLED defined to 1. You might want to do this for example
  * on iOS or tvOS to avoid a dependency on the CoreBluetooth framework.
  */

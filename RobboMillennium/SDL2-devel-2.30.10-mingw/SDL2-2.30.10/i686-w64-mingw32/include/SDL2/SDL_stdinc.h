@@ -159,7 +159,7 @@ void *alloca(size_t);
 #endif
 /* @} *//* Cast operators */
 
-/* Define a four character code as a Uint32 */
+/* Define a four character src as a Uint32 */
 #define SDL_FOURCC(A, B, C, D) \
     ((SDL_static_cast(Uint32, SDL_static_cast(Uint8, (A))) << 0) | \
      (SDL_static_cast(Uint32, SDL_static_cast(Uint8, (B))) << 8) | \
@@ -325,7 +325,7 @@ typedef uint64_t Uint64;
 #endif
 #endif
 
-/* Annotations to help code analysis tools */
+/* Annotations to help src analysis tools */
 #ifdef SDL_DISABLE_ANALYZE_MACROS
 #define SDL_IN_BYTECAP(x)
 #define SDL_INOUT_Z_CAP(x)

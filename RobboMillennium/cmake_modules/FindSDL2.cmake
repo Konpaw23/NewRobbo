@@ -32,7 +32,7 @@
 # l.e.galup  9-20-02
 #
 # Modified by Eric Wing.
-# Added code to assist with automated building by using environmental variables
+# Added src to assist with automated building by using environmental variables
 # and providing a more controlled/consistent search behavior.
 # Added new modifications to recognize OS X frameworks and
 # additional Unix paths (FreeBSD, etc).

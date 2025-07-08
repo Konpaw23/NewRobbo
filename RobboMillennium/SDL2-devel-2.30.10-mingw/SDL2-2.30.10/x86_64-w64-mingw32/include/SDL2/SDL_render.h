@@ -28,11 +28,11 @@
  *      * single pixel points
  *      * single pixel lines
  *      * filled rectangles
- *      * texture images
+ *      * texture assets
  *
  *  The primitives may be drawn in opaque, blended, or additive modes.
  *
- *  The texture images may be drawn in opaque, blended, or additive modes.
+ *  The texture assets may be drawn in opaque, blended, or additive modes.
  *  They can have an additional color tint or alpha modulation applied to
  *  them, and may also be stretched with linear interpolation.
  *
@@ -152,13 +152,13 @@ typedef struct SDL_Texture SDL_Texture;
 /**
  * Get the number of 2D rendering drivers available for the current display.
  *
- * A render driver is a set of code that handles rendering and texture
+ * A render driver is a set of src that handles rendering and texture
  * management on a particular display. Normally there is only one, but some
  * drivers may have several available with different capabilities.
  *
  * There may be none if SDL was compiled without render support.
  *
- * \returns a number >= 0 on success or a negative error code on failure; call
+ * \returns a number >= 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -174,7 +174,7 @@ extern DECLSPEC int SDLCALL SDL_GetNumRenderDrivers(void);
  * \param index the index of the driver to query information about
  * \param info an SDL_RendererInfo structure to be filled with information on
  *             the rendering driver
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -278,7 +278,7 @@ extern DECLSPEC SDL_Window * SDLCALL SDL_RenderGetWindow(SDL_Renderer *renderer)
  * \param renderer the rendering context
  * \param info an SDL_RendererInfo structure filled with information about the
  *             current renderer
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -298,7 +298,7 @@ extern DECLSPEC int SDLCALL SDL_GetRendererInfo(SDL_Renderer * renderer,
  * \param renderer the rendering context
  * \param w an int filled with the width
  * \param h an int filled with the height
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -376,7 +376,7 @@ extern DECLSPEC SDL_Texture * SDLCALL SDL_CreateTextureFromSurface(SDL_Renderer 
  *          argument can be NULL if you don't need this information.
  * \param h a pointer filled in with the height of the texture in pixels. This
  *          argument can be NULL if you don't need this information.
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -403,7 +403,7 @@ extern DECLSPEC int SDLCALL SDL_QueryTexture(SDL_Texture * texture,
  * \param r the red color value multiplied into copy operations
  * \param g the green color value multiplied into copy operations
  * \param b the blue color value multiplied into copy operations
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -422,7 +422,7 @@ extern DECLSPEC int SDLCALL SDL_SetTextureColorMod(SDL_Texture * texture,
  * \param r a pointer filled in with the current red color value
  * \param g a pointer filled in with the current green color value
  * \param b a pointer filled in with the current blue color value
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -447,7 +447,7 @@ extern DECLSPEC int SDLCALL SDL_GetTextureColorMod(SDL_Texture * texture,
  *
  * \param texture the texture to update
  * \param alpha the source alpha value multiplied into copy operations
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -463,7 +463,7 @@ extern DECLSPEC int SDLCALL SDL_SetTextureAlphaMod(SDL_Texture * texture,
  *
  * \param texture the texture to query
  * \param alpha a pointer filled in with the current alpha value
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -482,7 +482,7 @@ extern DECLSPEC int SDLCALL SDL_GetTextureAlphaMod(SDL_Texture * texture,
  *
  * \param texture the texture to update
  * \param blendMode the SDL_BlendMode to use for texture blending
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -498,7 +498,7 @@ extern DECLSPEC int SDLCALL SDL_SetTextureBlendMode(SDL_Texture * texture,
  *
  * \param texture the texture to query
  * \param blendMode a pointer filled in with the current SDL_BlendMode
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -585,7 +585,7 @@ extern DECLSPEC void * SDLCALL SDL_GetTextureUserData(SDL_Texture * texture);
  * \param pixels the raw pixel data in the format of the texture
  * \param pitch the number of bytes in a row of pixel data, including padding
  *              between lines
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -675,7 +675,7 @@ extern DECLSPEC int SDLCALL SDL_UpdateNVTexture(SDL_Texture * texture,
  *               appropriately offset by the locked area
  * \param pitch this is filled in with the pitch of the locked pixels; the
  *              pitch is the length of one row in bytes
- * \returns 0 on success or a negative error code if the texture is not valid
+ * \returns 0 on success or a negative error src if the texture is not valid
  *          or was not created with `SDL_TEXTUREACCESS_STREAMING`; call
  *          SDL_GetError() for more information.
  *
@@ -769,7 +769,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_RenderTargetSupported(SDL_Renderer *rendere
  * \param texture the targeted texture, which must be created with the
  *                `SDL_TEXTUREACCESS_TARGET` flag, or NULL to render to the
  *                window instead of a texture.
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -813,7 +813,7 @@ extern DECLSPEC SDL_Texture * SDLCALL SDL_GetRenderTarget(SDL_Renderer *renderer
  * \param renderer the renderer for which resolution should be set
  * \param w the width of the logical resolution
  * \param h the height of the logical resolution
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -852,7 +852,7 @@ extern DECLSPEC void SDLCALL SDL_RenderGetLogicalSize(SDL_Renderer * renderer, i
  *
  * \param renderer the renderer for which integer scaling should be set
  * \param enable enable or disable the integer scaling for rendering
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.5.
@@ -885,7 +885,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_RenderGetIntegerScale(SDL_Renderer * render
  * \param renderer the rendering context
  * \param rect the SDL_Rect structure representing the drawing area, or NULL
  *             to set the viewport to the entire target
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -915,7 +915,7 @@ extern DECLSPEC void SDLCALL SDL_RenderGetViewport(SDL_Renderer * renderer,
  *                 set
  * \param rect an SDL_Rect structure representing the clip area, relative to
  *             the viewport, or NULL to disable clipping
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -971,7 +971,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_RenderIsClipEnabled(SDL_Renderer * renderer
  * \param renderer a rendering context
  * \param scaleX the horizontal scaling factor
  * \param scaleY the vertical scaling factor
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1060,7 +1060,7 @@ extern DECLSPEC void SDLCALL SDL_RenderLogicalToWindow(SDL_Renderer * renderer,
  * \param a the alpha value used to draw on the rendering target; usually
  *          `SDL_ALPHA_OPAQUE` (255). Use SDL_SetRenderDrawBlendMode to
  *          specify how the alpha channel is used
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1092,7 +1092,7 @@ extern DECLSPEC int SDLCALL SDL_SetRenderDrawColor(SDL_Renderer * renderer,
  *          rendering target
  * \param a a pointer filled in with the alpha value used to draw on the
  *          rendering target; usually `SDL_ALPHA_OPAQUE` (255)
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1110,7 +1110,7 @@ extern DECLSPEC int SDLCALL SDL_GetRenderDrawColor(SDL_Renderer * renderer,
  *
  * \param renderer the rendering context
  * \param blendMode the SDL_BlendMode to use for blending
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1133,7 +1133,7 @@ extern DECLSPEC int SDLCALL SDL_SetRenderDrawBlendMode(SDL_Renderer * renderer,
  *
  * \param renderer the rendering context
  * \param blendMode a pointer filled in with the current SDL_BlendMode
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1150,7 +1150,7 @@ extern DECLSPEC int SDLCALL SDL_GetRenderDrawBlendMode(SDL_Renderer * renderer,
  * the clip rectangle.
  *
  * \param renderer the rendering context
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1168,7 +1168,7 @@ extern DECLSPEC int SDLCALL SDL_RenderClear(SDL_Renderer * renderer);
  * \param renderer the rendering context
  * \param x the x coordinate of the point
  * \param y the y coordinate of the point
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1194,7 +1194,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawPoint(SDL_Renderer * renderer,
  * \param points an array of SDL_Point structures that represent the points to
  *               draw
  * \param count the number of points to draw
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1225,7 +1225,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawPoints(SDL_Renderer * renderer,
  * \param y1 the y coordinate of the start point
  * \param x2 the x coordinate of the end point
  * \param y2 the y coordinate of the end point
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1251,7 +1251,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawLine(SDL_Renderer * renderer,
  * \param points an array of SDL_Point structures representing points along
  *               the lines
  * \param count the number of points, drawing count-1 lines
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1277,7 +1277,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawLines(SDL_Renderer * renderer,
  * \param renderer the rendering context
  * \param rect an SDL_Rect structure representing the rectangle to draw, or
  *             NULL to outline the entire rendering target
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1303,7 +1303,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawRect(SDL_Renderer * renderer,
  * \param rects an array of SDL_Rect structures representing the rectangles to
  *              be drawn
  * \param count the number of rectangles
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1333,7 +1333,7 @@ extern DECLSPEC int SDLCALL SDL_RenderDrawRects(SDL_Renderer * renderer,
  * \param renderer the rendering context
  * \param rect the SDL_Rect structure representing the rectangle to fill, or
  *             NULL for the entire rendering target
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1360,7 +1360,7 @@ extern DECLSPEC int SDLCALL SDL_RenderFillRect(SDL_Renderer * renderer,
  * \param rects an array of SDL_Rect structures representing the rectangles to
  *              be filled
  * \param count the number of rectangles
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1396,7 +1396,7 @@ extern DECLSPEC int SDLCALL SDL_RenderFillRects(SDL_Renderer * renderer,
  * \param dstrect the destination SDL_Rect structure or NULL for the entire
  *                rendering target; the texture will be stretched to fill the
  *                given rectangle
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1440,7 +1440,7 @@ extern DECLSPEC int SDLCALL SDL_RenderCopy(SDL_Renderer * renderer,
  *               around `dstrect.w / 2`, `dstrect.h / 2`)
  * \param flip a SDL_RendererFlip value stating which flipping actions should
  *             be performed on the texture
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1700,7 +1700,7 @@ extern DECLSPEC int SDLCALL SDL_RenderGeometryRaw(SDL_Renderer *renderer,
  *               pixel data, or 0 to use the format of the rendering target
  * \param pixels a pointer to the pixel data to copy into
  * \param pitch the pitch of the `pixels` parameter
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -1805,7 +1805,7 @@ extern DECLSPEC void SDLCALL SDL_DestroyRenderer(SDL_Renderer * renderer);
  * instead flushing them to the OS immediately.
  *
  * \param renderer the rendering context
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.10.

@@ -635,7 +635,7 @@ typedef enum
  * This function is called internally to translate SDL_GameController mapping
  * strings for the underlying joystick device into the consistent
  * SDL_GameController mapping. You do not normally need to call this function
- * unless you are parsing SDL_GameController mappings in your own code.
+ * unless you are parsing SDL_GameController mappings in your own src.
  *
  * Note specially that "righttrigger" and "lefttrigger" map to
  * `SDL_CONTROLLER_AXIS_TRIGGERRIGHT` and `SDL_CONTROLLER_AXIS_TRIGGERLEFT`,
@@ -760,7 +760,7 @@ typedef enum
  * This function is called internally to translate SDL_GameController mapping
  * strings for the underlying joystick device into the consistent
  * SDL_GameController mapping. You do not normally need to call this function
- * unless you are parsing SDL_GameController mappings in your own code.
+ * unless you are parsing SDL_GameController mappings in your own src.
  *
  * \param str string representing a SDL_GameController axis
  * \returns the SDL_GameControllerButton enum corresponding to the input

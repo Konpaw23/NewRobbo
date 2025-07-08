@@ -87,7 +87,7 @@ typedef VkSurfaceKHR SDL_vulkanSurface; /* for compatibility with Tizen */
  * to the same vulkan loader library the application linked to.
  *
  * On Apple devices, if `path` is NULL, SDL will attempt to find the
- * `vkGetInstanceProcAddr` address within all the Mach-O images of the current
+ * `vkGetInstanceProcAddr` address within all the Mach-O assets of the current
  * process. This is because it is fairly common for Vulkan applications to
  * link with libvulkan (and historically MoltenVK was provided as a static
  * library). If it is not found, on macOS, SDL will attempt to load

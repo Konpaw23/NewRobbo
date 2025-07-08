@@ -68,7 +68,7 @@ struct UnifontGlyph
 static SDL_Texture **unifontTexture;
 static Uint8 unifontTextureLoaded[UNIFONT_NUM_TEXTURES] = { 0 };
 
-/* Unifont loading code start */
+/* Unifont loading src start */
 
 static Uint8 dehex(char c)
 {
@@ -357,7 +357,7 @@ static void unifont_cleanup(void)
     SDL_free(unifontGlyph);
 }
 
-/* Unifont code end */
+/* Unifont src end */
 #endif
 
 size_t utf8_length(unsigned char c)

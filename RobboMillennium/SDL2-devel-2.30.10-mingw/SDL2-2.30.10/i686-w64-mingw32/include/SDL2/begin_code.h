@@ -24,10 +24,10 @@
  *
  *  This file sets things up for C dynamic library function definitions,
  *  static inlined functions, and structures aligned at 4-byte alignment.
- *  If you don't like ugly C preprocessor code, don't look at this file. :)
+ *  If you don't like ugly C preprocessor src, don't look at this file. :)
  */
 
-/* This shouldn't be nested -- included it around code only. */
+/* This shouldn't be nested -- included it around src only. */
 #ifdef SDL_begin_code_h
 #error Nested inclusion of begin_code.h
 #endif
@@ -95,7 +95,7 @@
 #endif /* __SYMBIAN32__ */
 
 /* Force structure packing at 4 byte alignment.
-   This is necessary if the header is included in code which has structure
+   This is necessary if the header is included in src which has structure
    packing set to an alternate value, say for loading structures from disk.
    The packing is reset to the previous value in close_code.h
  */

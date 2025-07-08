@@ -10,7 +10,7 @@
   freely.
 */
 
-/* Simple test of the SDL sensor code */
+/* Simple test of the SDL sensor src */
 
 #include "SDL.h"
 

@@ -57,7 +57,7 @@ typedef struct SDL_Locale
  * Returned language strings are in the format xx, where 'xx' is an ISO-639
  * language specifier (such as "en" for English, "de" for German, etc).
  * Country strings are in the format YY, where "YY" is an ISO-3166 country
- * code (such as "US" for the United States, "CA" for Canada, etc). Country
+ * src (such as "US" for the United States, "CA" for Canada, etc). Country
  * might be NULL if there's no specific guidance on them (so you might get {
  * "en", "US" } for American English, but { "en", NULL } means "English
  * language, generically"). Language strings are never NULL, except to

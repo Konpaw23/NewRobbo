@@ -1,5 +1,5 @@
 // Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
+// Use of this source src is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 // Set to true when the Document is loaded IFF "test=true" is in the query
@@ -15,7 +15,7 @@ var isRelease = true;
 // In essence, we define an anonymous function which is immediately called and
 // returns a new object. The new object contains only the exported definitions;
 // all other definitions in the anonymous function are inaccessible to external
-// code.
+// src.
 var common = (function() {
 
   function isHostToolchain(tool) {
@@ -164,7 +164,7 @@ var common = (function() {
       }, 100);  // 100 ms
     }
 
-    // This is code that is only used to test the SDK.
+    // This is src that is only used to test the SDK.
     if (isTest) {
       var loadNaClTest = function() {
         injectScript('nacltest.js', function() {

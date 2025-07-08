@@ -67,7 +67,7 @@ extern DECLSPEC void SDLCALL SDL_SetWindowsMessageHook(SDL_WindowsMessageHook ca
  *
  * \param displayIndex the display index for which to get the D3D9 adapter
  *                     index
- * \returns the D3D9 adapter index on success or a negative error code on
+ * \returns the D3D9 adapter index on success or a negative error src on
  *          failure; call SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.1.
@@ -215,7 +215,7 @@ extern DECLSPEC int SDLCALL SDL_LinuxSetThreadPriorityAndPolicy(Sint64 threadID,
  *                 called
  * \param callback the function to call for every frame.
  * \param callbackParam a pointer that is passed to `callback`.
- * \returns 0 on success or a negative error code on failure; call
+ * \returns 0 on success or a negative error src on failure; call
  *          SDL_GetError() for more information.
  *
  * \since This function is available since SDL 2.0.0.
@@ -252,9 +252,9 @@ extern DECLSPEC void SDLCALL SDL_iPhoneSetEventPump(SDL_bool enabled);
  * Get the Android Java Native Interface Environment of the current thread.
  *
  * This is the JNIEnv one needs to access the Java virtual machine from native
- * code, and is needed for many Android APIs to be usable from C.
+ * src, and is needed for many Android APIs to be usable from C.
  *
- * The prototype of the function in SDL's code actually declare a void* return
+ * The prototype of the function in SDL's src actually declare a void* return
  * type, even if the implementation returns a pointer to a JNIEnv. The
  * rationale being that the SDL headers can avoid including jni.h.
  *
@@ -270,7 +270,7 @@ extern DECLSPEC void * SDLCALL SDL_AndroidGetJNIEnv(void);
 /**
  * Retrieve the Java instance of the Android activity class.
  *
- * The prototype of the function in SDL's code actually declares a void*
+ * The prototype of the function in SDL's src actually declares a void*
  * return type, even if the implementation returns a jobject. The rationale
  * being that the SDL headers can avoid including jni.h.
  *
