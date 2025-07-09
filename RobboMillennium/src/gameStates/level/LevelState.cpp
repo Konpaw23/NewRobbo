@@ -105,28 +105,20 @@ void LevelState::Render()
 
 void LevelState::SetPlayerMove()
 {
-    //TODO fix that player go in last pressed action even if still pressed one other key (player go down and right get pressed down and up between frames and robbo goes one field right, not only down)
-    if(isPressedLeft || isPressedRight || isPressedUp || isPressedDown)
-    {
-        playerAction = (lastActionPressed != NOTHING ? lastActionPressed : playerAction);
-    }
-    else
-    {
-        playerAction = lastActionPressed;
-    }
-    if(playerAction == GO_RIGHT && isPressedRight)
+    //TODO optimize
+    if(isPressedRight && playerAction == GO_RIGHT)
     {
         playerAction = GO_RIGHT;
     }
-    else if(playerAction == GO_LEFT && isPressedLeft)
+    else if(isPressedLeft && playerAction == GO_LEFT)
     {
         playerAction = GO_LEFT;
     }
-    else if(playerAction == GO_UP && isPressedUp)
+    else if(isPressedUp && playerAction == GO_UP)
     {
         playerAction = GO_UP;
     }
-    else if(playerAction == GO_DOWN && isPressedDown)
+    else if(isPressedDown && playerAction == GO_DOWN)
     {
         playerAction = GO_DOWN;
     }
@@ -146,5 +138,14 @@ void LevelState::SetPlayerMove()
     {
         playerAction = GO_DOWN;
     }
+    else
+    {
+        playerAction = NOTHING;
+    }
+    if(lastActionPressed != NOTHING)
+    {
+        playerAction = lastActionPressed;
+    }
+
     lastActionPressed = NOTHING;
 }
