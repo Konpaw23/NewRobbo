@@ -2,7 +2,7 @@
 
 GameState::GameState(Window* window) : m_running(true), m_window(window)
 {
-    ;
+    time = clock();
 }
 
 GameState::~GameState()
@@ -23,11 +23,17 @@ bool GameState::IsRunning()
 
 void GameState::Run()
 {
+    //fixed to 60 fps
     while(m_running)
     {
-        ProcessInput();
-        Update();
-        Render();
+        deltaTime = clock() - time;
+        if (deltaTime >= 1.0/60.0 * CLOCKS_PER_SEC)
+        {
+            ProcessInput();
+            Update();
+            Render();
+            time = clock();
+        }
     }
 }
 

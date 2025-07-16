@@ -14,6 +14,8 @@ public:
 protected:
     GameStateName state;
     Window* m_window;
+    double deltaTime;
+    double time;
     bool m_running;
     virtual void ProcessInput();
 

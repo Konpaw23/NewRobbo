@@ -7,7 +7,6 @@ LevelState::LevelState(Window* window) : GameState(window)
     this->levelNumber = 1;
     this->level = new Level(m_window, levelNumber);
 
-    time = clock();
     sequenceTime = clock();
 }
 
@@ -15,7 +14,7 @@ LevelState::LevelState(Window* window, int level_number) : GameState(window)
 {
     this->m_window->Clear();
     this->state = LEVEL;
-    this->levelNumber = levelNumber;
+    this->levelNumber = level_number;
     this->level = new Level(m_window, levelNumber);
 }
 
@@ -92,8 +91,6 @@ void LevelState::Update()
         }
         sequenceTime = clock();
     }
-    deltaTime = clock() - time;
-    time = clock();
     level->UpdateLevelPosition(deltaTime);
 }
 

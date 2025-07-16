@@ -15,9 +15,7 @@ private:
     RobboAction playerAction;
 
     double deltaSequenceTime;
-    double deltaTime;
     double sequenceTime;
-    double time;
 
     bool isPressedLeft = false;
     bool isPressedRight = false;
