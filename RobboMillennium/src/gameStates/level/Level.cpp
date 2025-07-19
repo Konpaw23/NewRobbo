@@ -116,10 +116,10 @@ void Level::UpdateLevelPosition(double deltaTime)
     double moveRange = deltaTime / CLOCKS_PER_SEC * (FIELD_SIZE / SEQUENCE_DURATION);
     if(moveLevelPositionVertically < 0)
     {
-        if(moveRange < moveLevelPositionVertically)
+        if(moveRange > -1 * moveLevelPositionVertically)
         {
             levelRenderingUpperPosition -= moveLevelPositionVertically;
-            levelRenderingUpperPosition = std::round(levelRenderingUpperPosition);
+            levelRenderingUpperPosition = std::round(levelRenderingUpperPosition/FIELD_SIZE)*FIELD_SIZE;
             moveLevelPositionVertically = 0;
         }
         else
@@ -139,7 +139,7 @@ void Level::UpdateLevelPosition(double deltaTime)
         if(moveRange > moveLevelPositionVertically)
         {
             levelRenderingUpperPosition += moveLevelPositionVertically;
-            levelRenderingUpperPosition = std::round(levelRenderingUpperPosition);
+            levelRenderingUpperPosition = std::round(levelRenderingUpperPosition/FIELD_SIZE)*FIELD_SIZE;
             moveLevelPositionVertically = 0;
         }
         else
@@ -157,8 +157,7 @@ void Level::UpdateLevelPosition(double deltaTime)
 
 void Level::PutLevelPicture()
 {
-    //TODO change max i from ...+ 9 to ...+ 10 after including info panel
-    for(int i = 0 + levelRenderingUpperPosition/FIELD_SIZE; i <= levelRenderingUpperPosition/FIELD_SIZE + 9 ; i++)
+    for(int i = 0 + levelRenderingUpperPosition/FIELD_SIZE; i <= levelRenderingUpperPosition/FIELD_SIZE + 10 ; i++)
     {
         for(int j = 0; j < width; j++)
         {

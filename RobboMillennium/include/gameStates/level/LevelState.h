@@ -27,5 +27,7 @@ private:
     void Update() override;
     void Render() override;
 
+    void PutInfoPanel();
+
     void SetPlayerMove();
 };

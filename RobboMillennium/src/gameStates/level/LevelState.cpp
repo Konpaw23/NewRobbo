@@ -97,7 +97,13 @@ void LevelState::Update()
 void LevelState::Render()
 {
     level->PutLevelPicture();
+    PutInfoPanel();
     m_window->Present();
+}
+
+void LevelState::PutInfoPanel()
+{
+    m_window->PutTexture(LEVEL_PANEL, SCREEN_WIDTH/2-LEVEL_WIDTH*FIELD_SIZE/2, 10*FIELD_SIZE);
 }
 
 void LevelState::SetPlayerMove()
