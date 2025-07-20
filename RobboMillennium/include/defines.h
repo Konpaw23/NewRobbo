@@ -13,6 +13,7 @@
 #define FIELD_SIZE 90
 
 //sequence duration in seconds - how fast will objects move
-#define SEQUENCE_DURATION (1.0/8.0)
+//TODO still not sure if speed like in original game
+#define SEQUENCE_DURATION (1.0/10.0)
 
 #endif //ROBBOMILLENNIUM_DEFINES_H

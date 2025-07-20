@@ -96,30 +96,6 @@ bool Level::IsObjectCollectible(Coordinates dest)
     return IsObjectCollectible(dest.x, dest.y);
 }
 
-void Level::MoveObjectLeft(GameObject* object)
-{
-    Coordinates position = object->GetPosition();
-    this->fields[position.y][position.x] = nullptr;
-    this->fields[position.y][position.x-1] = object;
-}
-void Level::MoveObjectRight(GameObject* object)
-{
-    Coordinates position = object->GetPosition();
-    this->fields[position.y][position.x] = nullptr;
-    this->fields[position.y][position.x+1] = object;
-}
-void Level::MoveObjectUp(GameObject* object)
-{
-    Coordinates position = object->GetPosition();
-    this->fields[position.y][position.x] = nullptr;
-    this->fields[position.y-1][position.x] = object;
-}
-void Level::MoveObjectDown(GameObject* object)
-{
-    Coordinates position = object->GetPosition();
-    this->fields[position.y][position.x] = nullptr;
-    this->fields[position.y+1][position.x] = object;
-}
 void Level::MoveObject(GameObject *object, Coordinates dest)
 {
     Coordinates current_pos = object->GetPosition();

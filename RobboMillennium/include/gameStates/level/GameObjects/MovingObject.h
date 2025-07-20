@@ -9,10 +9,6 @@ public:
     virtual bool IsActive();
 
     //returns true when object moved (no walls etc.)
-    virtual bool MoveLeft();
-    virtual bool MoveRight();
-    virtual bool MoveUp();
-    virtual bool MoveDown();
     virtual bool Move(Direction dir);
 
 protected:

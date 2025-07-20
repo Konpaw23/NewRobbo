@@ -23,11 +23,7 @@ public:
     bool IsObjectCollectible(int x, int y);
     bool IsObjectCollectible(Coordinates dest);
 
-    //must be called after object change its position in own class
-    void MoveObjectLeft(GameObject* object);
-    void MoveObjectRight(GameObject* object);
-    void MoveObjectUp(GameObject* object);
-    void MoveObjectDown(GameObject* object);
+    //must be called after object change its position in own GameObject class
     void MoveObject(GameObject* object, Coordinates dest);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
