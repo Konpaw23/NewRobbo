@@ -18,6 +18,7 @@ public:
     GameObject* GetObjectFromPosition(int x, int y);
     class MovingObject* GetMovingObjectFromPosition(int x, int y);
     GameObjectName GetObjectNameFromPosition(int x, int y);
+    bool IsObjectCollectible(int x, int y);
 
     //must be called after object change its position in own class
     void MoveObjectLeft(GameObject* object);

@@ -74,6 +74,15 @@ GameObjectName Level::GetObjectNameFromPosition(int x, int y)
         return fields[y][x]->GetObjectName();
 }
 
+bool Level::IsObjectCollectible(int x, int y)
+{
+    GameObject* object = this->GetObjectFromPosition(x,y);
+    if(dynamic_cast<Collectible*>(object) == nullptr)
+        return false;
+    else
+        return true;
+}
+
 void Level::MoveObjectLeft(GameObject* object)
 {
     Coordinates position = object->GetPosition();
@@ -189,6 +198,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case CHEST:
             m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
             break;
+        case SCREW:
+            m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
+            break;
     }
 }
 
@@ -272,6 +284,9 @@ void Level::LoadObjects(int levelNumber)
             case '#':
                 AddObject(CHEST, x, y);
                 break;
+            case '$':
+                AddObject(SCREW, x, y);
+                break;
             case '\n':
                 x = 0;
                 y++;
@@ -300,6 +315,9 @@ void Level::AddObject(GameObjectName name, int x, int y)
             break;
         case CHEST:
             fields[y][x] = new Chest(Coordinates(x,y), this);
+            break;
+        case SCREW:
+            fields[y][x] = new Screw(Coordinates(x,y), this);
             break;
     }
 }

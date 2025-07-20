@@ -2,7 +2,7 @@
 
 Robbo::Robbo(Coordinates position, Level* level) : LivingObject(ROBBO, position, level)
 {
-    ;
+    isCollectingItems = true;
 }
 
 void Robbo::SetAction(RobboAction action)

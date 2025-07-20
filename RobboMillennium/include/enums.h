@@ -20,6 +20,7 @@ enum TextureName
     LEVEL_ROBBO,
     LEVEL_WALL,
     LEVEL_CHEST,
+    LEVEL_SCREW,
 
     LEVEL_PANEL,
 };

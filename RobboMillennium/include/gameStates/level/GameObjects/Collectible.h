@@ -1,8 +1,8 @@
 #pragma once
 #include "../../../basicProjectHeaders.h"
-#include "../LevelHeaders.h"
+#include "StaticObject.h"
 
-class Collectible : GameObject
+class Collectible : public StaticObject
 {
 public:
     Collectible(GameObjectName objectName, Coordinates position, class Level* level);

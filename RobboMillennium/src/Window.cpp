@@ -83,5 +83,6 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_ROBBO, "../assets/textures/level/robbo.bmp");
     AddTexture(LEVEL_WALL, "../assets/textures/level/sciana.bmp");
     AddTexture(LEVEL_CHEST, "../assets/textures/level/skrzynia.bmp");
+    AddTexture(LEVEL_SCREW, "../assets/textures/level/screw.bmp");
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
 }
