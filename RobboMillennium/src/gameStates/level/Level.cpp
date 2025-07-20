@@ -108,6 +108,17 @@ void Level::MoveObjectDown(GameObject* object)
     this->fields[position.y+1][position.x] = object;
 }
 
+//returns nullptr when position out of range
+Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
+{
+    Coordinates* new_pos = new Coordinates(current.GetNext(dir));
+    if(new_pos->x < 0 || new_pos->x >= width || new_pos->y < 0 || new_pos->y >= height)
+    {
+        return nullptr;
+    }
+    return new_pos;
+}
+
 void Level::UpdateLevelPosition(double deltaTime)
 {
     if(moveLevelPositionVertically == 0)

@@ -8,11 +8,12 @@ public:
     MovingObject(GameObjectName objectName, Coordinates position, class Level* level);
     virtual bool IsActive();
 
-    //returns true when object moved (no walls etc)
+    //returns true when object moved (no walls etc.)
     virtual bool MoveLeft();
     virtual bool MoveRight();
     virtual bool MoveUp();
     virtual bool MoveDown();
+    //TODO delete 4 funcs above and add virtual bool Move(Direction dir); that use GetNextPosition from level class
 
 protected:
     Level* level;

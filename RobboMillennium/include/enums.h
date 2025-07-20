@@ -56,3 +56,11 @@ enum RobboAction
 
     NOTHING,
 };
+
+enum Direction
+{
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN,
+};

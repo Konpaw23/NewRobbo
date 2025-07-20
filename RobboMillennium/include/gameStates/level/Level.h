@@ -26,6 +26,8 @@ public:
     void MoveObjectUp(GameObject* object);
     void MoveObjectDown(GameObject* object);
 
+    Coordinates* GetNextPosition(Coordinates current, Direction dir);
+
     void UpdateLevelPosition(double deltaTime);
 
     void PutLevelPicture();

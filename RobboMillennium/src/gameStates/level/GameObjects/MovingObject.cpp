@@ -10,6 +10,7 @@ bool MovingObject::IsActive()
     return isActive;
 }
 
+//TODO it only overwrites field data when robbo get screws!!!
 bool MovingObject::MoveLeft()
 {
     if(position.x > 0 && level->GetObjectNameFromPosition(position.x-1, position.y) == NULL_OBJECT ||
@@ -25,7 +26,6 @@ bool MovingObject::MoveLeft()
     }
 }
 
-//TODO it only overwrites field data when robbo get screws!!!
 bool MovingObject::MoveRight()
 {
     int xMax = level->GetWidth() - 1;
