@@ -12,6 +12,7 @@ public:
     bool MoveRight() override;
     bool MoveUp() override;
     bool MoveDown() override;
+    bool Move(Direction dir) override;
 
     void Run() override;
 private:

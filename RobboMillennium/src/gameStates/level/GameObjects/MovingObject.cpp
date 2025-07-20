@@ -70,3 +70,22 @@ bool MovingObject::MoveDown()
         return false;
     }
 }
+
+//TODO I don't like this func
+bool MovingObject::Move(Direction dir)
+{
+    Coordinates* dest = level->GetNextPosition(this->position, dir);
+    if(dest != nullptr && (level->GetObjectNameFromPosition(*dest) == NULL_OBJECT ||
+        (this->isCollectingItems && level->IsObjectCollectible(*dest) ) ) )
+    {
+        level->MoveObject(this, *dest);
+        this->position = *dest;
+        delete dest;
+        return true;
+    }
+    else
+    {
+        delete dest;
+        return false;
+    }
+}

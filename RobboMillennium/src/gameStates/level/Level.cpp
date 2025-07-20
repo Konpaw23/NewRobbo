@@ -53,6 +53,10 @@ GameObject* Level::GetObjectFromPosition(int x, int y)
     }
     return fields[y][x];
 }
+GameObject* Level::GetObjectFromPosition(Coordinates pos)
+{
+    return GetObjectFromPosition(pos.x, pos.y);
+}
 
 MovingObject* Level::GetMovingObjectFromPosition(int x, int y)
 {
@@ -74,6 +78,11 @@ GameObjectName Level::GetObjectNameFromPosition(int x, int y)
         return fields[y][x]->GetObjectName();
 }
 
+GameObjectName Level::GetObjectNameFromPosition(Coordinates pos)
+{
+    return GetObjectNameFromPosition(pos.x, pos.y);
+}
+
 bool Level::IsObjectCollectible(int x, int y)
 {
     GameObject* object = this->GetObjectFromPosition(x,y);
@@ -81,6 +90,10 @@ bool Level::IsObjectCollectible(int x, int y)
         return false;
     else
         return true;
+}
+bool Level::IsObjectCollectible(Coordinates dest)
+{
+    return IsObjectCollectible(dest.x, dest.y);
 }
 
 void Level::MoveObjectLeft(GameObject* object)
@@ -107,7 +120,14 @@ void Level::MoveObjectDown(GameObject* object)
     this->fields[position.y][position.x] = nullptr;
     this->fields[position.y+1][position.x] = object;
 }
+void Level::MoveObject(GameObject *object, Coordinates dest)
+{
+    Coordinates current_pos = object->GetPosition();
+    this->fields[current_pos.y][current_pos.x] = nullptr;
+    this->fields[dest.y][dest.x] = object;
+}
 
+//TODO I don't like this func I should make it works in other way
 //returns nullptr when position out of range
 Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
 {

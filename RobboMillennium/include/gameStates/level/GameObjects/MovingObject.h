@@ -13,7 +13,7 @@ public:
     virtual bool MoveRight();
     virtual bool MoveUp();
     virtual bool MoveDown();
-    //TODO delete 4 funcs above and add virtual bool Move(Direction dir); that use GetNextPosition from level class
+    virtual bool Move(Direction dir);
 
 protected:
     Level* level;

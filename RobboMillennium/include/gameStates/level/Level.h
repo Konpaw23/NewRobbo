@@ -16,15 +16,19 @@ public:
     int GetHeight();
     int GetWidth();
     GameObject* GetObjectFromPosition(int x, int y);
+    GameObject* GetObjectFromPosition(Coordinates pos);
     class MovingObject* GetMovingObjectFromPosition(int x, int y);
     GameObjectName GetObjectNameFromPosition(int x, int y);
+    GameObjectName GetObjectNameFromPosition(Coordinates pos);
     bool IsObjectCollectible(int x, int y);
+    bool IsObjectCollectible(Coordinates dest);
 
     //must be called after object change its position in own class
     void MoveObjectLeft(GameObject* object);
     void MoveObjectRight(GameObject* object);
     void MoveObjectUp(GameObject* object);
     void MoveObjectDown(GameObject* object);
+    void MoveObject(GameObject* object, Coordinates dest);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
 

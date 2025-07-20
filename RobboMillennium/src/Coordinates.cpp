@@ -19,11 +19,11 @@ Coordinates::Coordinates(Direction dir)
     }
     else if(dir == UP)
     {
-        y = 1;
+        y = -1;
     }
     else if(dir == DOWN)
     {
-        y = -1;
+        y = 1;
     }
 }
 
