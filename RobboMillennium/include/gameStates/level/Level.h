@@ -27,6 +27,7 @@ public:
     void MoveObject(GameObject* object, Coordinates dest);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
+    int GetScrewsNumber();
 
     void UpdateLevelPosition(double deltaTime);
 
@@ -34,6 +35,9 @@ public:
     void PutEmptyField(int x, int y);
     void PutObject(GameObjectName name, int x, int y);
     Coordinates GetFieldPositionInPixelsOnScreen(int x, int y);
+
+    //returns 1 when no more screws needed
+    int DecreaseScrewsNumber();
 private:
     void FieldsMemoryAlloc();
 
@@ -41,6 +45,8 @@ private:
     void FieldsMemoryDealloc();
 
     void LoadObjects(int levelNumber);
+
+    int screwsToCollect;
 
     int height;
     int width;

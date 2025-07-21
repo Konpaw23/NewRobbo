@@ -6,7 +6,7 @@ Collectible::Collectible(GameObjectName objectName, Coordinates position, class 
     ;
 }
 
-void Collectible::PickUp()
+void Collectible::PickUp(Robbo* other)
 {
     delete this;
 }

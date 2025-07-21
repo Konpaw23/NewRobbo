@@ -2,7 +2,7 @@
 
 Robbo::Robbo(Coordinates position, Level* level) : LivingObject(ROBBO, position, level)
 {
-    isCollectingItems = true;
+    ;
 }
 
 void Robbo::SetAction(RobboAction action)
@@ -15,10 +15,10 @@ bool Robbo::Move(Direction dir)
     if(!MovingObject::Move(dir))
     {
         //TODO powalone rzeczy sie tu dzieja
-        Coordinates* next_pos = this->level->GetNextPosition(this->position, dir);
-        if(next_pos != nullptr)
+        Coordinates* dest = this->level->GetNextPosition(this->position, dir);
+        if(dest != nullptr)
         {
-            GameObject* object = level->GetObjectFromPosition(*next_pos);
+            GameObject* object = level->GetObjectFromPosition(*dest);
             MovingObject* movingObject = dynamic_cast<MovingObject*>(object);
             if(movingObject != nullptr)
             {
@@ -30,8 +30,25 @@ bool Robbo::Move(Direction dir)
                 }
             }
         }
+
+        //screws
+        GameObject* other = level->GetObjectFromPosition(*dest);
+        Collectible* item = dynamic_cast<Collectible*>(other);
+        if(item != nullptr)
+        {
+            item->PickUp(this);
+            level->MoveObject(this, *dest);
+            this->position = *dest;
+            delete dest;
+            return true;
+        }
     }
     return false;
+}
+
+void Robbo::GiveScrew()
+{
+    this->level->DecreaseScrewsNumber();
 }
 
 void Robbo::Run()

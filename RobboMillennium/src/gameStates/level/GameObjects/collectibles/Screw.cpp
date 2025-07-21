@@ -4,3 +4,9 @@ Screw::Screw(Coordinates position, Level* level) : Collectible(SCREW, position, 
 {
     ;
 }
+
+void Screw::PickUp(Robbo* other)
+{
+    other->GiveScrew();
+    Collectible::PickUp(other);
+}

@@ -14,5 +14,4 @@ public:
 protected:
     Level* level;
     bool isActive = true;
-    bool isCollectingItems = false;
 };

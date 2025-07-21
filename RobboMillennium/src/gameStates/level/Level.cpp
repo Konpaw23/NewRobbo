@@ -2,6 +2,7 @@
 
 Level::Level(Window* window, int levelNumber) : m_window(window), height(LEVEL_HEIGHT), width(LEVEL_WIDTH)
 {
+    screwsToCollect = 0;
     FieldsMemoryAlloc();
     LoadObjects(levelNumber);
 }
@@ -12,6 +13,7 @@ Level::~Level()
     FieldsMemoryDealloc();
 }
 
+//TODO
 //run every object in level in order
 void Level::RunSequence()
 {
@@ -113,6 +115,11 @@ Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
         return nullptr;
     }
     return new_pos;
+}
+
+int Level::GetScrewsNumber()
+{
+    return screwsToCollect;
 }
 
 void Level::UpdateLevelPosition(double deltaTime)
@@ -217,6 +224,20 @@ Coordinates Level::GetFieldPositionInPixelsOnScreen(int x, int y)
                        y * FIELD_SIZE - levelRenderingUpperPosition);
 }
 
+int Level::DecreaseScrewsNumber()
+{
+    this->screwsToCollect--;
+    if(screwsToCollect <= 0)
+    {
+        screwsToCollect = 0;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 void Level::FieldsMemoryAlloc()
 {
     if(player != nullptr)
@@ -267,6 +288,7 @@ void Level::FieldsMemoryDealloc()
     free(fields);
 }
 
+//here number of screws to collect is calculated
 void Level::LoadObjects(int levelNumber)
 {
     std::string fileName = "levels/level" + std::to_string(levelNumber) + ".txt";
@@ -293,6 +315,7 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '$':
                 AddObject(SCREW, x, y);
+                screwsToCollect++;
                 break;
             case '\n':
                 x = 0;

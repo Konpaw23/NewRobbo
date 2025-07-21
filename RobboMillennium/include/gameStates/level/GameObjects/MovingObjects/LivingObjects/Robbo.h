@@ -9,6 +9,7 @@ public:
     void SetAction(RobboAction action);
 
     bool Move(Direction dir) override;
+    void GiveScrew();
 
     void Run() override;
 private:
