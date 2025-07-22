@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../basicProjectHeaders.h"
 #include "StaticObject.h"
-#include "MovingObjects/LivingObjects/Robbo.h"
+#include "activeObjects/Robbo.h"
 
 class Collectible : public StaticObject
 {

@@ -1,8 +1,9 @@
-#include "../../../../../../include/gameStates/level/LevelHeaders.h"
+#include "../../../../../include/gameStates/level/LevelHeaders.h"
 
-Robbo::Robbo(Coordinates position, Level* level) : LivingObject(ROBBO, position, level)
+Robbo::Robbo(Coordinates position, Level* level) : activeObject(ROBBO, position, level)
 {
-    ;
+    explosion_resistant = false;
+    projectile_resistant = false;
 }
 
 void Robbo::SetAction(RobboAction action)

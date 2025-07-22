@@ -1,4 +1,4 @@
-#include "../../../include/gameStates/level/GameObject.h"
+#include "../../../../include/gameStates/level/gameObjects/GameObject.h"
 
 GameObject::GameObject(GameObjectName objectName, Coordinates position) : objectName(objectName), position(position)
 {

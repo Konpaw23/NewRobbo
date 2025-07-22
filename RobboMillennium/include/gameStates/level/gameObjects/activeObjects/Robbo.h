@@ -1,8 +1,8 @@
 #pragma once
-#include "../../../../../basicProjectHeaders.h"
-#include "../LivingObject.h"
+#include "../../../../basicProjectHeaders.h"
+#include "../activeObject.h"
 
-class Robbo : public LivingObject
+class Robbo : public activeObject
 {
 public:
     Robbo(Coordinates position, class Level* level);

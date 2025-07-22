@@ -1,5 +1,5 @@
 #pragma once
-#include "../../basicProjectHeaders.h"
+#include "../../../basicProjectHeaders.h"
 
 /*
  * TODO in moving objects make two type of collisions:
@@ -17,6 +17,10 @@ public:
 
 protected:
     Coordinates position;
+
+    //TODO resistant should be const but it didn't work
+    bool explosion_resistant;
+    bool projectile_resistant;
 
 private:
     GameObjectName objectName;

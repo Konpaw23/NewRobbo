@@ -28,19 +28,19 @@ add_executable(RobboMillennium main.cpp
         src/gameStates/level/Level.cpp
         include/gameStates/level/Level.h
         include/basicProjectHeaders.h
-        src/gameStates/level/GameObject.cpp
-        include/gameStates/level/GameObject.h
+        src/gameStates/level/gameObjects/GameObject.cpp
+        include/gameStates/level/gameObjects/GameObject.h
         src/gameStates/level/gameObjects/StaticObject.cpp
         include/gameStates/level/gameObjects/StaticObject.h
         src/gameStates/level/gameObjects/MovingObject.cpp
         include/gameStates/level/gameObjects/MovingObject.h
         src/gameStates/level/gameObjects/staticObjects/Wall.cpp
         include/gameStates/level/gameObjects/staticObjects/Wall.h
-        src/gameStates/level/gameObjects/movingObjects/livingObjects/Robbo.cpp
-        include/gameStates/level/gameObjects/movingObjects/livingObjects/Robbo.h
+        src/gameStates/level/gameObjects/activeObjects/Robbo.cpp
+        include/gameStates/level/gameObjects/activeObjects/Robbo.h
         include/gameStates/level/LevelHeaders.h
-        src/gameStates/level/gameObjects/movingObjects/LivingObject.cpp
-        include/gameStates/level/gameObjects/movingObjects/LivingObject.h
+        src/gameStates/level/gameObjects/activeObject.cpp
+        include/gameStates/level/gameObjects/activeObject.h
         src/gameStates/level/gameObjects/movingObjects/Chest.cpp
         include/gameStates/level/gameObjects/movingObjects/Chest.h
         src/gameStates/level/gameObjects/Collectible.cpp
