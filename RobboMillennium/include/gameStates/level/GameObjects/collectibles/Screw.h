@@ -1,6 +1,6 @@
 #pragma once
 #include "../../../../basicProjectHeaders.h"
-#include "../../LevelHeaders.h"
+#include "../Collectible.h"
 
 class Screw : public Collectible
 {

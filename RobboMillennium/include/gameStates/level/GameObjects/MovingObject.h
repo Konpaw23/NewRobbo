@@ -1,6 +1,6 @@
 #pragma once
 #include "../../../basicProjectHeaders.h"
-#include "../LevelHeaders.h"
+#include "../GameObject.h"
 
 class MovingObject : public GameObject
 {

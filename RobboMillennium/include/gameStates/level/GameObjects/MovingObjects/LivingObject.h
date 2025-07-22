@@ -1,6 +1,6 @@
 #pragma once
 #include "../../../../basicProjectHeaders.h"
-#include "../../LevelHeaders.h"
+#include "../MovingObject.h"
 
 class LivingObject : public MovingObject
 {

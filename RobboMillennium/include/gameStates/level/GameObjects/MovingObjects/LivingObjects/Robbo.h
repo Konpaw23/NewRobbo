@@ -1,6 +1,6 @@
 #pragma once
 #include "../../../../../basicProjectHeaders.h"
-#include "../../../LevelHeaders.h"
+#include "../LivingObject.h"
 
 class Robbo : public LivingObject
 {
