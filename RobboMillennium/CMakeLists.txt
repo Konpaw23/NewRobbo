@@ -30,23 +30,23 @@ add_executable(RobboMillennium main.cpp
         include/basicProjectHeaders.h
         src/gameStates/level/GameObject.cpp
         include/gameStates/level/GameObject.h
-        src/gameStates/level/GameObjects/StaticObject.cpp
-        include/gameStates/level/GameObjects/StaticObject.h
-        src/gameStates/level/GameObjects/MovingObject.cpp
-        include/gameStates/level/GameObjects/MovingObject.h
-        src/gameStates/level/GameObjects/StaticObjects/Wall.cpp
-        include/gameStates/level/GameObjects/StaticObjects/Wall.h
-        src/gameStates/level/GameObjects/MovingObjects/LivingObjects/Robbo.cpp
-        include/gameStates/level/GameObjects/MovingObjects/LivingObjects/Robbo.h
+        src/gameStates/level/gameObjects/StaticObject.cpp
+        include/gameStates/level/gameObjects/StaticObject.h
+        src/gameStates/level/gameObjects/MovingObject.cpp
+        include/gameStates/level/gameObjects/MovingObject.h
+        src/gameStates/level/gameObjects/staticObjects/Wall.cpp
+        include/gameStates/level/gameObjects/staticObjects/Wall.h
+        src/gameStates/level/gameObjects/movingObjects/livingObjects/Robbo.cpp
+        include/gameStates/level/gameObjects/movingObjects/livingObjects/Robbo.h
         include/gameStates/level/LevelHeaders.h
-        src/gameStates/level/GameObjects/MovingObjects/LivingObject.cpp
-        include/gameStates/level/GameObjects/MovingObjects/LivingObject.h
-        src/gameStates/level/GameObjects/MovingObjects/Chest.cpp
-        include/gameStates/level/GameObjects/MovingObjects/Chest.h
-        src/gameStates/level/GameObjects/Collectible.cpp
-        include/gameStates/level/GameObjects/Collectible.h
-        src/gameStates/level/GameObjects/collectibles/Screw.cpp
-        include/gameStates/level/GameObjects/collectibles/Screw.h
+        src/gameStates/level/gameObjects/movingObjects/LivingObject.cpp
+        include/gameStates/level/gameObjects/movingObjects/LivingObject.h
+        src/gameStates/level/gameObjects/movingObjects/Chest.cpp
+        include/gameStates/level/gameObjects/movingObjects/Chest.h
+        src/gameStates/level/gameObjects/Collectible.cpp
+        include/gameStates/level/gameObjects/Collectible.h
+        src/gameStates/level/gameObjects/collectibles/Screw.cpp
+        include/gameStates/level/gameObjects/collectibles/Screw.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
