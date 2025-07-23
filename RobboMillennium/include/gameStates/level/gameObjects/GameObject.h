@@ -10,7 +10,7 @@
 class GameObject
 {
 public:
-    GameObject(GameObjectName objectName, Coordinates position);
+    GameObject(GameObjectName objectName, Coordinates position, bool explostion_resistant, bool projectile_resistant);
     virtual ~GameObject();
     GameObjectName GetObjectName();
     Coordinates GetPosition();
@@ -19,8 +19,8 @@ protected:
     Coordinates position;
 
     //TODO resistant should be const but it didn't work
-    bool explosion_resistant;
-    bool projectile_resistant;
+    const bool explosion_resistant;
+    const bool projectile_resistant;
 
 private:
     GameObjectName objectName;

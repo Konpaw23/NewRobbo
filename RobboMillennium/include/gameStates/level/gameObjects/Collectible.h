@@ -6,7 +6,7 @@
 class Collectible : public StaticObject
 {
 public:
-    Collectible(GameObjectName objectName, Coordinates position, class Level* level);
+    Collectible(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, class Level* level);
     virtual void PickUp(Robbo* other);
 
 private:

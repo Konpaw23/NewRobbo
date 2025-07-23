@@ -1,6 +1,6 @@
 #include "../../../../../include/gameStates/level/GameObjects/collectibles/Screw.h"
 
-Screw::Screw(Coordinates position, Level* level) : Collectible(SCREW, position, level)
+Screw::Screw(Coordinates position, Level* level) : Collectible(SCREW, position, false, true, level)
 {
     ;
 }

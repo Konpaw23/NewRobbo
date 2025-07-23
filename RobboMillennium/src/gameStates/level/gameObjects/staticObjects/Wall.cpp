@@ -1,7 +1,6 @@
 #include "../../../../../include/gameStates/level/gameObjects/staticObjects/Wall.h"
 
-Wall::Wall(Coordinates position) : StaticObject(WALL, position)
+Wall::Wall(Coordinates position) : StaticObject(WALL, position, true, true)
 {
-    explosion_resistant = true;
-    projectile_resistant = true;
+    ;
 }
