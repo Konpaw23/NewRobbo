@@ -10,7 +10,7 @@
 class GameObject
 {
 public:
-    GameObject(GameObjectName objectName, Coordinates position, bool explostion_resistant, bool projectile_resistant);
+    GameObject(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant);
     virtual ~GameObject();
     GameObjectName GetObjectName();
     Coordinates GetPosition();

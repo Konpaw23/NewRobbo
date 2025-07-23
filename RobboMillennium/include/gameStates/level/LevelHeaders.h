@@ -9,7 +9,7 @@
 
 #include "GameObjects/MovingObject.h"
 #include "GameObjects/MovingObjects/Chest.h"
-#include "gameObjects/activeObject.h"
+#include "gameObjects/ActiveObject.h"
 #include "GameObjects/activeObjects/Robbo.h"
 #include "GameObjects/Collectible.h"
 #include "GameObjects/collectibles/Screw.h"

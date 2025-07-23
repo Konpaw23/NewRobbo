@@ -1,8 +1,8 @@
 #pragma once
 #include "../../../../basicProjectHeaders.h"
-#include "../activeObject.h"
+#include "../ActiveObject.h"
 
-class Robbo : public activeObject
+class Robbo : public ActiveObject
 {
 public:
     Robbo(Coordinates position, class Level* level);
@@ -10,8 +10,11 @@ public:
 
     bool Move(Direction dir) override;
     void GiveScrew();
+    void AddAmmo();
+    void Shot();
 
     void Run() override;
 private:
+    int ammo;
     RobboAction action;
 };

@@ -40,7 +40,7 @@ enum GameObjectName
 
     SCREW,
     KEY,
-    BATTERY,
+    AMMO,
 
     ROBBO,
 

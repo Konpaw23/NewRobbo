@@ -1,8 +1,8 @@
 #include "../../../../../include/gameStates/level/LevelHeaders.h"
 
-Robbo::Robbo(Coordinates position, Level* level) : activeObject(ROBBO, position, false, false, level)
+Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level)
 {
-    ;
+    this->ammo = 0;
 }
 
 void Robbo::SetAction(RobboAction action)
@@ -49,6 +49,17 @@ bool Robbo::Move(Direction dir)
 void Robbo::GiveScrew()
 {
     this->level->DecreaseScrewsNumber();
+}
+
+void Robbo::AddAmmo()
+{
+    ammo+=9;
+}
+
+void Robbo::Shot()
+{
+    //TODO
+    ammo--;
 }
 
 void Robbo::Run()

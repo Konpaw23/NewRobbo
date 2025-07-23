@@ -39,14 +39,16 @@ add_executable(RobboMillennium main.cpp
         src/gameStates/level/gameObjects/activeObjects/Robbo.cpp
         include/gameStates/level/gameObjects/activeObjects/Robbo.h
         include/gameStates/level/LevelHeaders.h
-        src/gameStates/level/gameObjects/activeObject.cpp
-        include/gameStates/level/gameObjects/activeObject.h
+        src/gameStates/level/gameObjects/ActiveObject.cpp
+        include/gameStates/level/gameObjects/ActiveObject.h
         src/gameStates/level/gameObjects/movingObjects/Chest.cpp
         include/gameStates/level/gameObjects/movingObjects/Chest.h
         src/gameStates/level/gameObjects/Collectible.cpp
         include/gameStates/level/gameObjects/Collectible.h
         src/gameStates/level/gameObjects/collectibles/Screw.cpp
         include/gameStates/level/gameObjects/collectibles/Screw.h
+        src/gameStates/level/gameObjects/collectibles/Ammo.cpp
+        include/gameStates/level/gameObjects/collectibles/Ammo.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
