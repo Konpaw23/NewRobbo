@@ -18,7 +18,7 @@ public:
 protected:
     Coordinates position;
 
-    //TODO resistant should be const but it didn't work
+    //TODO maybe better to do it as struct?
     const bool explosion_resistant;
     const bool projectile_resistant;
 
