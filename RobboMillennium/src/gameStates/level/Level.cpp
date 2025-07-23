@@ -215,6 +215,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case SCREW:
             m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
             break;
+        case AMMO:
+            m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
+            break;
     }
 }
 
@@ -317,6 +320,9 @@ void Level::LoadObjects(int levelNumber)
                 AddObject(SCREW, x, y);
                 screwsToCollect++;
                 break;
+            case '!':
+                AddObject(AMMO, x, y);
+                break;
             case '\n':
                 x = 0;
                 y++;
@@ -349,5 +355,7 @@ void Level::AddObject(GameObjectName name, int x, int y)
         case SCREW:
             fields[y][x] = new Screw(Coordinates(x,y), this);
             break;
+        case AMMO:
+            fields[y][x] = new Ammo(Coordinates(x,y), this);
     }
 }

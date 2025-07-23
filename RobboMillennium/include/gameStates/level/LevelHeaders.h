@@ -13,3 +13,4 @@
 #include "GameObjects/activeObjects/Robbo.h"
 #include "GameObjects/Collectible.h"
 #include "GameObjects/collectibles/Screw.h"
+#include "GameObjects/collectibles/Ammo.h"

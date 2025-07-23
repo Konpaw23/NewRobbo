@@ -21,6 +21,7 @@ enum TextureName
     LEVEL_WALL,
     LEVEL_CHEST,
     LEVEL_SCREW,
+    LEVEL_AMMO,
 
     LEVEL_PANEL,
 };
