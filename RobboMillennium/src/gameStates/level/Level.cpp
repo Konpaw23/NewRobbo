@@ -126,11 +126,11 @@ void Level::UpdateLevelPosition(double deltaTime)
 {
     if(moveLevelPositionVertically == 0)
     {
-        if(levelRenderingUpperPosition > 0 && player->GetPosition().y - (levelRenderingUpperPosition/FIELD_SIZE) <= 0)
+        if(levelRenderingUpperPosition > 0 && player->GetPosition().y - (levelRenderingUpperPosition/FIELD_SIZE) <= 1)
         {
             moveLevelPositionVertically = -1 * FIELD_SIZE * 3;
         }
-        if(levelRenderingUpperPosition < (height - 10) * FIELD_SIZE && player->GetPosition().y - (levelRenderingUpperPosition/FIELD_SIZE) >= 9)
+        if(levelRenderingUpperPosition < (height - 10) * FIELD_SIZE && player->GetPosition().y - (levelRenderingUpperPosition/FIELD_SIZE) >= 8)
         {
             moveLevelPositionVertically = FIELD_SIZE * 3;
         }
