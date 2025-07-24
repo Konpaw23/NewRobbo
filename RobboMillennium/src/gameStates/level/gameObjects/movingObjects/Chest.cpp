@@ -1,4 +1,4 @@
-#include "../../../../../include/gameStates/level/LevelHeaders.h"
+#include "../../../../../include/gameStates/level/gameObjects/movingObjects/Chest.h"
 
 Chest::Chest(Coordinates position, Level *level) : MovingObject(CHEST, position, false, true, level)
 {

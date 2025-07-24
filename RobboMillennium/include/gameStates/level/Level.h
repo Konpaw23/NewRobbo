@@ -1,6 +1,7 @@
 #pragma once
 #include "../../basicProjectHeaders.h"
-#include "LevelHeaders.h"
+#include "gameObjects/ActiveObject.h"
+#include "gameObjects/GameObject.h"
 
 class Level
 {
@@ -26,6 +27,8 @@ public:
     //must be called after object change its position in own GameObject class
     void MoveObject(GameObject* object, Coordinates dest);
     void SpawnBullet(Coordinates pos, Direction trajectory);
+
+    void RemoveObject(GameObject* object);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     int GetScrewsNumber();

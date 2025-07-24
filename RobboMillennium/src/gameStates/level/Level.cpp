@@ -125,6 +125,13 @@ void Level::SpawnBullet(Coordinates pos, Direction trajectory)
     }
 }
 
+void Level::RemoveObject(GameObject *object)
+{
+    Coordinates pos = object->GetPosition();
+    fields[pos.y][pos.x] = nullptr;
+    //TODO remove from activeObjects
+}
+
 //TODO I don't like this func I should make it works in other way
 //returns nullptr when position out of range
 Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)

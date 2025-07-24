@@ -1,6 +1,6 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Bullet.h"
 
-Bullet::Bullet(Coordinates position, Direction trajectory, class Level* level) :
+Bullet::Bullet(Coordinates position, Direction trajectory, Level* level) :
         ActiveObject(BULLET, position, false, false, level), trajectory(trajectory)
 {
     ;
@@ -8,5 +8,8 @@ Bullet::Bullet(Coordinates position, Direction trajectory, class Level* level) :
 
 void Bullet::Run()
 {
-    this->Move(trajectory);
+    if(!this->Move(trajectory))
+    {
+        this->level->RemoveObject(this);
+    }
 }
