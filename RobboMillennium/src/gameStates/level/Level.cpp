@@ -17,6 +17,17 @@ Level::~Level()
 //run every object in level in order
 void Level::RunSequence()
 {
+    for(int i = 0; i < 9; i++)
+    {
+        if(activeObjects[i] != nullptr)
+        {
+            activeObjects[i]->Run();
+        }
+        else
+        {
+            break;
+        }
+    }
     player->Run();
 }
 
@@ -103,6 +114,15 @@ void Level::MoveObject(GameObject *object, Coordinates dest)
     Coordinates current_pos = object->GetPosition();
     this->fields[current_pos.y][current_pos.x] = nullptr;
     this->fields[dest.y][dest.x] = object;
+}
+
+void Level::SpawnBullet(Coordinates pos, Direction trajectory)
+{
+    if(GetObjectNameFromPosition(pos) == NULL_OBJECT)
+    {
+        fields[pos.y][pos.x] = new Bullet(pos, trajectory, this);
+        AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[pos.y][pos.x]));
+    }
 }
 
 //TODO I don't like this func I should make it works in other way
@@ -218,6 +238,8 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case AMMO:
             m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
             break;
+        case BULLET:
+            m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
     }
 }
 
@@ -263,6 +285,13 @@ void Level::FieldsMemoryAlloc()
             fields[i][j] = nullptr;
         }
     }
+
+    //TODO only temporary!!! Have to it do with dynamic structure
+    activeObjects = (ActiveObject**)malloc(9 * sizeof(ActiveObject*));
+    for(int i = 0; i < 9; i++)
+    {
+        activeObjects[i] = nullptr;
+    }
 }
 
 void Level::DeleteAllObjects()
@@ -275,6 +304,7 @@ void Level::DeleteAllObjects()
                 delete fields[i][j];
         }
     }
+    free(activeObjects);
 }
 
 void Level::FieldsMemoryDealloc()
@@ -289,6 +319,8 @@ void Level::FieldsMemoryDealloc()
         free(fields[i]);
     }
     free(fields);
+
+    free(activeObjects);
 }
 
 //here number of screws to collect is calculated
@@ -331,6 +363,19 @@ void Level::LoadObjects(int levelNumber)
         if(objectChar != '\n')
         {
             x++;
+        }
+    }
+}
+
+//TODO
+void Level::AddToActiveObjects(ActiveObject *object)
+{
+    for(int i = 0; i < 9; i++)
+    {
+        if(activeObjects[i] == nullptr)
+        {
+            activeObjects[i] = object;
+            break;
         }
     }
 }

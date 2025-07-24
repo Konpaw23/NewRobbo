@@ -25,6 +25,7 @@ public:
 
     //must be called after object change its position in own GameObject class
     void MoveObject(GameObject* object, Coordinates dest);
+    void SpawnBullet(Coordinates pos, Direction trajectory);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     int GetScrewsNumber();
@@ -38,6 +39,7 @@ public:
 
     //returns 1 when no more screws needed
     int DecreaseScrewsNumber();
+
 private:
     void FieldsMemoryAlloc();
 
@@ -45,6 +47,7 @@ private:
     void FieldsMemoryDealloc();
 
     void LoadObjects(int levelNumber);
+    void AddToActiveObjects(class ActiveObject* object);
 
     int screwsToCollect;
 
@@ -52,6 +55,8 @@ private:
     int width;
 
     class Robbo* player = nullptr;
+    //TODO better make it with vectors or smth
+    class ActiveObject** activeObjects = nullptr;
     GameObject*** fields = nullptr;
 
     void AddObject(GameObjectName name, int x, int y);

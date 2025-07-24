@@ -22,6 +22,7 @@ enum TextureName
     LEVEL_CHEST,
     LEVEL_SCREW,
     LEVEL_AMMO,
+    LEVEL_BULLET,
 
     LEVEL_PANEL,
 };
@@ -42,6 +43,7 @@ enum GameObjectName
     SCREW,
     KEY,
     AMMO,
+    BULLET,
 
     ROBBO,
 

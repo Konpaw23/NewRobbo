@@ -56,10 +56,13 @@ void Robbo::AddAmmo()
     ammo+=9;
 }
 
-void Robbo::Shot()
+void Robbo::Shot(Direction dir)
 {
-    //TODO
-    ammo--;
+    if(ammo > 0)
+    {
+        ammo--;
+        level->SpawnBullet(position.GetNext(dir), dir);
+    }
 }
 
 void Robbo::Run()
@@ -77,6 +80,18 @@ void Robbo::Run()
             break;
         case GO_DOWN:
             Move(DOWN);
+            break;
+        case SHOT_LEFT:
+            Shot(LEFT);
+            break;
+        case SHOT_RIGHT:
+            Shot(RIGHT);
+            break;
+        case SHOT_UP:
+            Shot(UP);
+            break;
+        case SHOT_DOWN:
+            Shot(DOWN);
             break;
     }
 }

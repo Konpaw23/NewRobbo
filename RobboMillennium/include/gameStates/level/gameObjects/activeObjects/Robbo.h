@@ -11,7 +11,7 @@ public:
     bool Move(Direction dir) override;
     void GiveScrew();
     void AddAmmo();
-    void Shot();
+    void Shot(Direction dir);
 
     void Run() override;
 private:

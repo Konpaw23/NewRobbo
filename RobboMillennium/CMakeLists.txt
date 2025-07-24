@@ -49,6 +49,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/collectibles/Screw.h
         src/gameStates/level/gameObjects/collectibles/Ammo.cpp
         include/gameStates/level/gameObjects/collectibles/Ammo.h
+        src/gameStates/level/gameObjects/activeObjects/Bullet.cpp
+        include/gameStates/level/gameObjects/activeObjects/Bullet.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
