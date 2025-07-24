@@ -21,7 +21,10 @@ private:
     bool isPressedRight = false;
     bool isPressedUp = false;
     bool isPressedDown = false;
+    bool isPressedSpace = false;
     RobboAction lastActionPressed = NOTHING;
+
+    void ActionMoveToShoot();
 
     void ProcessInput() override;
     void Update() override;

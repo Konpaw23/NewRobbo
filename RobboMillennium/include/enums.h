@@ -55,6 +55,11 @@ enum RobboAction
     GO_UP,
     GO_DOWN,
 
+    SHOT_LEFT,
+    SHOT_RIGHT,
+    SHOT_UP,
+    SHOT_DOWN,
+
     NOTHING,
 };
 

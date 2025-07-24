@@ -18,6 +18,25 @@ LevelState::LevelState(Window* window, int level_number) : GameState(window)
     this->level = new Level(m_window, levelNumber);
 }
 
+void LevelState::ActionMoveToShoot()
+{
+    switch(playerAction)
+    {
+        case GO_LEFT:
+            playerAction = SHOT_LEFT;
+            break;
+        case GO_RIGHT:
+            playerAction = SHOT_RIGHT;
+            break;
+        case GO_UP:
+            playerAction = SHOT_UP;
+            break;
+        case GO_DOWN:
+            playerAction = SHOT_DOWN;
+            break;
+    }
+}
+
 void LevelState::ProcessInput()
 {
     SDL_Event e;
@@ -43,6 +62,9 @@ void LevelState::ProcessInput()
                     isPressedDown = true;
                     lastActionPressed = GO_DOWN;
                     break;
+                case SDLK_SPACE:
+                    isPressedSpace = true;
+                    break;
                 case SDLK_F10:
                     state = MENU;
                     m_running = false;
@@ -63,6 +85,9 @@ void LevelState::ProcessInput()
                     break;
                 case SDLK_DOWN:
                     isPressedDown = false;
+                    break;
+                case SDLK_SPACE:
+                    isPressedSpace = false;
                     break;
             }
         }
@@ -109,19 +134,19 @@ void LevelState::PutInfoPanel()
 void LevelState::SetPlayerMove()
 {
     //TODO optimize
-    if(isPressedRight && playerAction == GO_RIGHT)
+    if(isPressedRight && (playerAction == GO_RIGHT || playerAction == SHOT_RIGHT))
     {
         playerAction = GO_RIGHT;
     }
-    else if(isPressedLeft && playerAction == GO_LEFT)
+    else if(isPressedLeft && (playerAction == GO_LEFT || playerAction == SHOT_LEFT))
     {
         playerAction = GO_LEFT;
     }
-    else if(isPressedUp && playerAction == GO_UP)
+    else if(isPressedUp && (playerAction == GO_UP || playerAction == SHOT_UP))
     {
         playerAction = GO_UP;
     }
-    else if(isPressedDown && playerAction == GO_DOWN)
+    else if(isPressedDown && (playerAction == GO_DOWN || playerAction == SHOT_DOWN))
     {
         playerAction = GO_DOWN;
     }
@@ -148,6 +173,12 @@ void LevelState::SetPlayerMove()
     if(lastActionPressed != NOTHING)
     {
         playerAction = lastActionPressed;
+    }
+
+    //shooting
+    if(playerAction != NOTHING && isPressedSpace)
+    {
+        ActionMoveToShoot();
     }
 
     lastActionPressed = NOTHING;
