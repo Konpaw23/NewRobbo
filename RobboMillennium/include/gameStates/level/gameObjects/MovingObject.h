@@ -1,7 +1,8 @@
 #pragma once
 #include "../../../basicProjectHeaders.h"
-#include "../Level.h"
 #include "GameObject.h"
+
+class Level;
 
 class MovingObject : public GameObject
 {

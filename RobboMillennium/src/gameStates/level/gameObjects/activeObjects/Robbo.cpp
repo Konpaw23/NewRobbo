@@ -1,4 +1,5 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Robbo.h"
+#include "../../../../../include/gameStates/level/Level.h"
 
 Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level)
 {

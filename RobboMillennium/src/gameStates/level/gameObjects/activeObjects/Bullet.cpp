@@ -1,4 +1,5 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Bullet.h"
+#include "../../../../../include/gameStates/level/Level.h"
 
 Bullet::Bullet(Coordinates position, Direction trajectory, Level* level) :
         ActiveObject(BULLET, position, false, false, level), trajectory(trajectory)

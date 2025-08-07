@@ -1,7 +1,6 @@
 #pragma once
 #include "../../basicProjectHeaders.h"
-#include "gameObjects/ActiveObject.h"
-#include "gameObjects/GameObject.h"
+#include "LevelHeaders.h"
 
 class Level
 {
