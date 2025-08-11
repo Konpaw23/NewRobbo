@@ -1,8 +1,9 @@
 #pragma once
 #include "../../../../basicProjectHeaders.h"
 #include "../ActiveObject.h"
+#include "../MovingObject.h"
 
-class Robbo : public ActiveObject
+class Robbo : public ActiveObject, public MovingObject
 {
 public:
     Robbo(Coordinates position, class Level* level);

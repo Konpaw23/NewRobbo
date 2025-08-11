@@ -4,7 +4,7 @@
 
 class Level;
 
-class MovingObject : public GameObject
+class MovingObject : virtual public GameObject
 {
 public:
     MovingObject(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, Level* level);

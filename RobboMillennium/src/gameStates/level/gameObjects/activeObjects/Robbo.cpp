@@ -1,7 +1,9 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Robbo.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level)
+//TODO when two constructors from both ActiveObject and MovingObject called, redundance of data
+Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level),
+    MovingObject(ROBBO, position, false, false, level), GameObject(ROBBO, position, false, false)
 {
     this->ammo = 0;
 }
