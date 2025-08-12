@@ -57,11 +57,11 @@ private:
     int width;
 
     class Robbo* player = nullptr;
-    //TODO better make it with vectors or smth
-    class ActiveObject** activeObjects = nullptr;
+
+    std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;
 
-    void AddObject(GameObjectName name, int x, int y);
+    void CreateObject(GameObjectName name, int x, int y);
 
     double levelRenderingUpperPosition = 0;
     double moveLevelPositionVertically = 0;

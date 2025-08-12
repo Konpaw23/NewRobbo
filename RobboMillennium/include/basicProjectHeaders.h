@@ -9,6 +9,7 @@
 #include <malloc.h>
 #include <ctime>
 #include <thread>
+#include <vector>
 #include "SDL.h"
 
 //ENUMS and DEFINES

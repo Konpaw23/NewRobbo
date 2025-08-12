@@ -1,7 +1,7 @@
 #include "../../../../include/gameStates/level/LevelHeaders.h"
 
 MovingObject::MovingObject(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, Level* level) :
-    GameObject(objectName, position, explosion_resistant, projectile_resistant), level(level)
+    GameObject(objectName, position, explosion_resistant, projectile_resistant, level)
 {
     ;
 }

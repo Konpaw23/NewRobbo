@@ -3,7 +3,7 @@
 
 //TODO when two constructors from both ActiveObject and MovingObject called, redundance of data
 Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level),
-    MovingObject(ROBBO, position, false, false, level), GameObject(ROBBO, position, false, false)
+    MovingObject(ROBBO, position, false, false, level), GameObject(ROBBO, position, false, false, level)
 {
     this->ammo = 0;
 }

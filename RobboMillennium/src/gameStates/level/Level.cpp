@@ -17,7 +17,7 @@ Level::~Level()
 //run every object in level in order
 void Level::RunSequence()
 {
-    for(int i = 0; i < 9; i++)
+    for(int i = 0; i < activeObjects.size(); i++)
     {
         if(activeObjects[i] != nullptr)
         {
@@ -129,7 +129,19 @@ void Level::RemoveObject(GameObject *object)
 {
     Coordinates pos = object->GetPosition();
     fields[pos.y][pos.x] = nullptr;
-    //TODO remove from activeObjects
+
+    //TODO optimize finding activeObject
+    ActiveObject* active = dynamic_cast<ActiveObject*>(object);
+    if(active != nullptr)
+    {
+        for(int i = 0; i < activeObjects.size(); i++)
+        {
+            if(activeObjects[i] == active)
+            {
+                activeObjects.erase(activeObjects.begin() + i);
+            }
+        }
+    }
 }
 
 //TODO I don't like this func I should make it works in other way
@@ -292,13 +304,6 @@ void Level::FieldsMemoryAlloc()
             fields[i][j] = nullptr;
         }
     }
-
-    //TODO only temporary!!! Have to it do with dynamic structure
-    activeObjects = (ActiveObject**)malloc(9 * sizeof(ActiveObject*));
-    for(int i = 0; i < 9; i++)
-    {
-        activeObjects[i] = nullptr;
-    }
 }
 
 void Level::DeleteAllObjects()
@@ -311,7 +316,8 @@ void Level::DeleteAllObjects()
                 delete fields[i][j];
         }
     }
-    free(activeObjects);
+
+    this->activeObjects.clear();
 }
 
 void Level::FieldsMemoryDealloc()
@@ -327,7 +333,7 @@ void Level::FieldsMemoryDealloc()
     }
     free(fields);
 
-    free(activeObjects);
+    this->activeObjects.clear();
 }
 
 //here number of screws to collect is calculated
@@ -347,20 +353,20 @@ void Level::LoadObjects(int levelNumber)
         switch(objectChar)
         {
             case 'W':
-                AddObject(WALL, x, y);
+                CreateObject(WALL, x, y);
                 break;
             case '*':
-                AddObject(ROBBO, x, y);
+                CreateObject(ROBBO, x, y);
                 break;
             case '#':
-                AddObject(CHEST, x, y);
+                CreateObject(CHEST, x, y);
                 break;
             case '$':
-                AddObject(SCREW, x, y);
+                CreateObject(SCREW, x, y);
                 screwsToCollect++;
                 break;
             case '!':
-                AddObject(AMMO, x, y);
+                CreateObject(AMMO, x, y);
                 break;
             case '\n':
                 x = 0;
@@ -374,20 +380,12 @@ void Level::LoadObjects(int levelNumber)
     }
 }
 
-//TODO
 void Level::AddToActiveObjects(ActiveObject *object)
 {
-    for(int i = 0; i < 9; i++)
-    {
-        if(activeObjects[i] == nullptr)
-        {
-            activeObjects[i] = object;
-            break;
-        }
-    }
+    this->activeObjects.push_back(object);
 }
 
-void Level::AddObject(GameObjectName name, int x, int y)
+void Level::CreateObject(GameObjectName name, int x, int y)
 {
     switch(name)
     {

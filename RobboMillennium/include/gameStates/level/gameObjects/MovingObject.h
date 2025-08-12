@@ -14,6 +14,5 @@ public:
     virtual bool Move(Direction dir);
 
 protected:
-    Level* level;
     bool isActive = true;
 };
