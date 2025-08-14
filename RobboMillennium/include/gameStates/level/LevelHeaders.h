@@ -16,3 +16,4 @@
 #include "gameObjects/collectibles/Ammo.h"
 #include "gameObjects/activeObjects/Bullet.h"
 #include "gameObjects/staticObjects/Bush.h"
+#include "gameObjects/activeObjects/Smoke.h"

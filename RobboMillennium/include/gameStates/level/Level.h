@@ -26,6 +26,7 @@ public:
     //must be called after object change its position in own GameObject class
     void MoveObject(GameObject* object, Coordinates dest);
     void SpawnBullet(Coordinates pos, Direction trajectory);
+    void SpawnSmoke(Coordinates pos);
 
     void RemoveObject(GameObject* object);
 
@@ -37,6 +38,7 @@ public:
     void PutLevelPicture();
     void PutEmptyField(int x, int y);
     void PutObject(GameObjectName name, int x, int y);
+    void PutObject(GameObjectName name, int x, int y, int frame);
     Coordinates GetFieldPositionInPixelsOnScreen(int x, int y);
 
     //returns 1 when no more screws needed

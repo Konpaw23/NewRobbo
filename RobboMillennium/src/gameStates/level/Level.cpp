@@ -125,6 +125,15 @@ void Level::SpawnBullet(Coordinates pos, Direction trajectory)
     }
 }
 
+void Level::SpawnSmoke(Coordinates pos)
+{
+    if(GetObjectNameFromPosition(pos) == NULL_OBJECT)
+    {
+        fields[pos.y][pos.x] = new Smoke(pos, this);
+        AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[pos.y][pos.x]));
+    }
+}
+
 void Level::RemoveObject(GameObject *object)
 {
     Coordinates pos = object->GetPosition();
@@ -224,9 +233,18 @@ void Level::PutLevelPicture()
         for(int j = 0; j < width; j++)
         {
             PutEmptyField(j,i);
-            if(fields[i][j] != nullptr)
+            GameObject* obj = fields[i][j];
+            if(obj != nullptr)
             {
-                PutObject(fields[i][j]->GetObjectName(), j, i);
+                if(obj->GetObjectName() == SMOKE)
+                {
+                    Smoke* smoke = dynamic_cast<Smoke*>(obj);
+                    PutObject(obj->GetObjectName(), j, i, smoke->GetDensity());
+                }
+                else
+                {
+                    PutObject(obj->GetObjectName(), j, i);
+                }
             }
         }
     }
@@ -262,6 +280,41 @@ void Level::PutObject(GameObjectName name, int x, int y)
             break;
         case BUSH:
             m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
+            break;
+    }
+}
+
+void Level::PutObject(GameObjectName name, int x, int y, int frame)
+{
+    Coordinates renderPosition = GetFieldPositionInPixelsOnScreen(x,y);
+
+    switch(name)
+    {
+        //first textures with multiple frames
+        case SMOKE:
+            m_window->PutTexture( (TextureName)((int)LEVEL_SMOKE01 + frame) , renderPosition.x, renderPosition.y);
+            break;
+        case ROBBO:
+            m_window->PutTexture(LEVEL_ROBBO, renderPosition.x, renderPosition.y);
+            break;
+        case WALL:
+            m_window->PutTexture(LEVEL_WALL, renderPosition.x, renderPosition.y);
+            break;
+        case CHEST:
+            m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
+            break;
+        case SCREW:
+            m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
+            break;
+        case AMMO:
+            m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
+            break;
+        case BULLET:
+            m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
+            break;
+        case BUSH:
+            m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
+            break;
     }
 }
 
@@ -416,5 +469,8 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case BUSH:
             fields[y][x] = new Bush(Coordinates(x,y), this);
+            break;
+        case SMOKE:
+            fields[y][x] = new Smoke(Coordinates(x,y), this);
     }
 }

@@ -33,8 +33,7 @@ bool GameObject::IsExplosionResistant()
 
 void GameObject::Destroy()
 {
-    //TODO here should be called function that summons smoke
-    //TODO there will be 7 stages of explode for now
     //TODO make sure if in original game there are 7 explode stages
     this->level->RemoveObject(this);
+    this->level->SpawnSmoke(this->position);
 }

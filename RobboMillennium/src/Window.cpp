@@ -88,4 +88,11 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
     AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
     AddTexture(LEVEL_BUSH, "../assets/textures/level/bush.bmp");
+    AddTexture(LEVEL_SMOKE01, "../assets/textures/level/smoke/01.bmp");
+    AddTexture(LEVEL_SMOKE02, "../assets/textures/level/smoke/02.bmp");
+    AddTexture(LEVEL_SMOKE03, "../assets/textures/level/smoke/03.bmp");
+    AddTexture(LEVEL_SMOKE04, "../assets/textures/level/smoke/04.bmp");
+    AddTexture(LEVEL_SMOKE05, "../assets/textures/level/smoke/05.bmp");
+    AddTexture(LEVEL_SMOKE06, "../assets/textures/level/smoke/06.bmp");
+    AddTexture(LEVEL_SMOKE07, "../assets/textures/level/smoke/07.bmp");
 }

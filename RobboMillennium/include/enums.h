@@ -24,6 +24,13 @@ enum TextureName
     LEVEL_SCREW,
     LEVEL_AMMO,
     LEVEL_BULLET,
+    LEVEL_SMOKE01,
+    LEVEL_SMOKE02,
+    LEVEL_SMOKE03,
+    LEVEL_SMOKE04,
+    LEVEL_SMOKE05,
+    LEVEL_SMOKE06,
+    LEVEL_SMOKE07,
 
     LEVEL_PANEL,
 };
@@ -45,6 +52,7 @@ enum GameObjectName
     KEY,
     AMMO,
     BULLET,
+    SMOKE,
 
     ROBBO,
 

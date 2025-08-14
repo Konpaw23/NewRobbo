@@ -53,6 +53,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/activeObjects/Bullet.h
         src/gameStates/level/gameObjects/staticObjects/Bush.cpp
         include/gameStates/level/gameObjects/staticObjects/Bush.h
+        src/gameStates/level/gameObjects/activeObjects/Smoke.cpp
+        include/gameStates/level/gameObjects/activeObjects/Smoke.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
