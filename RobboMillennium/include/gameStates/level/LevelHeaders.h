@@ -9,6 +9,7 @@
 
 #include "gameObjects/MovingObject.h"
 #include "gameObjects/movingObjects/Chest.h"
+#include "gameObjects/movingObjects/Bomb.h"
 #include "gameObjects/ActiveObject.h"
 #include "gameObjects/activeObjects/Robbo.h"
 #include "gameObjects/Collectible.h"

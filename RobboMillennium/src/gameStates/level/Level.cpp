@@ -162,6 +162,45 @@ Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
     return new_pos;
 }
 
+std::vector<Coordinates> Level::GetFieldsAround(Coordinates position)
+{
+    std::vector<Coordinates> vector = {};
+    //TODO this will be fixed when I fix GetNextPosition
+    //TODO MAKARON
+    Direction pattern[4] = {LEFT, RIGHT, UP, DOWN};
+    Coordinates* buffer = nullptr;
+    for(int i = 0; i < 4; i++)
+    {
+        buffer = this->GetNextPosition(position, pattern[i]);
+        if(buffer != nullptr)
+        {
+            vector.push_back(*buffer);
+
+            //if left or right from starting position is available, we check also up and down from this
+            //so all 4 corners also will be included
+            if(pattern[i] == LEFT || pattern[i] == RIGHT)
+            {
+                Coordinates cords = *buffer;
+                delete buffer;
+                buffer = this->GetNextPosition(cords, UP);
+                if(buffer != nullptr)
+                {
+                    vector.push_back(*buffer);
+                    delete buffer;
+                }
+
+                buffer = this->GetNextPosition(cords, DOWN);
+                if(buffer != nullptr)
+                {
+                    vector.push_back(*buffer);
+                    delete buffer;
+                }
+            }
+        }
+    }
+    return vector;
+}
+
 int Level::GetScrewsNumber()
 {
     return screwsToCollect;
@@ -225,7 +264,7 @@ void Level::UpdateLevelPosition(double deltaTime)
 
 void Level::PutLevelPicture()
 {
-    for(int i = 0 + levelRenderingUpperPosition/FIELD_SIZE; i <= levelRenderingUpperPosition/FIELD_SIZE + 10 ; i++)
+    for(int i = 0 + levelRenderingUpperPosition/FIELD_SIZE; i <= levelRenderingUpperPosition/FIELD_SIZE + 10 && i < height; i++)
     {
         for(int j = 0; j < width; j++)
         {
@@ -266,6 +305,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case CHEST:
             m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
             break;
+        case BOMB:
+            m_window->PutTexture(LEVEL_BOMB, renderPosition.x, renderPosition.y);
+            break;
         case SCREW:
             m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
             break;
@@ -291,26 +333,8 @@ void Level::PutObject(GameObjectName name, int x, int y, int frame)
         case SMOKE:
             m_window->PutTexture( (TextureName)((int)LEVEL_SMOKE01 + frame) , renderPosition.x, renderPosition.y);
             break;
-        case ROBBO:
-            m_window->PutTexture(LEVEL_ROBBO, renderPosition.x, renderPosition.y);
-            break;
-        case WALL:
-            m_window->PutTexture(LEVEL_WALL, renderPosition.x, renderPosition.y);
-            break;
-        case CHEST:
-            m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
-            break;
-        case SCREW:
-            m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
-            break;
-        case AMMO:
-            m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
-            break;
-        case BULLET:
-            m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
-            break;
-        case BUSH:
-            m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
+        default:
+            this->PutObject(name, x, y);
             break;
     }
 }
@@ -414,6 +438,9 @@ void Level::LoadObjects(int levelNumber)
             case '#':
                 CreateObject(CHEST, x, y);
                 break;
+            case '@':
+                CreateObject(BOMB, x, y);
+                break;
             case '$':
                 CreateObject(SCREW, x, y);
                 screwsToCollect++;
@@ -460,6 +487,10 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case CHEST:
             fields[y][x] = new Chest(Coordinates(x,y), this);
+            break;
+        case BOMB:
+            fields[y][x] = new Bomb(Coordinates(x,y), this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
         case SCREW:
             fields[y][x] = new Screw(Coordinates(x,y), this);

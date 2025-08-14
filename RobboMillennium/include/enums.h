@@ -21,6 +21,7 @@ enum TextureName
     LEVEL_BUSH,
     LEVEL_WALL,
     LEVEL_CHEST,
+    LEVEL_BOMB,
     LEVEL_SCREW,
     LEVEL_AMMO,
     LEVEL_BULLET,

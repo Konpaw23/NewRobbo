@@ -18,7 +18,7 @@ public:
     Coordinates GetPosition();
     bool IsProjectileResistant();
     bool IsExplosionResistant();
-    void Destroy();
+    virtual void Destroy();
 
 protected:
     Coordinates position;

@@ -31,6 +31,7 @@ public:
     void RemoveObject(GameObject* object);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
+    std::vector<Coordinates> GetFieldsAround(Coordinates position);
     int GetScrewsNumber();
 
     void UpdateLevelPosition(double deltaTime);

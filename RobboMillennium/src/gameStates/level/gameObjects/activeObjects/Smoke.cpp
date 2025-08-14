@@ -9,7 +9,7 @@ Smoke::Smoke(Coordinates position, Level *level) : GameObject(SMOKE, position, f
 
 void Smoke::Run()
 {
-    if(density >= 0)
+    if(density > 0)
     {
         this->density--;
     }
