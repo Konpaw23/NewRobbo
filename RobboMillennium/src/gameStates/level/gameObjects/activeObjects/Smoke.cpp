@@ -1,8 +1,8 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Smoke.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Smoke::Smoke(Coordinates position, Level *level) : GameObject(SMOKE, position, true, false, level), ActiveObject(SMOKE, position, true, false, level),
-                                                   StaticObject(SMOKE, position, true, false, level), density(6)
+Smoke::Smoke(Coordinates position, Level *level) : GameObject(SMOKE, position, false, true, level), ActiveObject(SMOKE, position, false, true, level),
+                                                   StaticObject(SMOKE, position, false, true, level), density(6)
 {
     ;
 }
