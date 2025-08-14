@@ -6,6 +6,7 @@ Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position,
     MovingObject(ROBBO, position, false, false, level), GameObject(ROBBO, position, false, false, level)
 {
     this->ammo = 0;
+    this->shootDelay = 0;
 }
 
 void Robbo::SetAction(RobboAction action)
@@ -61,15 +62,20 @@ void Robbo::AddAmmo()
 
 void Robbo::Shot(Direction dir)
 {
-    if(ammo > 0)
+    if(ammo > 0 && shootDelay == 0)
     {
         ammo--;
+        shootDelay += 3;
         level->SpawnBullet(position.GetNext(dir), dir);
     }
 }
 
 void Robbo::Run()
 {
+    if(shootDelay > 0)
+    {
+        shootDelay--;
+    }
     switch(action)
     {
         case GO_LEFT:

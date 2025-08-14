@@ -17,5 +17,6 @@ public:
     void Run() override;
 private:
     int ammo;
+    int shootDelay;
     RobboAction action;
 };
