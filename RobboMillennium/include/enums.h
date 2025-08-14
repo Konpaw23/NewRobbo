@@ -18,6 +18,7 @@ enum TextureName
 
     LEVEL_FLOOR,
     LEVEL_ROBBO,
+    LEVEL_BUSH,
     LEVEL_WALL,
     LEVEL_CHEST,
     LEVEL_SCREW,
@@ -31,7 +32,7 @@ enum GameObjectName
 {
     WALL,
     DOOR,
-    OBSTACLE,
+    BUSH,
     MIRROR,
     SHIP,
 

@@ -128,7 +128,7 @@ void Level::SpawnBullet(Coordinates pos, Direction trajectory)
 void Level::RemoveObject(GameObject *object)
 {
     Coordinates pos = object->GetPosition();
-    fields[pos.y][pos.x] = nullptr;
+    this->fields[pos.y][pos.x] = nullptr;
 
     //TODO optimize finding activeObject
     ActiveObject* active = dynamic_cast<ActiveObject*>(object);
@@ -259,6 +259,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
             break;
         case BULLET:
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
+            break;
+        case BUSH:
+            m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
     }
 }
 
@@ -368,6 +371,9 @@ void Level::LoadObjects(int levelNumber)
             case '!':
                 CreateObject(AMMO, x, y);
                 break;
+            case '%':
+                CreateObject(BUSH, x, y);
+                break;
             case '\n':
                 x = 0;
                 y++;
@@ -397,7 +403,7 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             }
             break;
         case WALL:
-            fields[y][x] = new Wall(Coordinates(x,y));
+            fields[y][x] = new Wall(Coordinates(x,y), this);
             break;
         case CHEST:
             fields[y][x] = new Chest(Coordinates(x,y), this);
@@ -407,5 +413,8 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case AMMO:
             fields[y][x] = new Ammo(Coordinates(x,y), this);
+            break;
+        case BUSH:
+            fields[y][x] = new Bush(Coordinates(x,y), this);
     }
 }

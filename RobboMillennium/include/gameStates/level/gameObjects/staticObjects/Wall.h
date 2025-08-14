@@ -5,5 +5,5 @@
 class Wall : public StaticObject
 {
 public:
-    Wall(Coordinates position);
+    Wall(Coordinates position, Level* level);
 };

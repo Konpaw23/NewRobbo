@@ -87,4 +87,5 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_AMMO, "../assets/textures/level/ammo.bmp");
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
     AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
+    AddTexture(LEVEL_BUSH, "../assets/textures/level/bush.bmp");
 }
