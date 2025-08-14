@@ -73,14 +73,7 @@ GameObject* Level::GetObjectFromPosition(Coordinates pos)
 
 MovingObject* Level::GetMovingObjectFromPosition(int x, int y)
 {
-    if(typeid(fields[y][x]) == typeid(Chest))
-    {
-        return dynamic_cast<MovingObject*>(fields[y][x]);
-    }
-    else
-    {
-        return nullptr;
-    }
+    return dynamic_cast<MovingObject*>(fields[y][x]);
 }
 
 GameObjectName Level::GetObjectNameFromPosition(int x, int y)
@@ -122,6 +115,10 @@ void Level::SpawnBullet(Coordinates pos, Direction trajectory)
     {
         fields[pos.y][pos.x] = new Bullet(pos, trajectory, this);
         AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[pos.y][pos.x]));
+    }
+    else if(!fields[pos.y][pos.x]->IsProjectileResistant())
+    {
+        fields[pos.y][pos.x]->Destroy();
     }
 }
 
@@ -431,6 +428,9 @@ void Level::LoadObjects(int levelNumber)
                 x = 0;
                 y++;
                 break;
+            default:
+                CreateObject(NULL_OBJECT, x, y);
+                break;
         }
         if(objectChar != '\n')
         {
@@ -472,5 +472,8 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case SMOKE:
             fields[y][x] = new Smoke(Coordinates(x,y), this);
+            break;
+        case NULL_OBJECT:
+            break;
     }
 }
