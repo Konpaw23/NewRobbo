@@ -13,22 +13,28 @@ Level::~Level()
     FieldsMemoryDealloc();
 }
 
-//TODO
+//TODO make buffer for activeObjects to delete and objects that will be added in next turn
 //run every object in level in order
 void Level::RunSequence()
 {
-    for(int i = 0; i < activeObjects.size(); i++)
+    this->turnNumber++;
+    std::vector<int> toDelete = {};
+
+    //because objects can be added after Object turn
+    std::vector<ActiveObject*> initialVector(this->activeObjects);
+    for(int i = 0; i < initialVector.size(); i++)
     {
-        if(activeObjects[i] != nullptr)
+        if(initialVector[i] != nullptr)
         {
-            activeObjects[i]->Run();
-        }
-        else
-        {
-            break;
+            initialVector[i]->Run();
         }
     }
     player->Run();
+}
+
+int Level::GetTurnNumber()
+{
+    return this->turnNumber;
 }
 
 bool Level::IsPlayerAlive()
@@ -469,6 +475,14 @@ void Level::LoadObjects(int levelNumber)
 void Level::AddToActiveObjects(ActiveObject *object)
 {
     this->activeObjects.push_back(object);
+}
+
+void Level::RemoveFromActiveObjects(int index)
+{
+    if(index < this->activeObjects.size())
+    {
+        activeObjects.erase(activeObjects.begin() + index);
+    }
 }
 
 void Level::CreateObject(GameObjectName name, int x, int y)

@@ -9,6 +9,7 @@ public:
     ~Level();
 
     void RunSequence();
+    int GetTurnNumber();
 
     bool IsPlayerAlive();
     void SetPlayerAction(RobboAction action);
@@ -53,11 +54,14 @@ private:
 
     void LoadObjects(int levelNumber);
     void AddToActiveObjects(class ActiveObject* object);
+    void RemoveFromActiveObjects(int index);
 
     int screwsToCollect;
 
     int height;
     int width;
+
+    int turnNumber = 0;
 
     class Robbo* player = nullptr;
 

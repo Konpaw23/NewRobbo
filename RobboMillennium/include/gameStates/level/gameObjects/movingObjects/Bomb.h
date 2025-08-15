@@ -11,6 +11,6 @@ public:
 
 private:
     void SetToExplode();
-    bool explode = false;
+    int explodeTurn = false;
     void Explode();
 };

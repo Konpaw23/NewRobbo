@@ -14,7 +14,7 @@ void Bomb::Destroy()
 
 void Bomb::Run()
 {
-    if(explode)
+    if(explodeTurn == this->level->GetTurnNumber())
     {
         Explode();
     }
@@ -22,7 +22,7 @@ void Bomb::Run()
 
 void Bomb::SetToExplode()
 {
-    this->explode = true;
+    this->explodeTurn = this->level->GetTurnNumber() + 1;
 }
 
 void Bomb::Explode()
