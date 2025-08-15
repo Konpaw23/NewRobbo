@@ -1,5 +1,6 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Robbo.h"
 #include "../../../../../include/gameStates/level/Level.h"
+#include "../../../../../include/gameStates/level/gameObjects/staticObjects/Door.h"
 
 //TODO when two constructors from both ActiveObject and MovingObject called, redundance of data
 Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level),
@@ -23,29 +24,36 @@ bool Robbo::Move(Direction dir)
         Coordinates* dest = this->level->GetNextPosition(this->position, dir);
         if(dest != nullptr)
         {
-            GameObject* object = level->GetObjectFromPosition(*dest);
-            MovingObject* movingObject = dynamic_cast<MovingObject*>(object);
+            GameObject* other = level->GetObjectFromPosition(*dest);
+            MovingObject* movingObject = dynamic_cast<MovingObject*>(other);
             if(movingObject != nullptr)
             {
                 if(movingObject->Move(dir))
                 {
                     //can use this function because movable object is moved already (inside if statement above)
                     MovingObject::Move(dir);
+                    delete dest;
                     return true;
                 }
             }
-        }
 
-        //screws
-        GameObject* other = level->GetObjectFromPosition(*dest);
-        Collectible* item = dynamic_cast<Collectible*>(other);
-        if(item != nullptr)
-        {
-            item->PickUp(this);
-            level->MoveObject(this, *dest);
-            this->position = *dest;
-            delete dest;
-            return true;
+            //screws & keys
+            Collectible* item = dynamic_cast<Collectible*>(other);
+            if(item != nullptr)
+            {
+                item->PickUp(this);
+                level->MoveObject(this, *dest);
+                this->position = *dest;
+                delete dest;
+                return true;
+            }
+
+            Door* door = dynamic_cast<Door*>(other);
+            if(door != nullptr && HasKey())
+            {
+                door->Open(this);
+            }
+
         }
     }
     return false;
@@ -54,6 +62,27 @@ bool Robbo::Move(Direction dir)
 void Robbo::GiveScrew()
 {
     this->level->DecreaseScrewsNumber();
+}
+
+void Robbo::GiveKey()
+{
+    this->keys++;
+}
+
+bool Robbo::HasKey()
+{
+    if(keys > 0)
+        return true;
+    else
+        return false;
+}
+
+void Robbo::UseKey()
+{
+    if(HasKey())
+    {
+        keys--;
+    }
 }
 
 void Robbo::AddAmmo()

@@ -9,5 +9,5 @@ Key::Key(Coordinates position, Level* level) : GameObject(KEY, position, false, 
 void Key::PickUp(Robbo *other)
 {
     other->GiveKey();
-    Collectible::PickUp(other)
+    Collectible::PickUp(other);
 }

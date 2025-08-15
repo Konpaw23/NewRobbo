@@ -308,6 +308,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case WALL:
             m_window->PutTexture(LEVEL_WALL, renderPosition.x, renderPosition.y);
             break;
+        case DOOR:
+            m_window->PutTexture(LEVEL_DOOR, renderPosition.x, renderPosition.y);
+            break;
         case CHEST:
             m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
             break;
@@ -316,6 +319,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
             break;
         case SCREW:
             m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
+            break;
+        case KEY:
+            m_window->PutTexture(LEVEL_KEY, renderPosition.x, renderPosition.y);
             break;
         case AMMO:
             m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
@@ -438,6 +444,9 @@ void Level::LoadObjects(int levelNumber)
             case 'W':
                 CreateObject(WALL, x, y);
                 break;
+            case '|':
+                CreateObject(DOOR, x, y);
+                break;
             case '*':
                 CreateObject(ROBBO, x, y);
                 break;
@@ -450,6 +459,9 @@ void Level::LoadObjects(int levelNumber)
             case '$':
                 CreateObject(SCREW, x, y);
                 screwsToCollect++;
+                break;
+            case '=':
+                CreateObject(KEY, x, y);
                 break;
             case '!':
                 CreateObject(AMMO, x, y);
@@ -499,6 +511,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case WALL:
             fields[y][x] = new Wall(Coordinates(x,y), this);
             break;
+        case DOOR:
+            fields[y][x] = new Door(Coordinates(x,y), this);
+            break;
         case CHEST:
             fields[y][x] = new Chest(Coordinates(x,y), this);
             break;
@@ -508,6 +523,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case SCREW:
             fields[y][x] = new Screw(Coordinates(x,y), this);
+            break;
+        case KEY:
+            fields[y][x] = new Key(Coordinates(x,y), this);
             break;
         case AMMO:
             fields[y][x] = new Ammo(Coordinates(x,y), this);

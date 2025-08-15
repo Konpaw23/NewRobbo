@@ -59,6 +59,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/movingObjects/Bomb.h
         src/gameStates/level/gameObjects/collectibles/Key.cpp
         include/gameStates/level/gameObjects/collectibles/Key.h
+        src/gameStates/level/gameObjects/staticObjects/Door.cpp
+        include/gameStates/level/gameObjects/staticObjects/Door.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)

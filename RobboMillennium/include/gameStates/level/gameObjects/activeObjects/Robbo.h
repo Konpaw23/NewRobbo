@@ -12,6 +12,8 @@ public:
     bool Move(Direction dir) override;
     void GiveScrew();
     void GiveKey();
+    bool HasKey();
+    void UseKey();
     void AddAmmo();
     void Shot(Direction dir);
 
