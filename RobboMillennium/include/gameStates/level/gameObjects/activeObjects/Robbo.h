@@ -11,11 +11,13 @@ public:
 
     bool Move(Direction dir) override;
     void GiveScrew();
+    void GiveKey();
     void AddAmmo();
     void Shot(Direction dir);
 
     void Run() override;
 private:
+    int keys;
     int ammo;
     int shootDelay;
     RobboAction action;

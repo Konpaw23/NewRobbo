@@ -5,6 +5,7 @@
 Robbo::Robbo(Coordinates position, Level* level) : ActiveObject(ROBBO, position, false, false, level),
     MovingObject(ROBBO, position, false, false, level), GameObject(ROBBO, position, false, false, level)
 {
+    this->keys = 0;
     this->ammo = 0;
     this->shootDelay = 0;
 }
