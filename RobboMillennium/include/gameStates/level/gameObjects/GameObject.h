@@ -13,6 +13,7 @@ class GameObject
 {
 public:
     GameObject(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, Level* level);
+    GameObject();
     virtual ~GameObject();
     GameObjectName GetObjectName();
     Coordinates GetPosition();

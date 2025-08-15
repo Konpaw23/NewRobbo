@@ -6,6 +6,10 @@ GameObject::GameObject(GameObjectName objectName, Coordinates position, bool exp
 {
     ;
 }
+GameObject::GameObject() : objectName(NULL_OBJECT), position(-1, -1), explosion_resistant(true), projectile_resistant(false), level(nullptr)
+{
+    ;
+}
 GameObject::~GameObject()
 {
     ;

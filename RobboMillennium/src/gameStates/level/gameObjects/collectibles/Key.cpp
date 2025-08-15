@@ -1,7 +1,6 @@
 #include "../../../../../include/gameStates/level/gameObjects/collectibles/Key.h"
 
-Key::Key(Coordinates position, Level* level) : GameObject(KEY, position, false, true, level),
-    Collectible(KEY, position, false, true, level)
+Key::Key(Coordinates position, Level* level) : GameObject(KEY, position, false, true, level)
 {
     ;
 }

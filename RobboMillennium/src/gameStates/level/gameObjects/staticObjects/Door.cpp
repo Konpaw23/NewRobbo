@@ -1,7 +1,7 @@
 #include "../../../../../include/gameStates/level/gameObjects/staticObjects/Door.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Door::Door(Coordinates position, Level *level) : GameObject(DOOR, position, false, true, level), StaticObject(DOOR, position, false, true, level)
+Door::Door(Coordinates position, Level *level) : GameObject(DOOR, position, false, true, level)
 {
     ;
 }

@@ -1,6 +1,6 @@
 #include "../../../../../include/gameStates/level/gameObjects/collectibles/Ammo.h"
 
-Ammo::Ammo(Coordinates position, Level* level) : Collectible(AMMO, position, false, false, level), GameObject(AMMO, position, false, false, level)
+Ammo::Ammo(Coordinates position, Level* level) : GameObject(AMMO, position, false, false, level)
 {
     ;
 }

@@ -7,6 +7,6 @@
 class ActiveObject : virtual public GameObject
 {
 public:
-    ActiveObject(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, class Level* level);
+    ActiveObject();
     virtual void Run() = 0;
 };

@@ -3,9 +3,9 @@
 #include "StaticObject.h"
 #include "activeObjects/Robbo.h"
 
-class Collectible : public StaticObject
+class Collectible : virtual public StaticObject
 {
 public:
-    Collectible(GameObjectName objectName, Coordinates position, bool explosion_resistant, bool projectile_resistant, class Level* level);
+    Collectible();
     virtual void PickUp(Robbo* other);
 };
