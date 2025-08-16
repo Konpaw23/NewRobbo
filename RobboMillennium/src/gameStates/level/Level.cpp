@@ -18,9 +18,8 @@ Level::~Level()
 void Level::RunSequence()
 {
     this->turnNumber++;
-    std::vector<int> toDelete = {};
 
-    //because objects can be added after Object turn
+    //copy of vector because objects can be added after Object turn
     std::vector<ActiveObject*> initialVector(this->activeObjects);
     for(int i = 0; i < initialVector.size(); i++)
     {
@@ -30,6 +29,8 @@ void Level::RunSequence()
         }
     }
     player->Run();
+
+    this->DeleteDestroyedObjects();
 }
 
 int Level::GetTurnNumber()
@@ -151,9 +152,14 @@ void Level::RemoveObject(GameObject *object)
             if(activeObjects[i] == active)
             {
                 activeObjects.erase(activeObjects.begin() + i);
+                break;
             }
         }
     }
+    //TODO it is unnecessary for every object (it works only for Robbo when checking if is active)
+    //TODO other objects are deleted anyway in DeleteDestroyedObjects
+    object->SetToDelete();
+    objectsToDelete.push_back(object);
 }
 
 //TODO I don't like this func I should make it works in other way
@@ -495,6 +501,16 @@ void Level::RemoveFromActiveObjects(int index)
     {
         activeObjects.erase(activeObjects.begin() + index);
     }
+}
+
+void Level::DeleteDestroyedObjects()
+{
+    for(int i = 0; i < objectsToDelete.size(); i++)
+    {
+        if(!objectsToDelete[i]->IsActive())
+            delete objectsToDelete[i];
+    }
+    objectsToDelete.clear();
 }
 
 void Level::CreateObject(GameObjectName name, int x, int y)

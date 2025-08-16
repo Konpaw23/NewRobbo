@@ -9,5 +9,4 @@ Collectible::Collectible() : StaticObject(), GameObject()
 void Collectible::PickUp(Robbo* other)
 {
     this->level->RemoveObject(this);
-    delete this;
 }

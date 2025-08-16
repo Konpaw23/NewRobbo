@@ -7,6 +7,9 @@
  * (both will be activated after object moves??
  */
 
+//TODO isActive may not be used in every objects, maybe only by Robbo cause Level checks if robbo is active
+//TODO but it also may not be necessary for Robbo to have this field when it would be enough to check if Robbo is not deleted object
+
 class Level;
 
 class GameObject
@@ -19,6 +22,8 @@ public:
     Coordinates GetPosition();
     bool IsProjectileResistant();
     bool IsExplosionResistant();
+    bool IsActive();
+    void SetToDelete();
     virtual void Destroy();
 
 protected:
@@ -29,6 +34,8 @@ protected:
     const bool projectile_resistant;
 
     Level* level;
+
+    bool isActive = true;
 
 private:
     GameObjectName objectName;

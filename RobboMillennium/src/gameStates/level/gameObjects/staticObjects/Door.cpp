@@ -12,6 +12,5 @@ void Door::Open(Robbo* player)
     {
         player->UseKey();
         this->level->RemoveObject(this);
-        delete this;
     }
 }

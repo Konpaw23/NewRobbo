@@ -55,6 +55,7 @@ private:
     void LoadObjects(int levelNumber);
     void AddToActiveObjects(class ActiveObject* object);
     void RemoveFromActiveObjects(int index);
+    void DeleteDestroyedObjects();
 
     int screwsToCollect;
 
@@ -67,6 +68,11 @@ private:
 
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;
+
+    //TODO idk if this is proper way to delete objects that is destroyed
+    //could not do it destroy in RemoveObject because some objects can generate smoke after being destroyed
+    //also deleting object in own class isn't clear especially when objects are created in Level class
+    std::vector<GameObject*> objectsToDelete = {};
 
     void CreateObject(GameObjectName name, int x, int y);
 

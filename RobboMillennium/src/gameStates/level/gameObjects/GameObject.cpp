@@ -35,6 +35,16 @@ bool GameObject::IsExplosionResistant()
     return explosion_resistant;
 }
 
+bool GameObject::IsActive()
+{
+    return isActive;
+}
+
+void GameObject::SetToDelete()
+{
+    this->isActive = false;
+}
+
 void GameObject::Destroy()
 {
     //TODO make sure if in original game there are 7 explode stages

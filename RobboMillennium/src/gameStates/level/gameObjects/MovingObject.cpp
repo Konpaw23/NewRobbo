@@ -5,11 +5,6 @@ MovingObject::MovingObject() : GameObject()
     ;
 }
 
-bool MovingObject::IsActive()
-{
-    return isActive;
-}
-
 //TODO I don't like this func
 bool MovingObject::Move(Direction dir)
 {
