@@ -21,6 +21,7 @@ enum TextureName
     LEVEL_BUSH,
     LEVEL_WALL,
     LEVEL_DOOR,
+    LEVEL_TELEPORT,
     LEVEL_CHEST,
     LEVEL_BOMB,
     LEVEL_SCREW,
@@ -43,8 +44,8 @@ enum GameObjectName
 {
     WALL,
     DOOR,
+    TELEPORT,
     BUSH,
-    MIRROR,
     SHIP,
 
     CHEST,

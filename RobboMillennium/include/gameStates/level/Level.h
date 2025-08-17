@@ -68,8 +68,11 @@ private:
 
     class Robbo* player = nullptr;
 
+
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;
+
+    std::vector<TeleportGroup*> teleportGroups = {};
 
     //TODO idk if this is proper way to delete objects that is destroyed
     //could not do it destroy in RemoveObject because some objects can generate smoke after being destroyed

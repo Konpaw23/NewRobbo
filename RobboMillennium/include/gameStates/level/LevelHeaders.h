@@ -7,7 +7,8 @@
 #include "gameObjects/StaticObject.h"
 #include "gameObjects/StaticObjects/Wall.h"
 #include "gameObjects/staticObjects/Door.h"
-
+#include "gameObjects/staticObjects/Teleport.h"
+#include "gameObjects/staticObjects/TeleportGroup.h"
 #include "gameObjects/MovingObject.h"
 #include "gameObjects/movingObjects/Chest.h"
 #include "gameObjects/movingObjects/Bomb.h"
