@@ -32,6 +32,9 @@ public:
     void RemoveObject(GameObject* object);
     //to make sure only robbo can call this function
     void DeselectRobbo(class Robbo* robbo);
+    void HideRobbo();
+    void ShowRobbo();
+
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
@@ -72,7 +75,8 @@ private:
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;
 
-    std::vector<TeleportGroup*> teleportGroups = {};
+    //TODO mirrorGroups may not be used
+    std::vector<MirrorGroup*> mirrorGroups = {};
 
     //TODO idk if this is proper way to delete objects that is destroyed
     //could not do it destroy in RemoveObject because some objects can generate smoke after being destroyed

@@ -53,6 +53,8 @@ bool Robbo::Move(Direction dir)
                 door->Open(this);
             }
 
+
+
         }
     }
     return false;

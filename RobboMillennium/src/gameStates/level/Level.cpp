@@ -173,6 +173,24 @@ void Level::DeselectRobbo(Robbo *robbo)
     }
 }
 
+void Level::HideRobbo()
+{
+    Coordinates pos = this->player->GetPosition();
+    if(this->player == this->fields[pos.y][pos.x])
+    {
+        this->fields[pos.y][pos.x] = nullptr;
+    }
+}
+
+void Level::ShowRobbo()
+{
+    Coordinates pos = this->player->GetPosition();
+    if(this->fields[pos.y][pos.x] == nullptr)
+    {
+        this->fields[pos.y][pos.x] = this->player;
+    }
+}
+
 //TODO I don't like this func I should make it works in other way
 //returns nullptr when position out of range
 Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
