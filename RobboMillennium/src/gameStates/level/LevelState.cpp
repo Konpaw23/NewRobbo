@@ -111,6 +111,7 @@ void LevelState::Update()
         }
         else
         {
+            //TODO reset level method
             delete level;
             level = new Level(m_window, levelNumber);
         }

@@ -19,6 +19,7 @@ public:
     void Shot(Direction dir);
 
     void Run() override;
+    void Destroy() override;
 private:
     int keys;
     int ammo;

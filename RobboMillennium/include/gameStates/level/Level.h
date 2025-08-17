@@ -30,6 +30,8 @@ public:
     void SpawnSmoke(Coordinates pos);
 
     void RemoveObject(GameObject* object);
+    //to make sure only robbo can call this function
+    void DeselectRobbo(class Robbo* robbo);
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);

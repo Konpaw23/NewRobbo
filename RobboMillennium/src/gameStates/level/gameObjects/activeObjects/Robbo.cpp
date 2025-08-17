@@ -133,3 +133,9 @@ void Robbo::Run()
             break;
     }
 }
+
+void Robbo::Destroy()
+{
+    this->level->DeselectRobbo(this);
+    GameObject::Destroy();
+}

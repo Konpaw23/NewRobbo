@@ -28,7 +28,10 @@ void Level::RunSequence()
             initialVector[i]->Run();
         }
     }
-    player->Run();
+    if(IsPlayerAlive())
+    {
+        player->Run();
+    }
 
     this->DeleteDestroyedObjects();
 }
@@ -162,6 +165,14 @@ void Level::RemoveObject(GameObject *object)
     objectsToDelete.push_back(object);
 }
 
+void Level::DeselectRobbo(Robbo *robbo)
+{
+    if(robbo == this->player)
+    {
+        this->player = nullptr;
+    }
+}
+
 //TODO I don't like this func I should make it works in other way
 //returns nullptr when position out of range
 Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
@@ -220,6 +231,11 @@ int Level::GetScrewsNumber()
 
 void Level::UpdateLevelPosition(double deltaTime)
 {
+    //TODO camera freezes when Robbo dies!!!
+    if(this->player == nullptr)
+    {
+        return;
+    }
     if(moveLevelPositionVertically == 0)
     {
         if(levelRenderingUpperPosition > 0 && player->GetPosition().y - (levelRenderingUpperPosition/FIELD_SIZE) <= 1)
