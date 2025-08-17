@@ -1,4 +1,5 @@
-#include "../../../../include/gameStates/level/LevelHeaders.h"
+#include "../../../../include/gameStates/level/gameObjects/MovingObject.h"
+#include "../../../../include/gameStates/level/Level.h"
 
 MovingObject::MovingObject() : GameObject()
 {
