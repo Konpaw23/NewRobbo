@@ -51,13 +51,28 @@ bool Robbo::Move(Direction dir)
             if(door != nullptr && HasKey())
             {
                 door->Open(this);
+                return true;
             }
 
-
-
+            Mirror* mirror = dynamic_cast<Mirror*>(other);
+            if(mirror != nullptr)
+            {
+                mirror->Enter(this, dir);
+                return true;
+            }
         }
     }
     return false;
+}
+
+void Robbo::Teleport(Coordinates newPosition)
+{
+    //Robbo should be teleported only if he is hidden (after entering mirror)
+    if(!level->IsRobboVisible())
+    {
+        this->position = newPosition;
+        this->level->ShowRobbo();
+    }
 }
 
 void Robbo::GiveScrew()

@@ -4,6 +4,7 @@
 class Robbo;
 class MirrorGroup;
 
+//TODO teleporting still can have problems when all ways blocked after entering mirror
 class Mirror : public StaticObject
 {
 public:

@@ -34,7 +34,7 @@ public:
     void DeselectRobbo(class Robbo* robbo);
     void HideRobbo();
     void ShowRobbo();
-
+    bool IsRobboVisible();
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
@@ -70,7 +70,7 @@ private:
     int turnNumber = 0;
 
     class Robbo* player = nullptr;
-
+    bool isRobboVisible = true;
 
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;

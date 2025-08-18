@@ -179,6 +179,7 @@ void Level::HideRobbo()
     if(this->player == this->fields[pos.y][pos.x])
     {
         this->fields[pos.y][pos.x] = nullptr;
+        this->isRobboVisible = false;
     }
 }
 
@@ -188,7 +189,13 @@ void Level::ShowRobbo()
     if(this->fields[pos.y][pos.x] == nullptr)
     {
         this->fields[pos.y][pos.x] = this->player;
+        this->isRobboVisible = true;
     }
+}
+
+bool Level::IsRobboVisible()
+{
+    return this->isRobboVisible;
 }
 
 //TODO I don't like this func I should make it works in other way
@@ -198,6 +205,7 @@ Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
     Coordinates* new_pos = new Coordinates(current.GetNext(dir));
     if(new_pos->x < 0 || new_pos->x >= width || new_pos->y < 0 || new_pos->y >= height)
     {
+        delete new_pos;
         return nullptr;
     }
     return new_pos;

@@ -19,9 +19,6 @@ void Mirror::Enter(Robbo *robbo, Direction out)
 
 bool Mirror::Exit(Robbo *robbo, Direction out)
 {
-    //TODO check if there is empty field next to mirror (start with Direction out, next right, left, and in other side)
-    //TODO spawn robbo on empty field and return true
-    //TODO return false when no empty field
     Direction possibleFields[4] = {};
     switch(out)
     {
@@ -50,6 +47,20 @@ bool Mirror::Exit(Robbo *robbo, Direction out)
             possibleFields[3] = UP;
             break;
     }
-    if(this->level->GetObjectFromPosition(this->position.GetNext(out)) == nullptr)
 
+    for(int i = 0; i < 4; i++)
+    {
+        Coordinates* outPosition = this->level->GetNextPosition(this->position, possibleFields[i]);
+        if(outPosition != nullptr)
+        {
+            if(this->level->GetObjectFromPosition(*outPosition) == nullptr)
+            {
+                robbo->Teleport(*outPosition);
+                delete outPosition;
+                return true;
+            }
+            delete outPosition;
+        }
+    }
+    return false;
 }

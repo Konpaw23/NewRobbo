@@ -11,6 +11,7 @@ public:
     void SetAction(RobboAction action);
 
     bool Move(Direction dir) override;
+    void Teleport(Coordinates position);
     void GiveScrew();
     void GiveKey();
     bool HasKey();
