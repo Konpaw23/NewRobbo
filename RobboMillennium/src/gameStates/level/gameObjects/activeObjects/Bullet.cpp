@@ -11,7 +11,7 @@ void Bullet::Run()
     if(!this->Move(trajectory))
     {
         GameObject* other = this->level->GetObjectFromPosition(this->GetPosition().GetNext(trajectory));
-        if(!other->IsProjectileResistant())
+        if(other != nullptr && !other->IsProjectileResistant())
         {
             other->Destroy();
         }

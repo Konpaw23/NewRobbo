@@ -88,10 +88,17 @@ MovingObject* Level::GetMovingObjectFromPosition(int x, int y)
 
 GameObjectName Level::GetObjectNameFromPosition(int x, int y)
 {
-    if(fields[y][x] == nullptr)
-        return NULL_OBJECT;
+    if(x < 0 || y < 0 || x >= width || y >= height)
+    {
+        return WALL;
+    }
     else
-        return fields[y][x]->GetObjectName();
+    {
+        if(fields[y][x] == nullptr)
+            return NULL_OBJECT;
+        else
+            return fields[y][x]->GetObjectName();
+    }
 }
 
 GameObjectName Level::GetObjectNameFromPosition(Coordinates pos)
@@ -121,6 +128,10 @@ void Level::MoveObject(GameObject *object, Coordinates dest)
 
 void Level::SpawnBullet(Coordinates pos, Direction trajectory)
 {
+    if(pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height)
+    {
+        return;
+    }
     if(GetObjectNameFromPosition(pos) == NULL_OBJECT)
     {
         fields[pos.y][pos.x] = new Bullet(pos, trajectory, this);
