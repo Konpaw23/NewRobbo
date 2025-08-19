@@ -1,6 +1,6 @@
 WWWWWWWWWWWWWWWW
 W   W   W$ W   W
-W * W   WW W   W
+W * W 0 WW W 0 W
 W W W    W W   W
 W # WW #   W W W
 W    W WWWWW W W

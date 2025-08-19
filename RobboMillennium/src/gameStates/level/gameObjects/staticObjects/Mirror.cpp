@@ -5,10 +5,20 @@
 
 
 //TODO is mirror explosion resistant?
-Mirror::Mirror(Coordinates position, Level* level, MirrorGroup* group, int id) :
+Mirror::Mirror(Coordinates position, Level* level, MirrorGroup* group) :
     GameObject(MIRROR, position, true, true, level), connectedMirrors(group)
 {
-    ;
+    this->id = connectedMirrors->GetGroupSize();
+    this->connectedMirrors->AddMirror(this);
+}
+
+Mirror::~Mirror()
+{
+    connectedMirrors->RemoveMirror(this->id);
+    if(connectedMirrors->GetGroupSize() == 0)
+    {
+        delete connectedMirrors;
+    }
 }
 
 void Mirror::Enter(Robbo *robbo, Direction out)

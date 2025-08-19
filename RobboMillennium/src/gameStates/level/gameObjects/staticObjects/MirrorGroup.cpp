@@ -1,15 +1,13 @@
 #include "../../../../../include/gameStates/level/gameObjects/staticObjects/MirrorGroup.h"
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Robbo.h"
 
-MirrorGroup::MirrorGroup(std::vector<Mirror*>* mirrors)
+MirrorGroup::MirrorGroup()
 {
-    this->mirrors = *mirrors;
+    ;
 }
 
 void MirrorGroup::TeleportToNext(Robbo* robbo, int mirrorId, Direction out)
 {
-    //TODO iterate through mirrors and find next possible
-    //TODO if no possible mirrors, then return to current mirror
     int mirrorsAmount = this->mirrors.size();
 
     //TODO Robbo may not exit mirror when all ways blocked!!!
@@ -20,4 +18,19 @@ void MirrorGroup::TeleportToNext(Robbo* robbo, int mirrorId, Direction out)
             break;
         }
     }
+}
+
+void MirrorGroup::AddMirror(Mirror *newMirror)
+{
+    this->mirrors.push_back(newMirror);
+}
+
+int MirrorGroup::GetGroupSize()
+{
+    return this->mirrors.size();
+}
+
+void MirrorGroup::RemoveMirror(int id)
+{
+    this->mirrors.erase(mirrors.begin() + id);
 }

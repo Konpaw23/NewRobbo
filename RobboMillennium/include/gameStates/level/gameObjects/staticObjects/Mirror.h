@@ -8,7 +8,8 @@ class MirrorGroup;
 class Mirror : public StaticObject
 {
 public:
-    Mirror(Coordinates position, Level* level, MirrorGroup* group, int id);
+    Mirror(Coordinates position, Level* level, MirrorGroup* group);
+    ~Mirror();
     void Enter(Robbo* robbo, Direction out);
     bool Exit(Robbo* robbo, Direction out);
 

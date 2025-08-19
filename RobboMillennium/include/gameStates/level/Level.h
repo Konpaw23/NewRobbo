@@ -75,15 +75,13 @@ private:
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;
 
-    //TODO mirrorGroups may not be used
-    std::vector<MirrorGroup*> mirrorGroups = {};
-
     //TODO idk if this is proper way to delete objects that is destroyed
     //could not do it destroy in RemoveObject because some objects can generate smoke after being destroyed
     //also deleting object in own class isn't clear especially when objects are created in Level class
     std::vector<GameObject*> objectsToDelete = {};
 
     void CreateObject(GameObjectName name, int x, int y);
+    void CreateMirror(int x, int y, MirrorGroup* group);
 
     double levelRenderingUpperPosition = 0;
     double moveLevelPositionVertically = 0;

@@ -5,10 +5,13 @@
 class MirrorGroup
 {
 public:
-    MirrorGroup(std::vector<Mirror*>* mirrors);
+    MirrorGroup();
 
     void TeleportToNext(Robbo* robbo, int mirrorId, Direction out);
+    void AddMirror(Mirror* newMirror);
+    int GetGroupSize();
+    void RemoveMirror(int id);
 
 private:
-    std::vector<Mirror*> mirrors;
+    std::vector<Mirror*> mirrors = {};
 };

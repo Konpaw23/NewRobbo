@@ -359,6 +359,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case DOOR:
             m_window->PutTexture(LEVEL_DOOR, renderPosition.x, renderPosition.y);
             break;
+        case MIRROR:
+            m_window->PutTexture(LEVEL_MIRROR, renderPosition.x, renderPosition.y);
+            break;
         case CHEST:
             m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
             break;
@@ -483,6 +486,8 @@ void Level::LoadObjects(int levelNumber)
         std::cout << "!!! Failed to open file: " << fileName << " !!!" << std::endl;
     }
 
+    std::unordered_map<int, MirrorGroup*> mirrorGroups = {};
+
     int x = 0, y = 0;
     char objectChar;
     while(levelData.get(objectChar))
@@ -522,8 +527,22 @@ void Level::LoadObjects(int levelNumber)
                 y++;
                 break;
             default:
-                CreateObject(NULL_OBJECT, x, y);
-                break;
+                //Mirrors
+                if(objectChar >= '0' && objectChar <= '9')
+                {
+                    int groupId = objectChar - '0';
+                    if(!mirrorGroups.contains(groupId))
+                    {
+                        mirrorGroups.insert( {groupId, new MirrorGroup()} );
+                    }
+                    CreateMirror(x, y, mirrorGroups.at(groupId));
+                    break;
+                }
+                else
+                {
+                    CreateObject(NULL_OBJECT, x, y);
+                    break;
+                }
         }
         if(objectChar != '\n')
         {
@@ -597,4 +616,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case NULL_OBJECT:
             break;
     }
+}
+
+void Level::CreateMirror(int x, int y, MirrorGroup* group)
+{
+    fields[y][x] = new Mirror(Coordinates(x,y), this, group);
 }
