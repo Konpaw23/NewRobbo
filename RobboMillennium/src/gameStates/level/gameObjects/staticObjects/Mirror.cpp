@@ -4,9 +4,9 @@
 #include "../../../../../include/gameStates/level/Level.h"
 
 
-//TODO is mirror explosion resistant?
+//TODO mirror can be destroyed by bomb!!! so I must make deleting mirror object during game safe
 Mirror::Mirror(Coordinates position, Level* level, MirrorGroup* group) :
-    GameObject(MIRROR, position, true, true, level), connectedMirrors(group)
+    GameObject(MIRROR, position, false, true, level), connectedMirrors(group)
 {
     this->id = connectedMirrors->GetGroupSize();
     this->connectedMirrors->AddMirror(this);
