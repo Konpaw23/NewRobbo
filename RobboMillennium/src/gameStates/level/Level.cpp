@@ -341,11 +341,15 @@ void Level::PutLevelPicture()
                 {
                     Smoke* smoke = dynamic_cast<Smoke*>(obj);
                     PutObject(obj->GetObjectName(), j, i, smoke->GetDensity());
+                    continue;
                 }
-                else
+                if(obj->GetObjectName() == LASER_SHOOTER)
                 {
-                    PutObject(obj->GetObjectName(), j, i);
+                    LaserShooter* laser = dynamic_cast<LaserShooter*>(obj);
+                    PutObject(obj->GetObjectName(), j, i, laser->GetRotation());
+                    continue;
                 }
+                PutObject(obj->GetObjectName(), j, i);
             }
         }
     }
@@ -406,6 +410,36 @@ void Level::PutObject(GameObjectName name, int x, int y, int frame)
         //first textures with multiple frames
         case SMOKE:
             m_window->PutTexture( (TextureName)((int)LEVEL_SMOKE01 + frame) , renderPosition.x, renderPosition.y);
+            break;
+        default:
+            this->PutObject(name, x, y);
+            break;
+    }
+}
+
+void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
+{
+    Coordinates renderPosition = GetFieldPositionInPixelsOnScreen(x,y);
+
+    switch(name)
+    {
+        //first textures with multiple frames
+        case LASER_SHOOTER:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture( LEVEL_LASER_SHOOTER_UP , renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture( LEVEL_LASER_SHOOTER_DOWN , renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture( LEVEL_LASER_SHOOTER_LEFT , renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_LASER_SHOOTER_RIGHT , renderPosition.x, renderPosition.y);
+                    break;
+            }
             break;
         default:
             this->PutObject(name, x, y);
@@ -533,6 +567,18 @@ void Level::LoadObjects(int levelNumber)
             case '%':
                 CreateObject(BUSH, x, y);
                 break;
+            case 'v':
+                CreateObject(LASER_SHOOTER, x, y, DOWN);
+                break;
+            case '^':
+                CreateObject(LASER_SHOOTER, x, y, UP);
+                break;
+            case '<':
+                CreateObject(LASER_SHOOTER, x, y, LEFT);
+                break;
+            case '>':
+                CreateObject(LASER_SHOOTER, x, y, RIGHT);
+                break;
             case '\n':
                 x = 0;
                 y++;
@@ -624,7 +670,23 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case SMOKE:
             fields[y][x] = new Smoke(Coordinates(x,y), this);
             break;
+        case LASER_SHOOTER:
+            fields[y][x] = new LaserShooter(Coordinates(x,y), DOWN, this);
+            break;
         case NULL_OBJECT:
+        default:
+            break;
+    }
+}
+
+void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
+{
+    switch(name)
+    {
+        case LASER_SHOOTER:
+            fields[y][x] = new LaserShooter(Coordinates(x,y), rotation, this);
+            break;
+        default:
             break;
     }
 }

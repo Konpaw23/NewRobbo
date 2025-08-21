@@ -65,6 +65,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/staticObjects/Mirror.h
         src/gameStates/level/gameObjects/staticObjects/MirrorGroup.cpp
         include/gameStates/level/gameObjects/staticObjects/MirrorGroup.h
+        src/gameStates/level/gameObjects/activeObjects/LaserShooter.cpp
+        include/gameStates/level/gameObjects/activeObjects/LaserShooter.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)

@@ -21,3 +21,4 @@
 #include "gameObjects/activeObjects/Bullet.h"
 #include "gameObjects/staticObjects/Bush.h"
 #include "gameObjects/activeObjects/Smoke.h"
+#include "gameObjects/activeObjects/LaserShooter.h"

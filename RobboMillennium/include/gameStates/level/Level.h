@@ -46,6 +46,7 @@ public:
     void PutEmptyField(int x, int y);
     void PutObject(GameObjectName name, int x, int y);
     void PutObject(GameObjectName name, int x, int y, int frame);
+    void PutObject(GameObjectName name, int x, int y, Direction rotation);
     Coordinates GetFieldPositionInPixelsOnScreen(int x, int y);
 
     //returns 1 when no more screws needed
@@ -81,6 +82,7 @@ private:
     std::vector<GameObject*> objectsToDelete = {};
 
     void CreateObject(GameObjectName name, int x, int y);
+    void CreateObject(GameObjectName name, int x, int y, Direction rotation);
     void CreateMirror(int x, int y, MirrorGroup* group);
 
     double levelRenderingUpperPosition = 0;

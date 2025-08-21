@@ -37,6 +37,11 @@ enum TextureName
     LEVEL_SMOKE06,
     LEVEL_SMOKE07,
 
+    LEVEL_LASER_SHOOTER_UP,
+    LEVEL_LASER_SHOOTER_DOWN,
+    LEVEL_LASER_SHOOTER_LEFT,
+    LEVEL_LASER_SHOOTER_RIGHT,
+
     LEVEL_PANEL,
 };
 
@@ -51,13 +56,13 @@ enum GameObjectName
     CHEST,
     BOMB,
 
-    LASER,
-
     SCREW,
     KEY,
     AMMO,
     BULLET,
     SMOKE,
+
+    LASER_SHOOTER,
 
     ROBBO,
 

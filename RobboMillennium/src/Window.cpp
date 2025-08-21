@@ -99,4 +99,8 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_SMOKE05, "../assets/textures/level/smoke/05.bmp");
     AddTexture(LEVEL_SMOKE06, "../assets/textures/level/smoke/06.bmp");
     AddTexture(LEVEL_SMOKE07, "../assets/textures/level/smoke/07.bmp");
+    AddTexture(LEVEL_LASER_SHOOTER_DOWN, "../assets/textures/level/laser/shooterD.bmp");
+    AddTexture(LEVEL_LASER_SHOOTER_UP, "../assets/textures/level/laser/shooterU.bmp");
+    AddTexture(LEVEL_LASER_SHOOTER_LEFT, "../assets/textures/level/laser/shooterL.bmp");
+    AddTexture(LEVEL_LASER_SHOOTER_RIGHT, "../assets/textures/level/laser/shooterR.bmp");
 }
