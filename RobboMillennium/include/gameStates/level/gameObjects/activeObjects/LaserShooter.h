@@ -6,7 +6,7 @@ class LaserShooter : public ActiveObject, public StaticObject
 {
 public:
     LaserShooter(Coordinates position, Direction rotation, Level* level);
-
+    void Run() override;
     Direction GetRotation();
 
 private:

@@ -5,6 +5,11 @@ LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* leve
     ;
 }
 
+void LaserShooter::Run()
+{
+    ;
+}
+
 Direction LaserShooter::GetRotation()
 {
     return this->rotation;
