@@ -12,6 +12,8 @@ int main(int argc, char* argv[])
     //declares gamestate that points current state of game
     GameState* state = new MenuState(window);
 
+    srand(time(NULL));
+
     //game states loop
     while(1)
     {

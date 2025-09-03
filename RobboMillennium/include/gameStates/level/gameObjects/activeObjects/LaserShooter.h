@@ -1,6 +1,7 @@
 #pragma once
 #include "../ActiveObject.h"
 #include "../StaticObject.h"
+#include <cstdlib>
 
 class LaserShooter : public ActiveObject, public StaticObject
 {
@@ -10,5 +11,6 @@ public:
     Direction GetRotation();
 
 private:
+    void Shoot();
     const Direction rotation;
 };
