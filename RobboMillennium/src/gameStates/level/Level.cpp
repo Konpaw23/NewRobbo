@@ -126,6 +126,71 @@ void Level::MoveObject(GameObject *object, Coordinates dest)
     this->fields[dest.y][dest.x] = object;
 }
 
+void Level::CreateObject(GameObjectName name, int x, int y)
+{
+    switch(name)
+    {
+        case ROBBO:
+            if(player == nullptr)
+            {
+                player = new Robbo(Coordinates(x,y), this);
+                fields[y][x] = player;
+            }
+            break;
+        case WALL:
+            fields[y][x] = new Wall(Coordinates(x,y), this);
+            break;
+        case DOOR:
+            fields[y][x] = new Door(Coordinates(x,y), this);
+            break;
+        case CHEST:
+            fields[y][x] = new Chest(Coordinates(x,y), this);
+            break;
+        case BOMB:
+            fields[y][x] = new Bomb(Coordinates(x,y), this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
+            break;
+        case SCREW:
+            fields[y][x] = new Screw(Coordinates(x,y), this);
+            break;
+        case KEY:
+            fields[y][x] = new Key(Coordinates(x,y), this);
+            break;
+        case AMMO:
+            fields[y][x] = new Ammo(Coordinates(x,y), this);
+            break;
+        case BUSH:
+            fields[y][x] = new Bush(Coordinates(x,y), this);
+            break;
+        case SMOKE:
+            fields[y][x] = new Smoke(Coordinates(x,y), this);
+            break;
+        case LASER_SHOOTER:
+            fields[y][x] = new LaserShooter(Coordinates(x,y), DOWN, this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
+            break;
+        case NULL_OBJECT:
+        default:
+            break;
+    }
+}
+
+void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
+{
+    switch(name)
+    {
+        case LASER_SHOOTER:
+            fields[y][x] = new LaserShooter(Coordinates(x,y), rotation, this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
+            break;
+        case LASER_HEAD:
+            fields[y][x] = new LaserHead(Coordinates(x,y), rotation, this);
+            break;
+        default:
+            break;
+    }
+}
+
 void Level::SpawnBullet(Coordinates pos, Direction trajectory)
 {
     if(pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height)
@@ -337,19 +402,31 @@ void Level::PutLevelPicture()
             GameObject* obj = fields[i][j];
             if(obj != nullptr)
             {
-                if(obj->GetObjectName() == SMOKE)
+                GameObjectName objName = obj->GetObjectName();
+                if(objName == SMOKE)
                 {
                     Smoke* smoke = dynamic_cast<Smoke*>(obj);
-                    PutObject(obj->GetObjectName(), j, i, smoke->GetDensity());
+                    PutObject(objName, j, i, smoke->GetDensity());
                     continue;
                 }
-                if(obj->GetObjectName() == LASER_SHOOTER)
+                //TODO make class for objects with rotation
+                if(objName == LASER_SHOOTER)
                 {
                     LaserShooter* laser = dynamic_cast<LaserShooter*>(obj);
-                    PutObject(obj->GetObjectName(), j, i, laser->GetRotation());
+                    PutObject(objName, j, i, laser->GetRotation());
                     continue;
                 }
-                PutObject(obj->GetObjectName(), j, i);
+                else if(objName == LASER_HEAD)
+                {
+                    LaserHead* laser = dynamic_cast<LaserHead*>(obj);
+                    PutObject(objName, j, i, laser->GetRotation());
+                    continue;
+                }
+                else if(objName == LASER_BODY)
+                {
+                    //TODO;
+                }
+                PutObject(objName, j, i);
             }
         }
     }
@@ -438,6 +515,36 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
                 case RIGHT:
                     m_window->PutTexture( LEVEL_LASER_SHOOTER_RIGHT , renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
+        case LASER_HEAD:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_UP , renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_DOWN , renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_LEFT , renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_RIGHT , renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
+        case LASER_BODY:
+            switch(rotation)
+            {
+                case UP:
+                case DOWN:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_DOWN , renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_LASER_HEAD_RIGHT , renderPosition.x, renderPosition.y);
                     break;
             }
             break;
@@ -629,66 +736,6 @@ void Level::DeleteDestroyedObjects()
             delete objectsToDelete[i];
     }
     objectsToDelete.clear();
-}
-
-void Level::CreateObject(GameObjectName name, int x, int y)
-{
-    switch(name)
-    {
-        case ROBBO:
-            if(player == nullptr)
-            {
-                player = new Robbo(Coordinates(x,y), this);
-                fields[y][x] = player;
-            }
-            break;
-        case WALL:
-            fields[y][x] = new Wall(Coordinates(x,y), this);
-            break;
-        case DOOR:
-            fields[y][x] = new Door(Coordinates(x,y), this);
-            break;
-        case CHEST:
-            fields[y][x] = new Chest(Coordinates(x,y), this);
-            break;
-        case BOMB:
-            fields[y][x] = new Bomb(Coordinates(x,y), this);
-            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
-            break;
-        case SCREW:
-            fields[y][x] = new Screw(Coordinates(x,y), this);
-            break;
-        case KEY:
-            fields[y][x] = new Key(Coordinates(x,y), this);
-            break;
-        case AMMO:
-            fields[y][x] = new Ammo(Coordinates(x,y), this);
-            break;
-        case BUSH:
-            fields[y][x] = new Bush(Coordinates(x,y), this);
-            break;
-        case SMOKE:
-            fields[y][x] = new Smoke(Coordinates(x,y), this);
-            break;
-        case LASER_SHOOTER:
-            fields[y][x] = new LaserShooter(Coordinates(x,y), DOWN, this);
-            break;
-        case NULL_OBJECT:
-        default:
-            break;
-    }
-}
-
-void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
-{
-    switch(name)
-    {
-        case LASER_SHOOTER:
-            fields[y][x] = new LaserShooter(Coordinates(x,y), rotation, this);
-            break;
-        default:
-            break;
-    }
 }
 
 void Level::CreateMirror(int x, int y, MirrorGroup* group)

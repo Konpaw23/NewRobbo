@@ -1,4 +1,5 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/LaserShooter.h"
+#include "../../../../../include/gameStates/level/Level.h"
 
 LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* level) : GameObject(LASER_SHOOTER, position, false, true, level), rotation(rotation)
 {
@@ -21,5 +22,17 @@ Direction LaserShooter::GetRotation()
 
 void LaserShooter::Shoot()
 {
-    //TODO;
+    Coordinates laserStartField = this->position.GetNext(this->rotation);
+
+    GameObject* other = this->level->GetObjectFromPosition(laserStartField);
+
+    if(other == nullptr)
+    {
+        this->level->CreateObject(LASER_HEAD, laserStartField.x, laserStartField.y, this->rotation);
+    }
+    else if(!other->IsProjectileResistant())
+    {
+        other->Destroy();
+    }
+    //else - projectile resistant object next to laser shooter
 }

@@ -103,4 +103,10 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_LASER_SHOOTER_UP, "../assets/textures/level/laser/shooterU.bmp");
     AddTexture(LEVEL_LASER_SHOOTER_LEFT, "../assets/textures/level/laser/shooterL.bmp");
     AddTexture(LEVEL_LASER_SHOOTER_RIGHT, "../assets/textures/level/laser/shooterR.bmp");
+    AddTexture(LEVEL_LASER_HEAD_DOWN, "../assets/textures/level/laser/laserHeadDown.bmp");
+    AddTexture(LEVEL_LASER_HEAD_UP, "../assets/textures/level/laser/laserHeadUp.bmp");
+    AddTexture(LEVEL_LASER_HEAD_LEFT, "../assets/textures/level/laser/laserHeadLeft.bmp");
+    AddTexture(LEVEL_LASER_HEAD_RIGHT, "../assets/textures/level/laser/laserHeadRight.bmp");
+    AddTexture(LEVEL_LASER_BODY_VERTICAL, "../assets/textures/level/laser/laserBodyVertical.bmp");
+    AddTexture(LEVEL_LASER_BODY_HORIZONTAL, "../assets/textures/level/laser/laserBodyHorizontal.bmp");
 }

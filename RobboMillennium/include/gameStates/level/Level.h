@@ -26,6 +26,8 @@ public:
 
     //must be called after object change its position in own GameObject class
     void MoveObject(GameObject* object, Coordinates dest);
+    void CreateObject(GameObjectName name, int x, int y);
+    void CreateObject(GameObjectName name, int x, int y, Direction rotation);
     void SpawnBullet(Coordinates pos, Direction trajectory);
     void SpawnSmoke(Coordinates pos);
 
@@ -81,8 +83,6 @@ private:
     //also deleting object in own class isn't clear especially when objects are created in Level class
     std::vector<GameObject*> objectsToDelete = {};
 
-    void CreateObject(GameObjectName name, int x, int y);
-    void CreateObject(GameObjectName name, int x, int y, Direction rotation);
     void CreateMirror(int x, int y, MirrorGroup* group);
 
     double levelRenderingUpperPosition = 0;
