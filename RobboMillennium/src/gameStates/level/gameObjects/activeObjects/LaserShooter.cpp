@@ -9,7 +9,7 @@ LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* leve
 void LaserShooter::Run()
 {
     int random = rand() % 100;
-    if(random < 20)
+    if(random < 5)
     {
         this->Shoot();
     }

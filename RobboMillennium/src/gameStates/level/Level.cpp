@@ -185,6 +185,7 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             break;
         case LASER_HEAD:
             fields[y][x] = new LaserHead(Coordinates(x,y), rotation, this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
         default:
             break;

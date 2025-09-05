@@ -10,5 +10,9 @@ public:
     Direction GetRotation();
 
 private:
+    void GoForward();
+    void GoBack();
+
     Direction rotation;
+    bool shooting = true;
 };
