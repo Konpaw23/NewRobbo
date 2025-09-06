@@ -24,3 +24,4 @@
 #include "gameObjects/activeObjects/laser/LaserShooter.h"
 #include "gameObjects/activeObjects/laser/LaserHead.h"
 #include "gameObjects/activeObjects/laser/LaserBody.h"
+#include "gameObjects/movingObjects/Surprise.h"

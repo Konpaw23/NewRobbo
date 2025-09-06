@@ -36,7 +36,11 @@ void Bomb::Explode()
         }
         else if(!other->IsExplosionResistant())
         {
-            other->Destroy();
+            if(other->GetObjectName() == SURPRISE)
+            {
+
+            }
+            other->Destroy(BOMB);
         }
     }
     explosionFields.clear();

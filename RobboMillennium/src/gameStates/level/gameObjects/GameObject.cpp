@@ -51,3 +51,8 @@ void GameObject::Destroy()
     this->level->RemoveObject(this);
     this->level->SpawnSmoke(this->position);
 }
+
+void GameObject::Destroy(GameObjectName source)
+{
+    this->Destroy();
+}

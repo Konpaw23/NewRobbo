@@ -150,6 +150,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             fields[y][x] = new Bomb(Coordinates(x,y), this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case SURPRISE:
+            fields[y][x] = new Surprise(Coordinates(x,y), this);
+            break;
         case SCREW:
             fields[y][x] = new Screw(Coordinates(x,y), this);
             break;
@@ -473,6 +476,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case BOMB:
             m_window->PutTexture(LEVEL_BOMB, renderPosition.x, renderPosition.y);
             break;
+        case SURPRISE:
+            m_window->PutTexture(LEVEL_SURPRISE, renderPosition.x, renderPosition.y);
+            break;
         case SCREW:
             m_window->PutTexture(LEVEL_SCREW, renderPosition.x, renderPosition.y);
             break;
@@ -695,6 +701,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '@':
                 CreateObject(BOMB, x, y);
+                break;
+            case '?':
+                CreateObject(SURPRISE, x, y);
                 break;
             case '$':
                 CreateObject(SCREW, x, y);

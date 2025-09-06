@@ -25,6 +25,7 @@ public:
     bool IsActive();
     void SetToDelete();
     virtual void Destroy();
+    virtual void Destroy(GameObjectName source);
 
 protected:
     Coordinates position;

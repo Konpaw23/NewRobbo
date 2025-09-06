@@ -1,5 +1,4 @@
-#ifndef ROBBOMILLENNIUM_DEFINES_H
-#define ROBBOMILLENNIUM_DEFINES_H
+#pragma once
 
 //screen size where game will be printed
 #define SCREEN_WIDTH 1920
@@ -16,4 +15,12 @@
 //TODO still not sure if speed like in original game
 #define SEQUENCE_DURATION (1.0/10.0)
 
-#endif //ROBBOMILLENNIUM_DEFINES_H
+//surprise chances
+#define SURPRISE_SCREW double(20)/100
+#define SURPRISE_KEY double(20)/100
+#define SURPRISE_SMOKE double(10)/100
+#define SURPRISE_SURPRISE double(10)/100
+#define SURPRISE_AMMO double(20)/100
+#define SURPRISE_BOMB double(20)/100
+
+#define SURPRISES_SUM SURPRISE_SCREW+SURPRISE_KEY+SURPRISE_SMOKE+SURPRISE_SURPRISE+SURPRISE_AMMO+SURPRISE_BOMB

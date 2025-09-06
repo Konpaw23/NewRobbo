@@ -24,6 +24,7 @@ enum TextureName
     LEVEL_MIRROR,
     LEVEL_CHEST,
     LEVEL_BOMB,
+    LEVEL_SURPRISE,
     LEVEL_SCREW,
     LEVEL_KEY,
     LEVEL_AMMO,
@@ -63,6 +64,7 @@ enum GameObjectName
 
     CHEST,
     BOMB,
+    SURPRISE,
 
     SCREW,
     KEY,
