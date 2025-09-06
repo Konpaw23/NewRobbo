@@ -110,4 +110,6 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_LASER_HEAD_RIGHT, "../assets/textures/level/laser/laserHeadRight.bmp");
     AddTexture(LEVEL_LASER_BODY_VERTICAL, "../assets/textures/level/laser/laserBodyVertical.bmp");
     AddTexture(LEVEL_LASER_BODY_HORIZONTAL, "../assets/textures/level/laser/laserBodyHorizontal.bmp");
+    AddTexture(LEVEL_SHIP_CLOSED, "../assets/textures/level/ship/closed.bmp");
+    AddTexture(LEVEL_SHIP_OPEN, "../assets/textures/level/ship/open.bmp");
 }

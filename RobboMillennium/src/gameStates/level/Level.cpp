@@ -165,6 +165,16 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case BUSH:
             fields[y][x] = new Bush(Coordinates(x,y), this);
             break;
+        case SHIP:
+        {
+            Ship* newShip = new Ship(Coordinates(x,y), this);
+            fields[y][x] = newShip;
+            if(this->ship == nullptr)
+            {
+                this->ship = newShip;
+            }
+            break;
+        }
         case SMOKE:
             fields[y][x] = new Smoke(Coordinates(x,y), this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
@@ -287,6 +297,17 @@ void Level::ShowRobbo()
 bool Level::IsRobboVisible()
 {
     return this->isRobboVisible;
+}
+
+void Level::FinishLevel()
+{
+    this->HideRobbo();
+    this->isLevelFinished = true;
+}
+
+bool Level::IsLevelFinished()
+{
+    return this->isLevelFinished;
 }
 
 //TODO I don't like this func I should make it works in other way
@@ -424,6 +445,11 @@ void Level::PutLevelPicture()
                     PutObject(objName, j, i, smoke->GetDensity());
                     continue;
                 }
+                if(objName == SHIP)
+                {
+                    Ship* ship = dynamic_cast<Ship*>(obj);
+                    PutObject(objName, j, i, ship->IsOpen());
+                }
                 //TODO make class for objects with rotation
                 if(objName == LASER_SHOOTER)
                 {
@@ -507,6 +533,16 @@ void Level::PutObject(GameObjectName name, int x, int y, int frame)
         //first textures with multiple frames
         case SMOKE:
             m_window->PutTexture( (TextureName)((int)LEVEL_SMOKE01 + frame) , renderPosition.x, renderPosition.y);
+            break;
+        case SHIP:
+            if(frame == 0)
+            {
+                m_window->PutTexture(LEVEL_SHIP_CLOSED, renderPosition.x, renderPosition.y);
+            }
+            else
+            {
+                m_window->PutTexture(LEVEL_SHIP_OPEN, renderPosition.x, renderPosition.y);
+            }
             break;
         default:
             this->PutObject(name, x, y);
@@ -607,6 +643,7 @@ int Level::DecreaseScrewsNumber()
     this->screwsToCollect--;
     if(screwsToCollect <= 0)
     {
+        this->ship->OpenExit();
         screwsToCollect = 0;
         return 1;
     }
@@ -730,6 +767,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '>':
                 CreateObject(LASER_SHOOTER, x, y, RIGHT);
+                break;
+            case '&':
+                CreateObject(SHIP, x, y);
                 break;
             case '\n':
                 x = 0;

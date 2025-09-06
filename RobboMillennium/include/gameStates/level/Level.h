@@ -38,6 +38,8 @@ public:
     void HideRobbo();
     void ShowRobbo();
     bool IsRobboVisible();
+    void FinishLevel();
+    bool IsLevelFinished();
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
@@ -76,6 +78,9 @@ private:
 
     class Robbo* player = nullptr;
     bool isRobboVisible = true;
+    Ship* ship = nullptr;
+
+    bool isLevelFinished = false;
 
     std::vector<ActiveObject*> activeObjects = {};
     GameObject*** fields = nullptr;

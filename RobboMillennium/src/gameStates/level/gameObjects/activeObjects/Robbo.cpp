@@ -27,6 +27,15 @@ bool Robbo::Move(Direction dir)
             MovingObject* movingObject = dynamic_cast<MovingObject*>(other);
             if(movingObject != nullptr && movingObject->canBeMovedByRobbo)
             {
+                if(movingObject->GetObjectName() == SHIP)
+                {
+                    Ship* ship = dynamic_cast<Ship*>(other);
+                    if(ship->IsOpen())
+                    {
+                        this->level->FinishLevel();
+                        return true;
+                    }
+                }
                 if(movingObject->Move(dir))
                 {
                     //can use this function because movable object is moved already (inside if statement above)

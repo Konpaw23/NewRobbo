@@ -104,8 +104,16 @@ void LevelState::Update()
     if(deltaSequenceTime >= SEQUENCE_DURATION * CLOCKS_PER_SEC)
     {
         SetPlayerMove();
+        //TODO delay after level finish/death
         if(level->IsPlayerAlive())
         {
+            if(level->IsLevelFinished())
+            {
+                //TODO next level only if exists!
+                delete level;
+                levelNumber++;
+                level = new Level(m_window, levelNumber);
+            }
             level->SetPlayerAction(playerAction);
             level->RunSequence();
         }
