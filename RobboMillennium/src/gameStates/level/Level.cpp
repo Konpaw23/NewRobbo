@@ -167,6 +167,7 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case SMOKE:
             fields[y][x] = new Smoke(Coordinates(x,y), this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
         case NULL_OBJECT:
         default:
