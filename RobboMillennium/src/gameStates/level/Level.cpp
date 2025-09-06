@@ -165,10 +165,6 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case SMOKE:
             fields[y][x] = new Smoke(Coordinates(x,y), this);
             break;
-        case LASER_SHOOTER:
-            fields[y][x] = new LaserShooter(Coordinates(x,y), DOWN, this);
-            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
-            break;
         case NULL_OBJECT:
         default:
             break;
@@ -188,6 +184,20 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
         default:
+            this->CreateObject(name, x, y);
+            break;
+    }
+}
+
+void Level::CreateObject(GameObjectName name, int x, int y, Axis axis)
+{
+    switch(name)
+    {
+        case LASER_BODY:
+            fields[y][x] = new LaserBody(Coordinates(x,y), axis, this);
+            break;
+        default:
+            this->CreateObject(name, x, y);
             break;
     }
 }
@@ -425,7 +435,9 @@ void Level::PutLevelPicture()
                 }
                 else if(objName == LASER_BODY)
                 {
-                    //TODO;
+                    LaserBody* laser = dynamic_cast<LaserBody*>(obj);
+                    PutObject(objName, j, i, laser->axis);
+                    continue;
                 }
                 PutObject(objName, j, i);
             }
@@ -546,6 +558,28 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                 case LEFT:
                 case RIGHT:
                     m_window->PutTexture( LEVEL_LASER_HEAD_RIGHT , renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
+        default:
+            this->PutObject(name, x, y);
+            break;
+    }
+}
+
+void Level::PutObject(GameObjectName name, int x, int y, Axis axis)
+{
+    Coordinates renderPosition = GetFieldPositionInPixelsOnScreen(x,y);
+    switch(name)
+    {
+        case LASER_BODY:
+            switch(axis)
+            {
+                case VERTICAL:
+                    m_window->PutTexture( LEVEL_LASER_BODY_VERTICAL , renderPosition.x, renderPosition.y);
+                    break;
+                case HORIZONTAL:
+                    m_window->PutTexture( LEVEL_LASER_BODY_HORIZONTAL , renderPosition.x, renderPosition.y);
                     break;
             }
             break;

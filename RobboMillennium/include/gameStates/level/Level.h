@@ -28,6 +28,7 @@ public:
     void MoveObject(GameObject* object, Coordinates dest);
     void CreateObject(GameObjectName name, int x, int y);
     void CreateObject(GameObjectName name, int x, int y, Direction rotation);
+    void CreateObject(GameObjectName name, int x, int y, Axis axis);
     void SpawnBullet(Coordinates pos, Direction trajectory);
     void SpawnSmoke(Coordinates pos);
 
@@ -49,6 +50,7 @@ public:
     void PutObject(GameObjectName name, int x, int y);
     void PutObject(GameObjectName name, int x, int y, int frame);
     void PutObject(GameObjectName name, int x, int y, Direction rotation);
+    void PutObject(GameObjectName name, int x, int y, Axis axis);
     Coordinates GetFieldPositionInPixelsOnScreen(int x, int y);
 
     //returns 1 when no more screws needed

@@ -1,5 +1,5 @@
-#include "../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserHead.h"
-#include "../../../../../include/gameStates/level/Level.h"
+#include "../../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserHead.h"
+#include "../../../../../../include/gameStates/level/Level.h"
 
 LaserHead::LaserHead(Coordinates position, Direction rotation, Level *level) : GameObject(LASER_HEAD, position, true, true, level), rotation(rotation)
 {
@@ -50,8 +50,9 @@ Direction LaserHead::GetRotation()
 
 void LaserHead::GoForward()
 {
+    Coordinates initialPosition = this->position;
     this->Move(rotation);
-    //TODO create here LaserBody object in level
+    this->level->CreateObject(LASER_BODY, initialPosition.x, initialPosition.y, GetAxis(this->rotation));
 }
 
 void LaserHead::GoBack()
