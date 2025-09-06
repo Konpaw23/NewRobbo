@@ -6,15 +6,24 @@ Direction GetOppositeDirection(Direction dir)
     {
         case UP:
             return DOWN;
-            break;
         case DOWN:
             return UP;
-            break;
         case LEFT:
             return RIGHT;
-            break;
         case RIGHT:
             return LEFT;
-            break;
+    }
+}
+
+Axis GetAxis(Direction dir)
+{
+    switch (dir)
+    {
+        case UP:
+        case DOWN:
+            return VERTICAL;
+        case LEFT:
+        case RIGHT:
+            return HORIZONTAL;
     }
 }

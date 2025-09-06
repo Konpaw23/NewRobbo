@@ -25,7 +25,7 @@ bool Robbo::Move(Direction dir)
         {
             GameObject* other = level->GetObjectFromPosition(*dest);
             MovingObject* movingObject = dynamic_cast<MovingObject*>(other);
-            if(movingObject != nullptr)
+            if(movingObject != nullptr && movingObject->canBeMovedByRobbo)
             {
                 if(movingObject->Move(dir))
                 {

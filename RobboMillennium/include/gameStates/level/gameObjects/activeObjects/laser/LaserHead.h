@@ -1,6 +1,6 @@
 #pragma once
-#include "../ActiveObject.h"
-#include "../MovingObject.h"
+#include "../../ActiveObject.h"
+#include "../../MovingObject.h"
 
 class LaserHead : public ActiveObject, public MovingObject
 {

@@ -101,3 +101,9 @@ enum Direction
     UP,
     DOWN,
 };
+
+enum Axis
+{
+    VERTICAL,
+    HORIZONTAL,
+};

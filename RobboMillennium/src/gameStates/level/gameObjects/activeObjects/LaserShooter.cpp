@@ -1,4 +1,4 @@
-#include "../../../../../include/gameStates/level/gameObjects/activeObjects/LaserShooter.h"
+#include "../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserShooter.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
 LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* level) : GameObject(LASER_SHOOTER, position, false, true, level), rotation(rotation)

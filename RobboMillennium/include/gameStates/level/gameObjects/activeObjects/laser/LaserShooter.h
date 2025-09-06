@@ -1,6 +1,6 @@
 #pragma once
-#include "../ActiveObject.h"
-#include "../StaticObject.h"
+#include "../../ActiveObject.h"
+#include "../../StaticObject.h"
 #include <cstdlib>
 
 class LaserShooter : public ActiveObject, public StaticObject

@@ -8,7 +8,9 @@ class MovingObject : virtual public GameObject
 {
 public:
     MovingObject();
+    MovingObject(bool canBeMovedByRobbo);
 
     //returns true when object moved (no walls etc.)
     virtual bool Move(Direction dir);
+    const bool canBeMovedByRobbo = false;
 };

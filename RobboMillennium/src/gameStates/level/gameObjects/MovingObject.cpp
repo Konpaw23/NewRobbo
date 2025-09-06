@@ -6,6 +6,11 @@ MovingObject::MovingObject() : GameObject()
     ;
 }
 
+MovingObject::MovingObject(bool canBeMovedByRobbo) : GameObject(), canBeMovedByRobbo(canBeMovedByRobbo)
+{
+    ;
+}
+
 //TODO I don't like this func
 bool MovingObject::Move(Direction dir)
 {

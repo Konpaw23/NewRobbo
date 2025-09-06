@@ -1,7 +1,7 @@
 #include "../../../../../include/gameStates/level/gameObjects/movingObjects/Bomb.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Bomb::Bomb(Coordinates position, Level* level) : GameObject(BOMB, position, false, false, level)
+Bomb::Bomb(Coordinates position, Level* level) : GameObject(BOMB, position, false, false, level), MovingObject(true)
 {
     ;
 }

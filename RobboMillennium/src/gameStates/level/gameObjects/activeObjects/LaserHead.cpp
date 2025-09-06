@@ -1,4 +1,4 @@
-#include "../../../../../include/gameStates/level/gameObjects/activeObjects/LaserHead.h"
+#include "../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserHead.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
 LaserHead::LaserHead(Coordinates position, Direction rotation, Level *level) : GameObject(LASER_HEAD, position, true, true, level), rotation(rotation)
