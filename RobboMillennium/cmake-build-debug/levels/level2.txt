@@ -1,7 +1,7 @@
 WWWWWWWWWWWWWWWW
 W   W  W  #    W
 W ? W  W   # * W
-W = %# % #     <
+W = %# % #     L
 W   W #W   #  #W
 WWWWWWWWWWWWW|WW
 W   # #        W
@@ -23,7 +23,7 @@ W #WWW    # # $W
 W WW    # WW   W
 W     W   W$ # W
 WW WWWWWWWW#   W
-W        <W    W
+W        LW    W
 WW WWWWWWWWW%%WW
 W# W   #W!W    W
 W# W $  W W $$ W

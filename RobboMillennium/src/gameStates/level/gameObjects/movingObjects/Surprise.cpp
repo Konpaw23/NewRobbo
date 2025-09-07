@@ -54,5 +54,10 @@ void Surprise::Open()
     {
         objectToCreate = BOMB;
     }
+    else if((random -= SURPRISE_EXIT) < 0)
+    {
+        this->level->CreateOpenShip(position);
+        return;
+    }
     this->level->CreateObject(objectToCreate, position.x, position.y);
 }

@@ -5,6 +5,10 @@ Level::Level(Window* window, int levelNumber) : m_window(window), height(LEVEL_H
     screwsToCollect = 0;
     FieldsMemoryAlloc();
     LoadObjects(levelNumber);
+    if(screwsToCollect <= 0 && ship != nullptr)
+    {
+        this->ship->OpenExit();
+    }
 }
 
 Level::~Level()
@@ -197,6 +201,10 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             fields[y][x] = new LaserHead(Coordinates(x,y), rotation, this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case CANNON:
+            fields[y][x] = new Cannon(Coordinates(x,y), rotation, this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
+            break;
         default:
             this->CreateObject(name, x, y);
             break;
@@ -214,6 +222,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Axis axis)
             this->CreateObject(name, x, y);
             break;
     }
+}
+
+void Level::CreateOpenShip(Coordinates position)
+{
+    Ship* newShip = new Ship(position, this);
+    fields[position.y][position.x] = newShip;
+    newShip->OpenExit();
 }
 
 void Level::SpawnBullet(Coordinates pos, Direction trajectory)
@@ -469,6 +484,12 @@ void Level::PutLevelPicture()
                     PutObject(objName, j, i, laser->axis);
                     continue;
                 }
+                else if(objName == CANNON)
+                {
+                    Cannon* cannon = dynamic_cast<Cannon*>(obj);
+                    PutObject(objName, j, i, cannon->GetRotation());
+                    continue;
+                }
                 PutObject(objName, j, i);
             }
         }
@@ -604,6 +625,22 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
             }
             break;
+        case CANNON:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture( LEVEL_CANNON_UP, renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture( LEVEL_CANNON_DOWN, renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture( LEVEL_CANNON_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_CANNON_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
         default:
             this->PutObject(name, x, y);
             break;
@@ -643,7 +680,10 @@ int Level::DecreaseScrewsNumber()
     this->screwsToCollect--;
     if(screwsToCollect <= 0)
     {
-        this->ship->OpenExit();
+        if(this->ship != nullptr)
+        {
+            this->ship->OpenExit();
+        }
         screwsToCollect = 0;
         return 1;
     }
@@ -767,6 +807,18 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '>':
                 CreateObject(LASER_SHOOTER, x, y, RIGHT);
+                break;
+            case 'U':
+                CreateObject(CANNON, x, y, UP);
+                break;
+            case 'D':
+                CreateObject(CANNON, x, y, DOWN);
+                break;
+            case 'L':
+                CreateObject(CANNON, x, y, LEFT);
+                break;
+            case 'R':
+                CreateObject(CANNON, x, y, RIGHT);
                 break;
             case '&':
                 CreateObject(SHIP, x, y);
