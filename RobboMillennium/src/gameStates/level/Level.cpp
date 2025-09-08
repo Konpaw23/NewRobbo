@@ -27,7 +27,7 @@ void Level::RunSequence()
     std::vector<ActiveObject*> initialVector(this->activeObjects);
     for(int i = 0; i < initialVector.size(); i++)
     {
-        if(initialVector[i] != nullptr)
+        if(initialVector[i] != nullptr && initialVector[i]->IsActive())
         {
             initialVector[i]->Run();
         }

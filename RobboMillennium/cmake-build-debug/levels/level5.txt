@@ -1,11 +1,7 @@
 WWWWWWWWWWWWWWWW
-WR    ?  @U    W
-W *       ?    W
-WR        %   LW
-W         %    W
-W         U    W
-W              W
-W         U    W
+W   !!!        W
+W *       @    W
+WR             W
 W              W
 W              W
 W              W
@@ -18,14 +14,18 @@ W              W
 W              W
 W              W
 W              W
-WR ????????????W
 W              W
-WR ????????????W
 W              W
-WR ????????????W
 W              W
-WR ????????????W
 W              W
-WR ????????????W
+W              W
+W              W
+W              W
+W              W
+W              W
+W              W
+W              W
+W              W
+W              W
 W              W
 WWWWWWWWWWWWWWWW
