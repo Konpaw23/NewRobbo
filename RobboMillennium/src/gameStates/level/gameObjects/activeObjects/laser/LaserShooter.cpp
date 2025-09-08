@@ -1,7 +1,8 @@
 #include "../../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserShooter.h"
 #include "../../../../../../include/gameStates/level/Level.h"
 
-LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* level) : GameObject(LASER_SHOOTER, position, false, true, level), rotation(rotation)
+LaserShooter::LaserShooter(Coordinates position, Direction rotation, Level* level) : GameObject(LASER_SHOOTER, position, false, true, level),
+                                                                                     RotatingObject(rotation)
 {
     ;
 }
@@ -13,11 +14,6 @@ void LaserShooter::Run()
     {
         this->Shoot();
     }
-}
-
-Direction LaserShooter::GetRotation()
-{
-    return this->rotation;
 }
 
 void LaserShooter::Shoot()

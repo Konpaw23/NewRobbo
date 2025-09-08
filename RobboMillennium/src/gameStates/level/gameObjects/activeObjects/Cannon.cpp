@@ -1,7 +1,8 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Cannon.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Cannon::Cannon(Coordinates position, Direction rotation, Level* level) : GameObject(CANNON, position, false, true, level), rotation(rotation)
+Cannon::Cannon(Coordinates position, Direction rotation, Level* level) : GameObject(CANNON, position, false, true, level),
+                                                                         RotatingObject(rotation)
 {
     ;
 }
@@ -13,11 +14,6 @@ void Cannon::Run()
     {
         this->Shoot();
     }
-}
-
-Direction Cannon::GetRotation()
-{
-    return this->rotation;
 }
 
 void Cannon::Shoot()

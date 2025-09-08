@@ -1,7 +1,8 @@
 #include "../../../../../../include/gameStates/level/gameObjects/activeObjects/laser/LaserHead.h"
 #include "../../../../../../include/gameStates/level/Level.h"
 
-LaserHead::LaserHead(Coordinates position, Direction rotation, Level *level) : GameObject(LASER_HEAD, position, true, true, level), rotation(rotation)
+LaserHead::LaserHead(Coordinates position, Direction rotation, Level *level) : GameObject(LASER_HEAD, position, true, true, level),
+                                                                               RotatingObject(rotation)
 {
     ;
 }
@@ -41,11 +42,6 @@ void LaserHead::Run()
     {
         this->GoBack();
     }
-}
-
-Direction LaserHead::GetRotation()
-{
-    return this->rotation;
 }
 
 void LaserHead::GoForward()
