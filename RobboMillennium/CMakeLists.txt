@@ -4,8 +4,6 @@ project(RobboMillennium)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 
-set(SDL2_PATH "SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32")
-
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 
@@ -91,3 +89,15 @@ file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
 file(COPY ${CMAKE_SOURCE_DIR}/levels/ DESTINATION ${CMAKE_BINARY_DIR}/levels/)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
+
+set(SDL2_DLL "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/bin/SDL2.dll")
+
+if(WIN32)
+    add_custom_command(
+            TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+            "${SDL2_DLL}"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+            VERBATIM
+    )
+endif()
