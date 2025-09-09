@@ -4,7 +4,7 @@ LevelState::LevelState(Window* window) : GameState(window)
 {
     this->m_window->Clear();
     this->state = LEVEL;
-    this->levelNumber = 5;
+    this->levelNumber = 2;
     this->level = new Level(m_window, levelNumber);
 
     sequenceTime = clock();

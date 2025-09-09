@@ -8,5 +8,7 @@ public:
     Direction GetRotation();
 
 protected:
+    void Rotate(Direction direction);
+
     Direction rotation;
 };

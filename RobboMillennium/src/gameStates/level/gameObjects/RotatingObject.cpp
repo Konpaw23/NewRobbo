@@ -9,3 +9,8 @@ Direction RotatingObject::GetRotation()
 {
     return this->rotation;
 }
+
+void RotatingObject::Rotate(Direction direction)
+{
+    this->rotation = GetDirectionNextTo(this->rotation, direction);
+}
