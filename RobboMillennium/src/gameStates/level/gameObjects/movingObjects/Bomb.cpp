@@ -36,10 +36,6 @@ void Bomb::Explode()
         }
         else if(!other->IsExplosionResistant())
         {
-            if(other->GetObjectName() == SURPRISE)
-            {
-
-            }
             other->Destroy(BOMB);
         }
     }

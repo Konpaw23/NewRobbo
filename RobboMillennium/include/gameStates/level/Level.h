@@ -44,6 +44,7 @@ public:
 
     Coordinates* GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
+    std::vector<Coordinates> GetFieldsNextTo(Coordinates position);
     int GetScrewsNumber();
 
     void UpdateLevelPosition(double deltaTime);

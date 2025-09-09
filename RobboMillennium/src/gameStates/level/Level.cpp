@@ -372,9 +372,30 @@ std::vector<Coordinates> Level::GetFieldsAround(Coordinates position)
                     delete buffer;
                 }
             }
+            else
+            {
+                delete buffer;
+            }
         }
     }
     return vector;
+}
+
+std::vector<Coordinates> Level::GetFieldsNextTo(Coordinates position)
+{
+    std::vector<Coordinates> fieldsFound = {};
+    Direction directions[4] = {UP, DOWN, LEFT, RIGHT};
+    Coordinates* buffer = nullptr;
+    for(int i = 0; i < 4; i++)
+    {
+        buffer = this->GetNextPosition(position, directions[i]);
+        if(buffer != nullptr)
+        {
+            fieldsFound.push_back(*buffer);
+            delete buffer;
+        }
+    }
+    return fieldsFound;
 }
 
 int Level::GetScrewsNumber()
