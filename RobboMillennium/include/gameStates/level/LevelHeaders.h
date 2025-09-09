@@ -27,3 +27,4 @@
 #include "gameObjects/activeObjects/Cannon.h"
 #include "gameObjects/movingObjects/Surprise.h"
 #include "gameObjects/movingObjects/Ship.h"
+#include "gameObjects/activeObjects/GoldenSeahorse.h"

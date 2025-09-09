@@ -224,6 +224,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Axis axis)
     }
 }
 
+void Level::CreateGoldenSeahorse(Coordinates position, Direction movementSide, Direction initialDirection)
+{
+    GoldenSeahorse* newSeahorse = new GoldenSeahorse(position, movementSide, initialDirection, this);
+    fields[position.y][position.x] = newSeahorse;
+    this->AddToActiveObjects(newSeahorse);
+}
+
 void Level::CreateOpenShip(Coordinates position)
 {
     Ship* newShip = new Ship(position, this);
@@ -486,31 +493,21 @@ void Level::PutLevelPicture()
                     Ship* ship = dynamic_cast<Ship*>(obj);
                     PutObject(objName, j, i, ship->IsOpen());
                 }
-                //TODO make class for objects with rotation
-                if(objName == LASER_SHOOTER)
+
+                RotatingObject* rotatingObject = dynamic_cast<RotatingObject*>(obj);
+                if(rotatingObject != nullptr)
                 {
-                    LaserShooter* laser = dynamic_cast<LaserShooter*>(obj);
-                    PutObject(objName, j, i, laser->GetRotation());
+                    PutObject(objName, j, i, rotatingObject->GetRotation());
                     continue;
                 }
-                else if(objName == LASER_HEAD)
-                {
-                    LaserHead* laser = dynamic_cast<LaserHead*>(obj);
-                    PutObject(objName, j, i, laser->GetRotation());
-                    continue;
-                }
-                else if(objName == LASER_BODY)
+
+                if(objName == LASER_BODY)
                 {
                     LaserBody* laser = dynamic_cast<LaserBody*>(obj);
                     PutObject(objName, j, i, laser->axis);
                     continue;
                 }
-                else if(objName == CANNON)
-                {
-                    Cannon* cannon = dynamic_cast<Cannon*>(obj);
-                    PutObject(objName, j, i, cannon->GetRotation());
-                    continue;
-                }
+
                 PutObject(objName, j, i);
             }
         }
@@ -662,6 +659,24 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     m_window->PutTexture( LEVEL_CANNON_RIGHT, renderPosition.x, renderPosition.y);
                     break;
             }
+            break;
+        case GOLDEN_SEAHORSE:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture(LEVEL_GOLDEN_SEAHORSE_UP, renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture(LEVEL_GOLDEN_SEAHORSE_DOWN, renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture(LEVEL_GOLDEN_SEAHORSE_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture(LEVEL_GOLDEN_SEAHORSE_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
         default:
             this->PutObject(name, x, y);
             break;
@@ -843,6 +858,10 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '&':
                 CreateObject(SHIP, x, y);
+                break;
+            //GOLDEN SEAHORSE
+            case 'a':
+                CreateGoldenSeahorse(Coordinates(x, y), LEFT, UP);
                 break;
             case '\n':
                 x = 0;
