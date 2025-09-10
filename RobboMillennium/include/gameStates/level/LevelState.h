@@ -11,6 +11,7 @@ public:
     void AddLife();
     void SetLivesPositions(std::vector<Coordinates> positions);
     bool IsLiveAtPositionAvailable(Coordinates position);
+    void RemoveLiveAtPosition(Coordinates position);
     bool IsFirstLevelGame();
 
 private:

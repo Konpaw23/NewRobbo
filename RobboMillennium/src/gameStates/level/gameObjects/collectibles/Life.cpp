@@ -9,5 +9,6 @@ Life::Life(Coordinates position, Level* level) : GameObject(LIFE, position, fals
 void Life::PickUp(Robbo *other)
 {
     this->level->AddLife();
+    this->level->SetLifeAsTaken(this->position);
     Collectible::PickUp(other);
 }

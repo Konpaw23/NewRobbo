@@ -776,6 +776,10 @@ void Level::AddLife()
     this->levelState->AddLife();
 }
 
+void Level::SetLifeAsTaken(Coordinates position)
+{
+    this->levelState->RemoveLiveAtPosition(position);
+}
 
 void Level::FieldsMemoryAlloc()
 {
@@ -885,7 +889,10 @@ void Level::LoadObjects(int levelNumber)
                 }
                 else
                 {
-                    if()
+                    if(!this->levelState->IsLiveAtPositionAvailable(Coordinates(x,y)))
+                    {
+                        break;
+                    }
                 }
                 CreateObject(LIFE, x, y);
                 break;
