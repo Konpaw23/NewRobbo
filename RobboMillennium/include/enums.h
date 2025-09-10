@@ -110,6 +110,8 @@ enum RobboAction
     SHOT_UP,
     SHOT_DOWN,
 
+    SELF_DESTRUCT,
+
     NOTHING,
 };
 

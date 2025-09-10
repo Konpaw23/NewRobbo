@@ -4,7 +4,7 @@ LevelState::LevelState(Window* window) : GameState(window)
 {
     this->m_window->Clear();
     this->state = LEVEL;
-    this->levelNumber = 2;
+    this->levelNumber = 1;
     this->level = new Level(m_window, levelNumber);
 
     sequenceTime = clock();
@@ -65,9 +65,13 @@ void LevelState::ProcessInput()
                 case SDLK_SPACE:
                     isPressedSpace = true;
                     break;
+                case SDLK_ESCAPE:
+                    lastActionPressed = SELF_DESTRUCT;
+                    break;
                 case SDLK_F10:
                     state = MENU;
                     m_running = false;
+                    break;
             }
         }
         else if(e.key.type == SDL_KEYUP)

@@ -86,7 +86,6 @@ add_executable(RobboMillennium main.cpp
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
-file(COPY ${CMAKE_SOURCE_DIR}/levels/ DESTINATION ${CMAKE_BINARY_DIR}/levels/)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
 
@@ -96,8 +95,15 @@ if(WIN32)
     add_custom_command(
             TARGET ${PROJECT_NAME} POST_BUILD
             COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-            "${SDL2_DLL}"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+                "${SDL2_DLL}"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
             VERBATIM
     )
 endif()
+
+add_custom_command(
+        TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND "${CMAKE_COMMAND}" -E copy_directory
+            "${CMAKE_SOURCE_DIR}/levels"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/levels"
+)

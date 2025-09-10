@@ -157,6 +157,9 @@ void Robbo::Run()
         case SHOT_DOWN:
             Shot(DOWN);
             break;
+        case SELF_DESTRUCT:
+            this->Destroy();
+            break;
     }
 }
 

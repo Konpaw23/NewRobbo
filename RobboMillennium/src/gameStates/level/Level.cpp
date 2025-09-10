@@ -860,7 +860,7 @@ void Level::LoadObjects(int levelNumber)
                 CreateObject(SHIP, x, y);
                 break;
             //GOLDEN SEAHORSE
-            case 'a':
+            case 'w':
                 CreateGoldenSeahorse(Coordinates(x, y), LEFT, UP);
                 break;
             case '\n':
