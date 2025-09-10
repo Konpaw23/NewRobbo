@@ -95,6 +95,7 @@ enum GameObjectName
     LASER_BODY,
 
     CANNON,
+    ROTATING_CANNON,
 
     GOLDEN_SEAHORSE,
     PURPLE_SEAHORSE,

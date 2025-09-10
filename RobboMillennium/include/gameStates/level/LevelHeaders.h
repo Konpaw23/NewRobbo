@@ -25,6 +25,7 @@
 #include "gameObjects/activeObjects/laser/LaserHead.h"
 #include "gameObjects/activeObjects/laser/LaserBody.h"
 #include "gameObjects/activeObjects/Cannon.h"
+#include "gameObjects/activeObjects/RotatingCannon.h"
 #include "gameObjects/movingObjects/Surprise.h"
 #include "gameObjects/movingObjects/Ship.h"
 #include "gameObjects/activeObjects/GoldenSeahorse.h"

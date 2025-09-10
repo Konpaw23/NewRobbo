@@ -29,7 +29,7 @@ void Surprise::Open()
     this->level->RemoveObject(this);
 
     GameObjectName objectToCreate = NULL_OBJECT;
-    double random = ((double)rand()) / RAND_MAX;
+    int random = rand() % SURPRISES_SUM;
     if((random -= SURPRISE_SCREW) < 0)
     {
         objectToCreate = SCREW;
@@ -58,6 +58,10 @@ void Surprise::Open()
     {
         this->level->CreateOpenShip(position);
         return;
+    }
+    else if((random -= SURPRISE_CANNON) < 0)
+    {
+        objectToCreate = ROTATING_CANNON;
     }
     this->level->CreateObject(objectToCreate, position.x, position.y);
 }

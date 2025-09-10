@@ -183,6 +183,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             fields[y][x] = new Smoke(Coordinates(x,y), this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case ROTATING_CANNON:
+            this->CreateObject(ROTATING_CANNON, x, y, UP);
+            break;
         case NULL_OBJECT:
         default:
             break;
@@ -205,6 +208,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             fields[y][x] = new Cannon(Coordinates(x,y), rotation, this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case ROTATING_CANNON:
+        {
+            RotatingCannon* cannon = new RotatingCannon(Coordinates(x,y), rotation, this);
+            fields[y][x] = cannon;
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(cannon));
+            break;
+        }
         case PURPLE_SEAHORSE:
         {
             PurpleSeahorse* seahorse = new PurpleSeahorse(Coordinates(x,y), rotation, this);
@@ -651,6 +661,7 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
             }
             break;
         case CANNON:
+        case ROTATING_CANNON:
             switch(rotation)
             {
                 case UP:
@@ -879,6 +890,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'R':
                 CreateObject(CANNON, x, y, RIGHT);
+                break;
+            case 'X':
+                CreateObject(ROTATING_CANNON, x, y);
                 break;
             case '&':
                 CreateObject(SHIP, x, y);
