@@ -120,4 +120,8 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_GOLDEN_SEAHORSE_DOWN, "../assets/textures/level/goldenSeahorse/goldenSeahorseDown.bmp");
     AddTexture(LEVEL_GOLDEN_SEAHORSE_LEFT, "../assets/textures/level/goldenSeahorse/goldenSeahorseLeft.bmp");
     AddTexture(LEVEL_GOLDEN_SEAHORSE_RIGHT, "../assets/textures/level/goldenSeahorse/goldenSeahorseRight.bmp");
+    AddTexture(LEVEL_PURPLE_SEAHORSE_UP, "../assets/textures/level/purpleSeahorse/purpleSeahorseUp.bmp");
+    AddTexture(LEVEL_PURPLE_SEAHORSE_DOWN, "../assets/textures/level/purpleSeahorse/purpleSeahorseDown.bmp");
+    AddTexture(LEVEL_PURPLE_SEAHORSE_LEFT, "../assets/textures/level/purpleSeahorse/purpleSeahorseLeft.bmp");
+    AddTexture(LEVEL_PURPLE_SEAHORSE_RIGHT, "../assets/textures/level/purpleSeahorse/purpleSeahorseRight.bmp");
 }

@@ -9,6 +9,7 @@ public:
 
 protected:
     void Rotate(Direction direction);
+    void RotateToOpposite();
 
     Direction rotation;
 };

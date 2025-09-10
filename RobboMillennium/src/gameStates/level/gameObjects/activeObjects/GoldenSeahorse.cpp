@@ -20,5 +20,5 @@ void GoldenSeahorse::Run()
         this->Rotate(GetOppositeDirection(this->movementSide));
     }
 
-    this->SearchAndKill();
+    KillingObject::Run();
 }

@@ -14,3 +14,8 @@ void RotatingObject::Rotate(Direction direction)
 {
     this->rotation = GetDirectionNextTo(this->rotation, direction);
 }
+
+void RotatingObject::RotateToOpposite()
+{
+    this->rotation = GetOppositeDirection(this->rotation);
+}

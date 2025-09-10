@@ -6,6 +6,11 @@ KillingObject::KillingObject()
     ;
 }
 
+void KillingObject::Run()
+{
+    this->SearchAndKill();
+}
+
 void KillingObject::SearchAndKill()
 {
     std::vector<Coordinates> fields = this->level->GetFieldsNextTo(this->position);

@@ -205,6 +205,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             fields[y][x] = new Cannon(Coordinates(x,y), rotation, this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case PURPLE_SEAHORSE:
+        {
+            PurpleSeahorse* seahorse = new PurpleSeahorse(Coordinates(x,y), rotation, this);
+            fields[y][x] = seahorse;
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(seahorse));
+            break;
+        }
         default:
             this->CreateObject(name, x, y);
             break;
@@ -677,6 +684,23 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
             }
             break;
+        case PURPLE_SEAHORSE:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture(LEVEL_PURPLE_SEAHORSE_UP, renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture(LEVEL_PURPLE_SEAHORSE_DOWN, renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture(LEVEL_PURPLE_SEAHORSE_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture(LEVEL_PURPLE_SEAHORSE_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
         default:
             this->PutObject(name, x, y);
             break;
@@ -862,6 +886,39 @@ void Level::LoadObjects(int levelNumber)
             //GOLDEN SEAHORSE
             case 'w':
                 CreateGoldenSeahorse(Coordinates(x, y), LEFT, UP);
+                break;
+            case 'a':
+                CreateGoldenSeahorse(Coordinates(x, y), LEFT, LEFT);
+                break;
+            case 's':
+                CreateGoldenSeahorse(Coordinates(x, y), LEFT, DOWN);
+                break;
+            case 'd':
+                CreateGoldenSeahorse(Coordinates(x, y), LEFT, RIGHT);
+                break;
+            case 't':
+                CreateGoldenSeahorse(Coordinates(x, y), RIGHT, UP);
+                break;
+            case 'f':
+                CreateGoldenSeahorse(Coordinates(x, y), RIGHT, LEFT);
+                break;
+            case 'g':
+                CreateGoldenSeahorse(Coordinates(x, y), RIGHT, DOWN);
+                break;
+            case 'h':
+                CreateGoldenSeahorse(Coordinates(x, y), RIGHT, RIGHT);
+                break;
+            case 'i':
+                CreateObject(PURPLE_SEAHORSE, x, y, UP);
+                break;
+            case 'j':
+                CreateObject(PURPLE_SEAHORSE, x, y, LEFT);
+                break;
+            case 'k':
+                CreateObject(PURPLE_SEAHORSE, x, y, DOWN);
+                break;
+            case 'l':
+                CreateObject(PURPLE_SEAHORSE, x, y, RIGHT);
                 break;
             case '\n':
                 x = 0;
