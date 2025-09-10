@@ -87,6 +87,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/activeObjects/PurpleSeahorse.h
         src/gameStates/level/gameObjects/activeObjects/RotatingCannon.cpp
         include/gameStates/level/gameObjects/activeObjects/RotatingCannon.h
+        src/gameStates/level/gameObjects/collectibles/Life.cpp
+        include/gameStates/level/gameObjects/collectibles/Life.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)

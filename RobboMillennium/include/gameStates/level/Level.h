@@ -5,7 +5,7 @@
 class Level
 {
 public:
-    Level(Window* window, int levelNumber);
+    Level(Window* window, int levelNumber, class LevelState* levelState);
     ~Level();
 
     void RunSequence();
@@ -60,8 +60,11 @@ public:
 
     //returns 1 when no more screws needed
     int DecreaseScrewsNumber();
+    void AddLife();
 
 private:
+    LevelState* levelState;
+
     void FieldsMemoryAlloc();
 
     void DeleteAllObjects();

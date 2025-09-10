@@ -4,8 +4,9 @@ LevelState::LevelState(Window* window) : GameState(window)
 {
     this->m_window->Clear();
     this->state = LEVEL;
-    this->levelNumber = 5;
-    this->level = new Level(m_window, levelNumber);
+    this->levelNumber = 4;
+    this->lives = 5;
+    this->level = new Level(m_window, levelNumber, this);
 
     sequenceTime = clock();
 }
@@ -15,7 +16,12 @@ LevelState::LevelState(Window* window, int level_number) : GameState(window)
     this->m_window->Clear();
     this->state = LEVEL;
     this->levelNumber = level_number;
-    this->level = new Level(m_window, levelNumber);
+    this->level = new Level(m_window, levelNumber, this);
+}
+
+void LevelState::AddLife()
+{
+    this->lives++;
 }
 
 void LevelState::ActionMoveToShoot()
@@ -116,16 +122,22 @@ void LevelState::Update()
                 //TODO next level only if exists!
                 delete level;
                 levelNumber++;
-                level = new Level(m_window, levelNumber);
+                level = new Level(m_window, levelNumber, this);
             }
             level->SetPlayerAction(playerAction);
             level->RunSequence();
         }
-        else
+        else if(lives > 0)
         {
+            lives--;
             //TODO reset level method
             delete level;
-            level = new Level(m_window, levelNumber);
+            level = new Level(m_window, levelNumber, this);
+        }
+        else
+        {
+            this->state = MENU;
+            this->m_running = false;
         }
         sequenceTime = clock();
     }

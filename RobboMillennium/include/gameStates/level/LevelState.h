@@ -8,11 +8,13 @@ class LevelState : public GameState
 public:
     LevelState(Window* window);
     LevelState(Window* window, int levelNumber);
+    void AddLife();
 
 private:
     Level* level;
     int levelNumber;
     RobboAction playerAction;
+    int lives;
 
     double deltaSequenceTime;
     double sequenceTime;

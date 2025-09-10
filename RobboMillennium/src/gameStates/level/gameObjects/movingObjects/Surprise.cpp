@@ -63,5 +63,9 @@ void Surprise::Open()
     {
         objectToCreate = ROTATING_CANNON;
     }
+    else if((random -= SURPRISE_LIFE) < 0)
+    {
+        objectToCreate = LIFE;
+    }
     this->level->CreateObject(objectToCreate, position.x, position.y);
 }

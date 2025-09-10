@@ -18,6 +18,7 @@
 #include "gameObjects/collectibles/Screw.h"
 #include "gameObjects/collectibles/Key.h"
 #include "gameObjects/collectibles/Ammo.h"
+#include "gameObjects/collectibles/Life.h"
 #include "gameObjects/activeObjects/Bullet.h"
 #include "gameObjects/staticObjects/Bush.h"
 #include "gameObjects/activeObjects/Smoke.h"

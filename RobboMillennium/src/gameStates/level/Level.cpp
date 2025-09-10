@@ -1,6 +1,7 @@
 #include "../../../include/gameStates/level/Level.h"
+#include "../../../include/gameStates/level/LevelState.h"
 
-Level::Level(Window* window, int levelNumber) : m_window(window), height(LEVEL_HEIGHT), width(LEVEL_WIDTH)
+Level::Level(Window* window, int levelNumber, LevelState* levelState) : m_window(window), height(LEVEL_HEIGHT), width(LEVEL_WIDTH), levelState(levelState)
 {
     screwsToCollect = 0;
     FieldsMemoryAlloc();
@@ -165,6 +166,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case AMMO:
             fields[y][x] = new Ammo(Coordinates(x,y), this);
+            break;
+        case LIFE:
+            fields[y][x] = new Life(Coordinates(x, y), this);
             break;
         case BUSH:
             fields[y][x] = new Bush(Coordinates(x,y), this);
@@ -571,6 +575,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case AMMO:
             m_window->PutTexture(LEVEL_AMMO, renderPosition.x, renderPosition.y);
             break;
+        case LIFE:
+            m_window->PutTexture(LEVEL_LIFE, renderPosition.x, renderPosition.y);
+            break;
         case BULLET:
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
             break;
@@ -764,6 +771,12 @@ int Level::DecreaseScrewsNumber()
     }
 }
 
+void Level::AddLife()
+{
+    this->levelState->AddLife();
+}
+
+
 void Level::FieldsMemoryAlloc()
 {
     if(player != nullptr)
@@ -863,6 +876,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '!':
                 CreateObject(AMMO, x, y);
+                break;
+            case '+':
+                CreateObject(LIFE, x, y);
                 break;
             case '%':
                 CreateObject(BUSH, x, y);

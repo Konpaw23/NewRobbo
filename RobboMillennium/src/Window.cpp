@@ -90,6 +90,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_SCREW, "../assets/textures/level/screw.bmp");
     AddTexture(LEVEL_KEY, "../assets/textures/level/key.bmp");
     AddTexture(LEVEL_AMMO, "../assets/textures/level/ammo.bmp");
+    AddTexture(LEVEL_LIFE, "../assets/textures/level/life.bmp");
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
     AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
     AddTexture(LEVEL_BUSH, "../assets/textures/level/bush.bmp");
