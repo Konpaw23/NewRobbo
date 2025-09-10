@@ -5,7 +5,8 @@
 #include "Level.h"
 
 #include "gameObjects/StaticObject.h"
-#include "gameObjects/StaticObjects/Wall.h"
+#include "gameObjects/staticObjects/Wall.h"
+#include "gameObjects/staticObjects/BushWall.h"
 #include "gameObjects/staticObjects/Door.h"
 #include "gameObjects/staticObjects/MirrorGroup.h"
 #include "gameObjects/staticObjects/Mirror.h"

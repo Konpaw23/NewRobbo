@@ -145,6 +145,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case WALL:
             fields[y][x] = new Wall(Coordinates(x,y), this);
             break;
+        case BUSH_WALL:
+            fields[y][x] = new BushWall(Coordinates(x,y), this);
+            break;
         case DOOR:
             fields[y][x] = new Door(Coordinates(x,y), this);
             break;
@@ -582,6 +585,7 @@ void Level::PutObject(GameObjectName name, int x, int y)
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
             break;
         case BUSH:
+        case BUSH_WALL:
             m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
             break;
     }
@@ -856,6 +860,9 @@ void Level::LoadObjects(int levelNumber)
         {
             case 'W':
                 CreateObject(WALL, x, y);
+                break;
+            case '/':
+                CreateObject(BUSH_WALL, x, y);
                 break;
             case '|':
                 CreateObject(DOOR, x, y);

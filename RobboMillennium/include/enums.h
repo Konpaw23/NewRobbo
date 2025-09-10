@@ -76,6 +76,7 @@ enum TextureName
 enum GameObjectName
 {
     WALL,
+    BUSH_WALL,
     DOOR,
     MIRROR,
     BUSH,
