@@ -842,6 +842,7 @@ void Level::LoadObjects(int levelNumber)
     }
 
     std::unordered_map<int, MirrorGroup*> mirrorGroups = {};
+    std::vector<Coordinates> livesPositions = {};
 
     int x = 0, y = 0;
     char objectChar;
@@ -878,6 +879,14 @@ void Level::LoadObjects(int levelNumber)
                 CreateObject(AMMO, x, y);
                 break;
             case '+':
+                if(levelState->IsFirstLevelGame())
+                {
+                    livesPositions.push_back(Coordinates(x,y));
+                }
+                else
+                {
+                    if()
+                }
                 CreateObject(LIFE, x, y);
                 break;
             case '%':
@@ -976,6 +985,10 @@ void Level::LoadObjects(int levelNumber)
         {
             x++;
         }
+    }
+    if(this->levelState->IsFirstLevelGame())
+    {
+        this->levelState->SetLivesPositions(livesPositions);
     }
 }
 

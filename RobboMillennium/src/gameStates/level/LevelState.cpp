@@ -7,7 +7,6 @@ LevelState::LevelState(Window* window) : GameState(window)
     this->levelNumber = 4;
     this->lives = 5;
     this->level = new Level(m_window, levelNumber, this);
-
     sequenceTime = clock();
 }
 
@@ -22,6 +21,25 @@ LevelState::LevelState(Window* window, int level_number) : GameState(window)
 void LevelState::AddLife()
 {
     this->lives++;
+}
+
+void LevelState::SetLivesPositions(std::vector<Coordinates> positions)
+{
+    if(levelLivesPositions.empty())
+    {
+        this->levelLivesPositions = positions;
+    }
+}
+
+bool LevelState::IsLiveAtPositionAvailable(Coordinates position)
+{
+    //TODO
+    for(int i = 0; i < this)
+}
+
+bool LevelState::IsFirstLevelGame()
+{
+    return this->isFirstLevelGame;
 }
 
 void LevelState::ActionMoveToShoot()
@@ -121,6 +139,8 @@ void LevelState::Update()
             {
                 //TODO next level only if exists!
                 delete level;
+                this->isFirstLevelGame = true;
+                this->levelLivesPositions.clear();
                 levelNumber++;
                 level = new Level(m_window, levelNumber, this);
             }
@@ -129,6 +149,7 @@ void LevelState::Update()
         }
         else if(lives > 0)
         {
+            this->isFirstLevelGame = false;
             lives--;
             //TODO reset level method
             delete level;

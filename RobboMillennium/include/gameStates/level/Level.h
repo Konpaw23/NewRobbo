@@ -61,6 +61,7 @@ public:
     //returns 1 when no more screws needed
     int DecreaseScrewsNumber();
     void AddLife();
+    void SetLifeAsTaken();
 
 private:
     LevelState* levelState;

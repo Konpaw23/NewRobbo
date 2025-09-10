@@ -9,12 +9,17 @@ public:
     LevelState(Window* window);
     LevelState(Window* window, int levelNumber);
     void AddLife();
+    void SetLivesPositions(std::vector<Coordinates> positions);
+    bool IsLiveAtPositionAvailable(Coordinates position);
+    bool IsFirstLevelGame();
 
 private:
     Level* level;
     int levelNumber;
     RobboAction playerAction;
     int lives;
+    std::vector<Coordinates> levelLivesPositions = {};
+    bool isFirstLevelGame = true;
 
     double deltaSequenceTime;
     double sequenceTime;
