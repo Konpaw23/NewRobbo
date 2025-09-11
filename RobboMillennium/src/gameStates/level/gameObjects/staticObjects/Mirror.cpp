@@ -34,8 +34,8 @@ bool Mirror::Exit(Robbo *robbo, Direction out)
     {
         case LEFT:
             possibleFields[0] = LEFT;
-            possibleFields[1] = UP;
-            possibleFields[2] = DOWN;
+            possibleFields[1] = DOWN;
+            possibleFields[2] = UP;
             possibleFields[3] = RIGHT;
             break;
         case RIGHT:

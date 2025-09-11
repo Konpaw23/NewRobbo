@@ -13,7 +13,7 @@ WW  #WWWW W    W
 %W  #W%%W W%%%%%
 %W # WWWW#WWWWW%
 %W  ###  ##  #W%
-%W  ##        W%
+%W  ##        ]%
 %W#    ###  # W%
 %WWWW # WWWW WW%
 %%%%W  $W%%W W%%

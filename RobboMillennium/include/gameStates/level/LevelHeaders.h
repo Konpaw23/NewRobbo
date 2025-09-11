@@ -22,6 +22,7 @@
 #include "gameObjects/collectibles/Life.h"
 #include "gameObjects/activeObjects/Bullet.h"
 #include "gameObjects/staticObjects/Bush.h"
+#include "gameObjects/activeObjects/Magnet.h"
 #include "gameObjects/activeObjects/Smoke.h"
 #include "gameObjects/activeObjects/laser/LaserShooter.h"
 #include "gameObjects/activeObjects/laser/LaserHead.h"

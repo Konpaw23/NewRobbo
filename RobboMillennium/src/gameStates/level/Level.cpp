@@ -222,6 +222,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             fields[y][x] = new Cannon(Coordinates(x,y), rotation, this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case MAGNET:
+        {
+            Magnet* magnet = new Magnet(Coordinates(x,y), rotation, this);
+            fields[y][x] = magnet;
+            AddToActiveObjects(magnet);
+            break;
+        }
         case ROTATING_CANNON:
         {
             RotatingCannon* cannon = new RotatingCannon(Coordinates(x,y), rotation, this);
@@ -718,6 +725,23 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
             }
             break;
+        case MAGNET:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture( LEVEL_MAGNET_UP, renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture( LEVEL_MAGNET_DOWN, renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture( LEVEL_MAGNET_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_MAGNET_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
         case GOLDEN_SEAHORSE:
             switch(rotation)
             {
@@ -975,6 +999,13 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '&':
                 CreateObject(SHIP, x, y);
+                break;
+            //MAGNET
+            case ']':
+                CreateObject(MAGNET, x, y, LEFT);
+                break;
+            case '[':
+                CreateObject(MAGNET, x, y, RIGHT);
                 break;
             //SEAHORSES
             case 'w':

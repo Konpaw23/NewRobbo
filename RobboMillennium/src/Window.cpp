@@ -117,6 +117,10 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_CANNON_RIGHT, "../assets/textures/level/cannon/right.bmp");
     AddTexture(LEVEL_SHIP_CLOSED, "../assets/textures/level/ship/closed.bmp");
     AddTexture(LEVEL_SHIP_OPEN, "../assets/textures/level/ship/open.bmp");
+    AddTexture(LEVEL_MAGNET_LEFT, "../assets/textures/level/magnet/left.bmp");
+    AddTexture(LEVEL_MAGNET_RIGHT, "../assets/textures/level/magnet/right.bmp");
+    AddTexture(LEVEL_MAGNET_UP, "../assets/textures/level/magnet/up.bmp");
+    AddTexture(LEVEL_MAGNET_DOWN, "../assets/textures/level/magnet/down.bmp");
     AddTexture(LEVEL_GOLDEN_SEAHORSE_UP, "../assets/textures/level/goldenSeahorse/goldenSeahorseUp.bmp");
     AddTexture(LEVEL_GOLDEN_SEAHORSE_DOWN, "../assets/textures/level/goldenSeahorse/goldenSeahorseDown.bmp");
     AddTexture(LEVEL_GOLDEN_SEAHORSE_LEFT, "../assets/textures/level/goldenSeahorse/goldenSeahorseLeft.bmp");

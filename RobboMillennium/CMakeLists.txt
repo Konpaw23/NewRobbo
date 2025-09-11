@@ -95,6 +95,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/activeObjects/CookieMonster.h
         src/gameStates/level/gameObjects/activeObjects/Eye.cpp
         include/gameStates/level/gameObjects/activeObjects/Eye.h
+        src/gameStates/level/gameObjects/activeObjects/Magnet.cpp
+        include/gameStates/level/gameObjects/activeObjects/Magnet.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
