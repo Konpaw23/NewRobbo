@@ -67,5 +67,9 @@ void Surprise::Open()
     {
         objectToCreate = LIFE;
     }
+    else if((random -= SURPRISE_EYE) < 0)
+    {
+        objectToCreate = EYE;
+    }
     this->level->CreateObject(objectToCreate, position.x, position.y);
 }

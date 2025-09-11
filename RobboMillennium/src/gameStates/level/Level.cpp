@@ -193,6 +193,13 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case ROTATING_CANNON:
             this->CreateObject(ROTATING_CANNON, x, y, UP);
             break;
+        case EYE:
+        {
+            Eye* eye = new Eye(Coordinates(x,y), this);
+            fields[y][x] = eye;
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(eye));
+            break;
+        }
         case NULL_OBJECT:
         default:
             break;
@@ -227,6 +234,13 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             PurpleSeahorse* seahorse = new PurpleSeahorse(Coordinates(x,y), rotation, this);
             fields[y][x] = seahorse;
             AddToActiveObjects(dynamic_cast<ActiveObject*>(seahorse));
+            break;
+        }
+        case COOKIE_MONSTER:
+        {
+            CookieMonster* monster = new CookieMonster(Coordinates(x,y), rotation, this);
+            fields[y][x] = monster;
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(monster));
             break;
         }
         default:
@@ -343,6 +357,18 @@ void Level::ShowRobbo()
 bool Level::IsRobboVisible()
 {
     return this->isRobboVisible;
+}
+
+Coordinates Level::GetRobboPosition()
+{
+    if(this->IsPlayerAlive())
+    {
+        return this->player->GetPosition();
+    }
+    else
+    {
+        return {-1, -1};
+    }
 }
 
 void Level::FinishLevel()
@@ -584,6 +610,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case BULLET:
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
             break;
+        case EYE:
+            m_window->PutTexture(LEVEL_EYE, renderPosition.x, renderPosition.y);
+            break;
         case BUSH:
         case BUSH_WALL:
             m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
@@ -720,6 +749,17 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
                 case RIGHT:
                     m_window->PutTexture(LEVEL_PURPLE_SEAHORSE_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
+        case COOKIE_MONSTER:
+            switch (rotation)
+            {
+                case LEFT:
+                    m_window->PutTexture(LEVEL_COOKIE_MONSTER_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture(LEVEL_COOKIE_MONSTER_RIGHT, renderPosition.x, renderPosition.y);
                     break;
             }
             break;
@@ -906,7 +946,7 @@ void Level::LoadObjects(int levelNumber)
             case '%':
                 CreateObject(BUSH, x, y);
                 break;
-            case 'v':
+            case 'V':
                 CreateObject(LASER_SHOOTER, x, y, DOWN);
                 break;
             case '^':
@@ -936,7 +976,7 @@ void Level::LoadObjects(int levelNumber)
             case '&':
                 CreateObject(SHIP, x, y);
                 break;
-            //GOLDEN SEAHORSE
+            //SEAHORSES
             case 'w':
                 CreateGoldenSeahorse(Coordinates(x, y), LEFT, UP);
                 break;
@@ -972,6 +1012,16 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'l':
                 CreateObject(PURPLE_SEAHORSE, x, y, RIGHT);
+                break;
+                //COOKIE
+            case 'q':
+                CreateObject(COOKIE_MONSTER, x, y, LEFT);
+                break;
+            case 'e':
+                CreateObject(COOKIE_MONSTER, x, y, RIGHT);
+                break;
+            case 'o':
+                CreateObject(EYE, x, y);
                 break;
             case '\n':
                 x = 0;

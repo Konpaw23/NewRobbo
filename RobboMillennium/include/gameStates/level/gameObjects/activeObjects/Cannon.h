@@ -7,7 +7,7 @@ class Cannon : public ActiveObject, public StaticObject, public RotatingObject
 {
 public:
     Cannon(Coordinates position, Direction rotation, Level* level);
-    virtual void Run() override;
+    void Run() override;
 
 private:
     void Shoot();

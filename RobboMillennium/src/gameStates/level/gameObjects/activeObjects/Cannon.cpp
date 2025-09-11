@@ -30,5 +30,4 @@ void Cannon::Shoot()
     {
         other->Destroy();
     }
-    //else - projectile resistant object next to laser shooter
 }

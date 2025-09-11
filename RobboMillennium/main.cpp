@@ -14,8 +14,6 @@ int main(int argc, char* argv[])
 
     srand(time(NULL));
 
-    std::cout << "surprises sum = " << SURPRISES_SUM << "\n";
-
     //game states loop
     while(1)
     {

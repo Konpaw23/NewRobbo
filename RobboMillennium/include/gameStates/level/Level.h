@@ -40,6 +40,7 @@ public:
     void HideRobbo();
     void ShowRobbo();
     bool IsRobboVisible();
+    Coordinates GetRobboPosition();
     void FinishLevel();
     bool IsLevelFinished();
 

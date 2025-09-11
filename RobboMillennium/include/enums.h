@@ -70,6 +70,11 @@ enum TextureName
     LEVEL_PURPLE_SEAHORSE_LEFT,
     LEVEL_PURPLE_SEAHORSE_RIGHT,
 
+    LEVEL_COOKIE_MONSTER_LEFT,
+    LEVEL_COOKIE_MONSTER_RIGHT,
+
+    LEVEL_EYE,
+
     LEVEL_PANEL,
 };
 
@@ -102,6 +107,8 @@ enum GameObjectName
 
     GOLDEN_SEAHORSE,
     PURPLE_SEAHORSE,
+    COOKIE_MONSTER,
+    EYE,
 
     ROBBO,
 
@@ -131,6 +138,7 @@ enum Direction
     RIGHT,
     UP,
     DOWN,
+    NULL_DIR,
 };
 
 enum Axis

@@ -61,6 +61,22 @@ Direction GetDirectionNextTo(Direction initial, Direction rotate)
     }
 }
 
+Direction GetRandomDirection()
+{
+    int random = rand() % 4;
+    switch(random)
+    {
+        case 0:
+            return LEFT;
+        case 1:
+            return RIGHT;
+        case 2:
+            return UP;
+        case 3:
+            return DOWN;
+    }
+}
+
 Axis GetAxis(Direction dir)
 {
     switch (dir)

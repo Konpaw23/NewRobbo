@@ -32,3 +32,5 @@
 #include "gameObjects/movingObjects/Ship.h"
 #include "gameObjects/activeObjects/GoldenSeahorse.h"
 #include "gameObjects/activeObjects/PurpleSeahorse.h"
+#include "gameObjects/activeObjects/CookieMonster.h"
+#include "gameObjects/activeObjects/Eye.h"
