@@ -13,7 +13,7 @@
 
 //sequence duration in seconds - how fast will objects move
 //TODO still not sure if speed like in original game
-#define SEQUENCE_DURATION (1.0/10.0)
+#define SEQUENCE_DURATION (1.0/9.4)
 
 //surprise chances
 #define SURPRISE_SCREW 20
