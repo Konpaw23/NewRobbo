@@ -24,10 +24,15 @@ void Cannon::Shoot()
 
     if(other == nullptr)
     {
-        this->level->SpawnBullet(bulletField, this->rotation);
+        this->PlaceProjectile(bulletField);
     }
     else if(!other->IsProjectileResistant())
     {
         other->Destroy();
     }
+}
+
+void Cannon::PlaceProjectile(Coordinates position)
+{
+    this->level->SpawnBullet(position, this->rotation);
 }

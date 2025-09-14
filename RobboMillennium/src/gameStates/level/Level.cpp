@@ -222,6 +222,20 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation)
             fields[y][x] = new Cannon(Coordinates(x,y), rotation, this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case BLASTER_CANNON:
+        {
+            BlasterCannon* cannon = new BlasterCannon(Coordinates(x,y), rotation, this);
+            fields[y][x] = cannon;
+            AddToActiveObjects(cannon);
+            break;
+        }
+        case BLASTER:
+        {
+            Blaster* blaster = new Blaster(Coordinates(x,y), rotation, this);
+            fields[y][x] = blaster;
+            AddToActiveObjects(blaster);
+            break;
+        }
         case MAGNET:
         {
             Magnet* magnet = new Magnet(Coordinates(x,y), rotation, this);
@@ -617,6 +631,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case BULLET:
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
             break;
+        case BLASTER:
+            m_window->PutTexture(LEVEL_BLASTER, renderPosition.x, renderPosition.y);
+            break;
         case EYE:
             m_window->PutTexture(LEVEL_EYE, renderPosition.x, renderPosition.y);
             break;
@@ -722,6 +739,23 @@ void Level::PutObject(GameObjectName name, int x, int y, Direction rotation)
                     break;
                 case RIGHT:
                     m_window->PutTexture( LEVEL_CANNON_RIGHT, renderPosition.x, renderPosition.y);
+                    break;
+            }
+            break;
+        case BLASTER_CANNON:
+            switch(rotation)
+            {
+                case UP:
+                    m_window->PutTexture( LEVEL_BLASTER_CANNON_UP, renderPosition.x, renderPosition.y);
+                    break;
+                case DOWN:
+                    m_window->PutTexture( LEVEL_BLASTER_CANNON_DOWN, renderPosition.x, renderPosition.y);
+                    break;
+                case LEFT:
+                    m_window->PutTexture( LEVEL_BLASTER_CANNON_LEFT, renderPosition.x, renderPosition.y);
+                    break;
+                case RIGHT:
+                    m_window->PutTexture( LEVEL_BLASTER_CANNON_RIGHT, renderPosition.x, renderPosition.y);
                     break;
             }
             break;
@@ -993,6 +1027,12 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'R':
                 CreateObject(CANNON, x, y, RIGHT);
+                break;
+            case '{':
+                CreateObject(BLASTER_CANNON, x, y, LEFT);
+                break;
+            case '}':
+                CreateObject(BLASTER_CANNON, x, y, RIGHT);
                 break;
             case 'X':
                 CreateObject(ROTATING_CANNON, x, y);

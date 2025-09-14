@@ -93,6 +93,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_LIFE, "../assets/textures/level/life.bmp");
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
     AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
+    AddTexture(LEVEL_BLASTER, "../assets/textures/level/blaster.bmp");
     AddTexture(LEVEL_BUSH, "../assets/textures/level/bush.bmp");
     AddTexture(LEVEL_SMOKE01, "../assets/textures/level/smoke/01.bmp");
     AddTexture(LEVEL_SMOKE02, "../assets/textures/level/smoke/02.bmp");
@@ -115,6 +116,10 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_CANNON_DOWN, "../assets/textures/level/cannon/down.bmp");
     AddTexture(LEVEL_CANNON_LEFT, "../assets/textures/level/cannon/left.bmp");
     AddTexture(LEVEL_CANNON_RIGHT, "../assets/textures/level/cannon/right.bmp");
+    AddTexture(LEVEL_BLASTER_CANNON_UP, "../assets/textures/level/blasterCannon/up.bmp");
+    AddTexture(LEVEL_BLASTER_CANNON_DOWN, "../assets/textures/level/blasterCannon/down.bmp");
+    AddTexture(LEVEL_BLASTER_CANNON_LEFT, "../assets/textures/level/blasterCannon/left.bmp");
+    AddTexture(LEVEL_BLASTER_CANNON_RIGHT, "../assets/textures/level/blasterCannon/right.bmp");
     AddTexture(LEVEL_SHIP_CLOSED, "../assets/textures/level/ship/closed.bmp");
     AddTexture(LEVEL_SHIP_OPEN, "../assets/textures/level/ship/open.bmp");
     AddTexture(LEVEL_MAGNET_LEFT, "../assets/textures/level/magnet/left.bmp");

@@ -9,6 +9,9 @@ public:
     Cannon(Coordinates position, Direction rotation, Level* level);
     void Run() override;
 
+protected:
+    virtual void Shoot();
+
 private:
-    void Shoot();
+    virtual void PlaceProjectile(Coordinates position);
 };
