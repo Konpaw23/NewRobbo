@@ -6,6 +6,26 @@ BlasterCannon::BlasterCannon(Coordinates position, Direction rotation, Level *le
     ;
 }
 
+void BlasterCannon::Shoot()
+{
+    Coordinates bulletField = this->position.GetNext(this->rotation);
+
+    GameObject* other = this->level->GetObjectFromPosition(bulletField);
+
+    if(other == nullptr)
+    {
+        this->PlaceProjectile(bulletField);
+    }
+    else if(!other->IsProjectileResistant())
+    {
+        other->Destroy();
+        if(other->GetObjectName() == BUSH)
+        {
+            this->PlaceProjectile(bulletField);
+        }
+    }
+}
+
 void BlasterCannon::PlaceProjectile(Coordinates position)
 {
     this->level->CreateObject(BLASTER, position.x, position.y, this->rotation);

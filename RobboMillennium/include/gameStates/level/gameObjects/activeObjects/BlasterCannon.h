@@ -7,5 +7,6 @@ public:
     BlasterCannon(Coordinates position, Direction rotation, Level* level);
 
 private:
+    void Shoot() override;
     void PlaceProjectile(Coordinates position) override;
 };
