@@ -3,7 +3,6 @@
 #include "../ActiveObject.h"
 #include "../MovingObject.h"
 
-//TODO when robbo dies game dies too but WHY
 class Robbo : public ActiveObject, public MovingObject
 {
 public:

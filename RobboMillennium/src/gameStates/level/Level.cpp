@@ -154,6 +154,13 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case CHEST:
             fields[y][x] = new Chest(Coordinates(x,y), this);
             break;
+        case PUSH:
+        {
+            Push* push = new Push(Coordinates(x,y), this);
+            fields[y][x] = push;
+            AddToActiveObjects(push);
+            break;
+        }
         case BOMB:
             fields[y][x] = new Bomb(Coordinates(x,y), this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
@@ -610,6 +617,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case CHEST:
             m_window->PutTexture(LEVEL_CHEST, renderPosition.x, renderPosition.y);
             break;
+        case PUSH:
+            m_window->PutTexture(LEVEL_PUSH, renderPosition.x, renderPosition.y);
+            break;
         case BOMB:
             m_window->PutTexture(LEVEL_BOMB, renderPosition.x, renderPosition.y);
             break;
@@ -970,6 +980,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '#':
                 CreateObject(CHEST, x, y);
+                break;
+            case 'P':
+                CreateObject(PUSH, x, y);
                 break;
             case '@':
                 CreateObject(BOMB, x, y);

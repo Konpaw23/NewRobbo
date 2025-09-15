@@ -69,6 +69,12 @@ bool Robbo::Move(Direction dir)
                 mirror->Enter(this, dir);
                 return true;
             }
+
+            Push* push = dynamic_cast<Push*>(other);
+            if(push != nullptr)
+            {
+                push->PushPush(dir);
+            }
         }
     }
     return false;

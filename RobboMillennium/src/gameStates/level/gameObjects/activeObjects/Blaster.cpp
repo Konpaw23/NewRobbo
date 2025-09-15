@@ -1,4 +1,4 @@
-#include "Blaster.h"
+#include "../../../../../include/gameStates/level/gameObjects/activeObjects/Blaster.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
 Blaster::Blaster(Coordinates position, Direction trajectory, Level* level) : GameObject(BLASTER, position, false, true, level), Bullet(position, trajectory, level)

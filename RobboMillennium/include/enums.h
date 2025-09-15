@@ -23,6 +23,7 @@ enum TextureName
     LEVEL_DOOR,
     LEVEL_MIRROR,
     LEVEL_CHEST,
+    LEVEL_PUSH,
     LEVEL_BOMB,
     LEVEL_SURPRISE,
     LEVEL_SCREW,
@@ -100,6 +101,7 @@ enum GameObjectName
     MAGNET,
 
     CHEST,
+    PUSH,
     BOMB,
     SURPRISE,
 

@@ -12,6 +12,7 @@
 #include "gameObjects/staticObjects/Mirror.h"
 #include "gameObjects/MovingObject.h"
 #include "gameObjects/movingObjects/Chest.h"
+#include "gameObjects/activeObjects/Push.h"
 #include "gameObjects/movingObjects/Bomb.h"
 #include "gameObjects/ActiveObject.h"
 #include "gameObjects/activeObjects/Robbo.h"

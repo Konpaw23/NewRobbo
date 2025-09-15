@@ -85,6 +85,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_DOOR, "../assets/textures/level/door.bmp");
     AddTexture(LEVEL_MIRROR, "../assets/textures/level/mirror.bmp");
     AddTexture(LEVEL_CHEST, "../assets/textures/level/skrzynia.bmp");
+    AddTexture(LEVEL_PUSH, "../assets/textures/level/push.bmp");
     AddTexture(LEVEL_BOMB, "../assets/textures/level/bomb.bmp");
     AddTexture(LEVEL_SURPRISE, "../assets/textures/level/surprise.bmp");
     AddTexture(LEVEL_SCREW, "../assets/textures/level/screw.bmp");
