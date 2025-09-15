@@ -1,0 +1,31 @@
+      WWWW
+ WWWWWW  WWWWWW
+ W            W
+ W 1        0 W
+ W            W
+ WWWWWW  WWWWWW
+      W  W
+   WWWW  WWWW
+WWWW  W  W  WWWW
+W     W  W     W
+W     W  W     W
+W WWWWWiiWWWWW W
+W W          W W
+WWW $      = WWW
+  W          W
+WWWWWWWWWWWWWWWW
+W2   1  #  0 * W
+WWWWWWWWWWWWWWWW
+
+ WWWWW
+ W   W   WWWWWWW
+ W 2 W   W     W
+ W   W   W WWW W
+ WWW W   W WWW W
+   W WWTWW WWW W
+WWWW W   Wk  W W
+}    W   W W3 +W
+}    W   W W WWW
+WWWW W   W W & W
+   W     | W   W
+   WWWWWWWWWWWWW

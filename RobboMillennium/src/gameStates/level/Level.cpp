@@ -1059,6 +1059,12 @@ void Level::LoadObjects(int levelNumber)
             case '}':
                 CreateObject(BLASTER_CANNON, x, y, RIGHT);
                 break;
+            case 'T':
+                CreateObject(BLASTER_CANNON, x, y, DOWN);
+                break;
+            case 'Y':
+                CreateObject(BLASTER_CANNON, x, y, UP);
+                break;
             case 'X':
                 CreateObject(ROTATING_CANNON, x, y);
                 break;
@@ -1071,6 +1077,12 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case '[':
                 CreateObject(MAGNET, x, y, RIGHT);
+                break;
+            case '\'':
+                CreateObject(MAGNET, x, y, UP);
+                break;
+            case ',':
+                CreateObject(MAGNET, x, y, DOWN);
                 break;
             //SEAHORSES
             case 'w':
@@ -1109,7 +1121,7 @@ void Level::LoadObjects(int levelNumber)
             case 'l':
                 CreateObject(PURPLE_SEAHORSE, x, y, RIGHT);
                 break;
-                //COOKIE
+            //COOKIE
             case 'q':
                 CreateObject(COOKIE_MONSTER, x, y, LEFT);
                 break;

@@ -1,31 +1,31 @@
+  WWWWW0WWWWWW
+  WW#      #WW
+  W1    *   2W
+  WW ##     WW
+  WWWWWWWWWWWW
+
+  WWWWW  WWWWWWW
+    WWW  WWW  WW
+WW  WWW  WWWWWWW
+WWWWWWW  WWW
+
 WWWWWWWWWWWWWWWW
-W              W
-W  *    P  %%%WW
-W              W
-W    !         W
-W    @        %W
-W            W W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W%%%%%%%%%%%%%%W
-W%%%%%%%%%%%%%%W
-W              W
-W              W
-W   W          W
-W          W   W
-W        -     W
-W              W
-W              W
-W              W
-W   @ -        W
-W              W
-W              W
-W              W
-W              W
-W              W
+W   W      W   W
+W 1 W   ?  W 0 W
+W   W    $ W   W
+W#  W      W   W
+WW|WWWW WWWW   W
+W=   $W W! |   W
+WWWWWWW WWWW   W
+W+ $       j  $W
+WWWWWWWWWWW WWWW
+W         W W &W
+W  $    { W W  W
+W  }    $ W WW W
+W    W    W W  W
+W  WWW#WWWW W WW
+W  W[   =   W  W
+W  WWWWWWWWWWW%W
+W  W   W   W   W
+W2   W   W   W$W
 WWWWWWWWWWWWWWWW
