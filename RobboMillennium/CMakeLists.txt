@@ -103,6 +103,8 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/activeObjects/BlasterCannon.h
         src/gameStates/level/gameObjects/activeObjects/Push.cpp
         include/gameStates/level/gameObjects/activeObjects/Push.h
+        src/gameStates/level/gameObjects/activeObjects/MovingCannon.cpp
+        include/gameStates/level/gameObjects/activeObjects/MovingCannon.h
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)

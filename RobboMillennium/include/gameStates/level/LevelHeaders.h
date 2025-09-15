@@ -30,6 +30,7 @@
 #include "gameObjects/activeObjects/laser/LaserHead.h"
 #include "gameObjects/activeObjects/laser/LaserBody.h"
 #include "gameObjects/activeObjects/Cannon.h"
+#include "gameObjects/activeObjects/MovingCannon.h"
 #include "gameObjects/activeObjects/BlasterCannon.h"
 #include "gameObjects/activeObjects/RotatingCannon.h"
 #include "gameObjects/movingObjects/Surprise.h"

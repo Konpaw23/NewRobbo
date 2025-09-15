@@ -117,6 +117,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_CANNON_DOWN, "../assets/textures/level/cannon/down.bmp");
     AddTexture(LEVEL_CANNON_LEFT, "../assets/textures/level/cannon/left.bmp");
     AddTexture(LEVEL_CANNON_RIGHT, "../assets/textures/level/cannon/right.bmp");
+    AddTexture(LEVEL_MOVING_CANNON, "../assets/textures/level/movingCannon.bmp");
     AddTexture(LEVEL_BLASTER_CANNON_UP, "../assets/textures/level/blasterCannon/up.bmp");
     AddTexture(LEVEL_BLASTER_CANNON_DOWN, "../assets/textures/level/blasterCannon/down.bmp");
     AddTexture(LEVEL_BLASTER_CANNON_LEFT, "../assets/textures/level/blasterCannon/left.bmp");

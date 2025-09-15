@@ -197,6 +197,13 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             fields[y][x] = new Smoke(Coordinates(x,y), this);
             AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
+        case MOVING_CANNON:
+        {
+            MovingCannon* cannon = new MovingCannon(Coordinates(x,y), this);
+            fields[y][x] = cannon;
+            AddToActiveObjects(cannon);
+            break;
+        }
         case ROTATING_CANNON:
             this->CreateObject(ROTATING_CANNON, x, y, UP);
             break;
@@ -651,6 +658,8 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case BUSH_WALL:
             m_window->PutTexture(LEVEL_BUSH, renderPosition.x, renderPosition.y);
             break;
+        case MOVING_CANNON:
+            m_window->PutTexture(LEVEL_MOVING_CANNON, renderPosition.x, renderPosition.y);
     }
 }
 
@@ -1040,6 +1049,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'R':
                 CreateObject(CANNON, x, y, RIGHT);
+                break;
+            case '-':
+                CreateObject(MOVING_CANNON, x, y);
                 break;
             case '{':
                 CreateObject(BLASTER_CANNON, x, y, LEFT);
