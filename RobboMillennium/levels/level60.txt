@@ -26,6 +26,6 @@ W 0 WW3WW[ ]WW2W
 W   WWWWW   WWWW
 W *      #@#   ]
 W   WWWWW   WWWW
-W   WW!WW[ ]WW2W
+W 1 WW!WW[ ]WW2W
 W   |          W
 WWWWWWWWWWWWWWWW
