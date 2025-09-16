@@ -1,31 +1,31 @@
 WWWWWWWWWWWWWWWW
+W    q##       W
 W              W
+W           *  W
+W         #    W
+W            # W
+W       #      W
+W $   U        W
+W     W%%%%%%%%W
+W     W   WW   W
+W     W $ WW $ W
+W   $ W   WW   W
+W     WWWWWWWWWW
 W              W
+W     WWWWW#WW W
+W     W   W    W
+W     0 @ | WW W
+W $   W   W    W
+W     WWWWW#WW W
 W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-WWWWWWWWWWWWWWWW
+W     WWWWW WWWW
+W  $  W        W
+W     W      $ W
+W     W    l  jW
+W     W   l   bW
+W$    W  l    lW
+W   $ W l    l W
+W     Wl    l  W
+W     W =      W
+W     W       &W
+WWUWWWWWWWWWWWWW

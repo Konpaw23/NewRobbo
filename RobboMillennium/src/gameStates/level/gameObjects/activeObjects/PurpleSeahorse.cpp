@@ -7,6 +7,12 @@ PurpleSeahorse::PurpleSeahorse(Coordinates position, Direction initialDirection,
     ;
 }
 
+PurpleSeahorse::PurpleSeahorse(Coordinates position, Direction initialDirection, int initialMovePause, Level* level) :
+        movePause(initialMovePause), GameObject(PURPLE_SEAHORSE, position, false, false, level), movementAxis(GetAxis(initialDirection)), RotatingObject(initialDirection)
+{
+    ;
+}
+
 //TODO he can move after touching robbo without killing! (because he changed position)
 void PurpleSeahorse::Run()
 {

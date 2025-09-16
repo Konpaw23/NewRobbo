@@ -8,6 +8,7 @@ class PurpleSeahorse : public MovingObject, public ActiveObject, public Rotating
 {
 public:
     PurpleSeahorse(Coordinates position, Direction initialDirection, Level* level);
+    PurpleSeahorse(Coordinates position, Direction initialDirection, int initialMovePause, Level* level);
     void Run() override;
 
 private:

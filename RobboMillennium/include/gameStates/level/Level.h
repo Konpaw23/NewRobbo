@@ -29,6 +29,7 @@ public:
     void CreateObject(GameObjectName name, int x, int y);
     void CreateObject(GameObjectName name, int x, int y, Direction rotation);
     void CreateObject(GameObjectName name, int x, int y, Axis axis);
+    void CreateObject(GameObjectName name, int x, int y, Direction rotation, int extraValue);
     void CreateGoldenSeahorse(Coordinates position, Direction movementSide, Direction initialDirection);
     void CreateOpenShip(Coordinates position);
     void SpawnBullet(Coordinates pos, Direction trajectory);

@@ -297,6 +297,20 @@ void Level::CreateObject(GameObjectName name, int x, int y, Axis axis)
     }
 }
 
+void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation, int extraValue)
+{
+    switch(name)
+    {
+        case PURPLE_SEAHORSE:
+        {
+            PurpleSeahorse* seahorse = new PurpleSeahorse(Coordinates(x,y), rotation, extraValue, this);
+            fields[y][x] = seahorse;
+            this->AddToActiveObjects(seahorse);
+            break;
+        }
+    }
+}
+
 void Level::CreateGoldenSeahorse(Coordinates position, Direction movementSide, Direction initialDirection)
 {
     GoldenSeahorse* newSeahorse = new GoldenSeahorse(position, movementSide, initialDirection, this);
@@ -1120,6 +1134,18 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'l':
                 CreateObject(PURPLE_SEAHORSE, x, y, RIGHT);
+                break;
+            case 'u':
+                CreateObject(PURPLE_SEAHORSE, x, y, UP, 1);
+                break;
+            case 'b':
+                CreateObject(PURPLE_SEAHORSE, x, y, LEFT, 1);
+                break;
+            case 'n':
+                CreateObject(PURPLE_SEAHORSE, x, y, DOWN, 1);
+                break;
+            case 'm':
+                CreateObject(PURPLE_SEAHORSE, x, y, RIGHT, 1);
                 break;
             //COOKIE
             case 'q':

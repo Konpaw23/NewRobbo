@@ -10,7 +10,7 @@ CookieMonster::CookieMonster(Coordinates position, Direction initialRotation, Le
 void CookieMonster::Run()
 {
     int random = rand() % 100;
-    if(random < 5)
+    if(random < 10)
     {
         this->Shoot();
     }

@@ -1,5 +1,5 @@
 WWWWWWWWWWWWWWWW
-W      0    *  W
+W2     0    * 1W
 WWWWWWWWWWWWWWWW
 We             W
 W        %%%   W
@@ -10,22 +10,22 @@ W    %%%   %%% W
 W 0      @ %$% W
 W          %%% W
 W#WWWWWWWWWWWWWW
-W#           P W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-WWWWWWWWWWWWWWWW
+W#    W= W   P W
+W  &  W  W W W W
+W ]#[    W P P W
+W     W      W W
+WWWWWWW  W PP  W
+%%%%%%W2   W W W
+WWW%%%WWWWWWWWWW
+W1W%%%%%%%%%%%%%
+W W%%WWWWWWWWWW%
+W W%%W$ | |$ =W%
+W W%%WWWW WWWWW%
+W W%%%%%W W%%%%%
+W W%WWWWW WWWWW%
+W W%W>        W%
+W W%W         W%
+W W%W>        W%
+W W%WWWWWW WWWW%
+W3W%%%%%%W3W%%%%
+WWW%%%%%%WWW%%%%

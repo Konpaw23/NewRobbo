@@ -1,7 +1,7 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Magnet.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-Magnet::Magnet(Coordinates position, Direction rotation, Level* level) : GameObject(MAGNET, position, false, false, level),
+Magnet::Magnet(Coordinates position, Direction rotation, Level* level) : GameObject(MAGNET, position, true, true, level),
                                                                          RotatingObject(rotation)
 {
     ;
