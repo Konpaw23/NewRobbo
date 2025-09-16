@@ -39,3 +39,4 @@
 #include "gameObjects/activeObjects/PurpleSeahorse.h"
 #include "gameObjects/activeObjects/CookieMonster.h"
 #include "gameObjects/activeObjects/Eye.h"
+#include "gameObjects/activeObjects/Snake.h"

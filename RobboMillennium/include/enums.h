@@ -89,6 +89,8 @@ enum TextureName
 
     LEVEL_EYE,
 
+    LEVEL_SNAKE,
+
     LEVEL_PANEL,
 };
 
@@ -128,6 +130,7 @@ enum GameObjectName
     PURPLE_SEAHORSE,
     COOKIE_MONSTER,
     EYE,
+    SNAKE,
 
     ROBBO,
 

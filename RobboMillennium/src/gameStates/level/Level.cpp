@@ -214,6 +214,13 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             AddToActiveObjects(dynamic_cast<ActiveObject*>(eye));
             break;
         }
+        case SNAKE:
+        {
+            Snake* snake = new Snake(Coordinates(x,y), this);
+            fields[y][x] = snake;
+            AddToActiveObjects(snake);
+            break;
+        }
         case NULL_OBJECT:
         default:
             break;
@@ -353,6 +360,10 @@ void Level::SpawnSmoke(Coordinates pos)
 
 void Level::RemoveObject(GameObject *object)
 {
+    if(object->GetObjectName() == ROBBO)
+    {
+        this->DeselectRobbo(dynamic_cast<Robbo*>(object));
+    }
     Coordinates pos = object->GetPosition();
     this->fields[pos.y][pos.x] = nullptr;
 
@@ -674,6 +685,10 @@ void Level::PutObject(GameObjectName name, int x, int y)
             break;
         case MOVING_CANNON:
             m_window->PutTexture(LEVEL_MOVING_CANNON, renderPosition.x, renderPosition.y);
+            break;
+        case SNAKE:
+            m_window->PutTexture(LEVEL_SNAKE, renderPosition.x, renderPosition.y);
+            break;
     }
 }
 
@@ -1156,6 +1171,9 @@ void Level::LoadObjects(int levelNumber)
                 break;
             case 'o':
                 CreateObject(EYE, x, y);
+                break;
+            case 'S':
+                CreateObject(SNAKE, x, y);
                 break;
             case '\n':
                 x = 0;

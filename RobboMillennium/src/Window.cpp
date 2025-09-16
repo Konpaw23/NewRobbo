@@ -139,4 +139,5 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_COOKIE_MONSTER_LEFT, "../assets/textures/level/cookieMonster/left.bmp");
     AddTexture(LEVEL_COOKIE_MONSTER_RIGHT, "../assets/textures/level/cookieMonster/right.bmp");
     AddTexture(LEVEL_EYE, "../assets/textures/level/eye.bmp");
+    AddTexture(LEVEL_SNAKE, "../assets/textures/level/snake.bmp");
 }

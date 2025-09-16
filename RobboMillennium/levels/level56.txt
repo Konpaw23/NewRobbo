@@ -1,31 +1,31 @@
-WWWWWWWWWWWWWWWW
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-WWWWWWWWWWWWWWWW
+//WWWWWWWWWWWW//
+//W     W    W/
+//W *   | !  W/
+//W     W    0/
+//W#    W    W/
+//W # # WWWWWW/k
+//W # # W    W/
+/  # # #W  1 W/
+/ W # # W# # W/
+/ W## $ W # #W/
+/ W  # #W#   0/
+/ W ### W ## W/
+/ W  #$#W    W/
+/ WSSSSSSSSSSW/
+/ W h   W    W/
+/   W W W $  W/
+/ W W1W W    W//
+/ W WWW W>   WWW
+/ W W$W W     <W
+/ W     W    WWW
+/ WWWWWWW  $ W//
+/ W     W a  W//
+/ W + $ W WW W//
+/ W     W WW W//
+/ WW%%%WW WW   /
+/ W     W    W /
+/    $  WWWWWW /
+//W     W    W /
+//W}  = W &  | /
+//W     W    W//
+//WWWWWWWWWWWW//
