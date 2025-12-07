@@ -27,6 +27,18 @@ Coordinates::Coordinates(Direction dir)
     }
 }
 
+bool Coordinates::operator==(Coordinates other)
+{
+    if(other.x == this->x && other.y == this->y)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 Coordinates Coordinates::Sum(Coordinates second)
 {
     return {x + second.x, y + second.y};

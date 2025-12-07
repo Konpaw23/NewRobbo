@@ -13,7 +13,6 @@ PurpleSeahorse::PurpleSeahorse(Coordinates position, Direction initialDirection,
     ;
 }
 
-//TODO he can move after touching robbo without killing! (because he changed position)
 void PurpleSeahorse::Run()
 {
     if(movePause > 0)

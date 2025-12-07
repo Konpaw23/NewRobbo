@@ -17,6 +17,8 @@ void Robbo::SetAction(RobboAction action)
 
 bool Robbo::Move(Direction dir)
 {
+    Coordinates initPos = position;
+
     if(!MovingObject::Move(dir))
     {
         //TODO powalone rzeczy sie tu dzieja
@@ -77,6 +79,21 @@ bool Robbo::Move(Direction dir)
             }
         }
     }
+
+    if(initPos != this->position)
+    {
+        std::vector<Coordinates> fields = this->level->GetFieldsNextTo(this->position);
+        for(int i = 0; i < fields.size(); i++)
+        {
+            GameObject* obj = this->level->GetObjectFromPosition(fields[i]);
+            KillingObject* killingObject = dynamic_cast<KillingObject*>(obj);
+            if(killingObject != nullptr)
+            {
+                killingObject->Touch(this);
+            }
+        }
+    }
+
     return false;
 }
 

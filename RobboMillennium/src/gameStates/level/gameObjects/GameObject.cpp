@@ -47,9 +47,10 @@ void GameObject::SetToDelete()
 
 void GameObject::Destroy()
 {
+    if(isActive)
     //TODO make sure if in original game there are 7 explode stages
-    this->level->RemoveObject(this);
-    this->level->SpawnSmoke(this->position);
+        this->level->RemoveObject(this);
+        this->level->SpawnSmoke(this->position);
 }
 
 void GameObject::Destroy(GameObjectName source)
