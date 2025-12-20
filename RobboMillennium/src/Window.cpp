@@ -16,7 +16,7 @@ Window::Window(const std::string& title, int width, int height)
 
     AddAllTextures();
 
-    m_font = TTF_OpenFont("../assets/textures/fonts/Debrosee-ALPnL.ttf", 128);
+    m_font = TTF_OpenFont("../assets/textures/fonts/Pixellettersfull-BnJ5.ttf", 128);
     if(!m_font)
     {
         std::cerr << "font opening error: " << TTF_GetError() << std::endl;
@@ -55,7 +55,7 @@ void Window::Write(const char* text, Coordinates position, int height)
 {
     SDL_Surface* surface = TTF_RenderText_Solid(this->m_font, text, SDL_Color(255, 255, 255));
     SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
-    SDL_Rect rect = {position.x, position.y, surface->w/surface->h * height, height};
+    SDL_Rect rect = {position.x, position.y, surface->w * height / surface->h, height};
 
     SDL_RenderCopy(m_renderer, texture, nullptr, &rect);
 
@@ -63,11 +63,26 @@ void Window::Write(const char* text, Coordinates position, int height)
     SDL_DestroyTexture(texture);
 }
 
+void Window::Write(const std::string& text, Coordinates position, int height)
+{
+    this->Write(text.c_str(), position, height);
+}
+
+void Window::PutTexture(TextureName name, int x, int y, int width, int height)
+{
+    SDL_Rect destRect = {x, y, width, height};
+    SDL_RenderCopy(m_renderer, this->m_textures[name], nullptr, &destRect);
+}
+
+void Window::PutTexture(TextureName name, Coordinates position, Coordinates size)
+{
+    this->PutTexture(name, position.x, position.y, size.x, size.y);
+}
+
 void Window::PutTexture(TextureName name, int x, int y)
 {
     Coordinates size = this->TextureSize(name);
-    SDL_Rect destRect = {x, y, size.x, size.y};
-    SDL_RenderCopy(m_renderer, this->m_textures[name], nullptr, &destRect);
+    this->PutTexture(name, x, y, size.x, size.y);
 }
 
 void Window::Clear() const

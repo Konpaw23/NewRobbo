@@ -117,6 +117,16 @@ void Robbo::GiveKey()
     this->keys++;
 }
 
+int Robbo::GetKeysNumber()
+{
+    return this->keys;
+}
+
+int Robbo::GetAmmoNumber()
+{
+    return this->ammo;
+}
+
 bool Robbo::HasKey()
 {
     if(keys > 0)

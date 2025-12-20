@@ -13,6 +13,8 @@ public:
     void Teleport(Coordinates position);
     void GiveScrew();
     void GiveKey();
+    int GetKeysNumber();
+    int GetAmmoNumber();
     bool HasKey();
     void UseKey();
     void AddAmmo();

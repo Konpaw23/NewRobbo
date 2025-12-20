@@ -6,10 +6,6 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 
 set(SDL2_PATH "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32")
 set(SDL2TTF_PATH "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32")
-include_directories(
-        "${SDL2_PATH}/include/SDL2"
-        "${SDL2TTF_PATH}/include/SDL2"
-)
 
 add_executable(RobboMillennium main.cpp
         src/gameStates/GameState.cpp
@@ -111,6 +107,15 @@ add_executable(RobboMillennium main.cpp
         include/gameStates/level/gameObjects/activeObjects/MovingCannon.h
         src/gameStates/level/gameObjects/activeObjects/Snake.cpp
         include/gameStates/level/gameObjects/activeObjects/Snake.h
+        src/gameStates/level/InfoPanel.cpp
+        include/gameStates/level/InfoPanel.h
+        include/structs.h
+)
+
+include_directories(
+        "${SDL2_PATH}/include/SDL2"
+        "${SDL2TTF_PATH}/include/SDL2"
+        "${CMAKE_SOURCE_DIR}/include"
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)

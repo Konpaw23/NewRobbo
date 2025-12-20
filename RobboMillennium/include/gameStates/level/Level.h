@@ -49,6 +49,8 @@ public:
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
     std::vector<Coordinates> GetFieldsNextTo(Coordinates position);
     int GetScrewsNumber();
+    int GetKeysNumber();
+    int GetAmmoNumber();
 
     void UpdateLevelPosition(double deltaTime);
 

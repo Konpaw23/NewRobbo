@@ -2,6 +2,7 @@
 #include "../GameState.h"
 #include "../../basicProjectHeaders.h"
 #include "Level.h"
+#include "InfoPanel.h"
 
 class LevelState : public GameState
 {
@@ -22,6 +23,8 @@ private:
     std::vector<Coordinates> levelLivesPositions = {};
     bool isFirstLevelGame = true;
 
+    InfoPanel* infoPanel;
+
     double deltaSequenceTime;
     double sequenceTime;
 
@@ -31,6 +34,8 @@ private:
     bool isPressedDown = false;
     bool isPressedSpace = false;
     RobboAction lastActionPressed = NOTHING;
+
+    InfoPanelData GetDataForInfoPanel();
 
     void ActionMoveToShoot();
 

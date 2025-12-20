@@ -520,6 +520,16 @@ int Level::GetScrewsNumber()
     return screwsToCollect;
 }
 
+int Level::GetKeysNumber()
+{
+    return this->player->GetKeysNumber();
+}
+
+int Level::GetAmmoNumber()
+{
+    return this->player->GetAmmoNumber();
+}
+
 void Level::UpdateLevelPosition(double deltaTime)
 {
     if(this->player == nullptr)

@@ -12,7 +12,10 @@ public:
 
     void Write(const char* text, int size);
     void Write(const char* text, Coordinates position, int height);
+    void Write(const std::string& text, Coordinates position, int height);
     //puts texture on screen coords x, y
+    void PutTexture(TextureName name, int x, int y, int width, int height);
+    void PutTexture(TextureName name, Coordinates position, Coordinates size);
     void PutTexture(TextureName name, int x, int y);
     void Clear() const; //clears entire screen
     void Present() const; //updates screen (show all put textures ...)

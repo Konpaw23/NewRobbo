@@ -4,10 +4,11 @@ LevelState::LevelState(Window* window) : GameState(window)
 {
     this->m_window->Clear();
     this->state = LEVEL;
-    this->levelNumber = 61;
+    this->levelNumber = 1;
 
     this->lives = 5;
     this->level = new Level(m_window, levelNumber, this);
+    this->infoPanel = new InfoPanel(this->m_window, this->GetDataForInfoPanel());
     sequenceTime = clock();
 }
 
@@ -59,6 +60,18 @@ void LevelState::RemoveLiveAtPosition(Coordinates position)
 bool LevelState::IsFirstLevelGame()
 {
     return this->isFirstLevelGame;
+}
+
+InfoPanelData LevelState::GetDataForInfoPanel()
+{
+    return InfoPanelData
+    (
+        this->level->GetScrewsNumber(),
+        this->level->GetAmmoNumber(),
+        this->levelNumber,
+        this->level->GetKeysNumber(),
+        this->lives
+    );
 }
 
 void LevelState::ActionMoveToShoot()
@@ -193,7 +206,9 @@ void LevelState::Render()
 
 void LevelState::PutInfoPanel()
 {
-    m_window->PutTexture(LEVEL_PANEL, SCREEN_WIDTH/2-LEVEL_WIDTH*FIELD_SIZE/2, 10*FIELD_SIZE);
+    if(this->level->IsPlayerAlive())
+        this->infoPanel->Update(this->GetDataForInfoPanel());
+    this->infoPanel->Refresh();
 }
 
 void LevelState::SetPlayerMove()
