@@ -11,7 +11,8 @@
 #include <ctime>
 #include <thread>
 #include <vector>
-#include "SDL.h"
+#include <SDL.h>
+#include <SDL_ttf.h>
 
 //ENUMS and DEFINES
 #include "enums.h"

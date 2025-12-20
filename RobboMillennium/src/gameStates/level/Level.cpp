@@ -522,7 +522,6 @@ int Level::GetScrewsNumber()
 
 void Level::UpdateLevelPosition(double deltaTime)
 {
-    //TODO camera freezes when Robbo dies!!!
     if(this->player == nullptr)
     {
         return;

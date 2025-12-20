@@ -5,8 +5,11 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 
 set(SDL2_PATH "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32")
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
+set(SDL2TTF_PATH "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32")
+include_directories(
+        "${SDL2_PATH}/include/SDL2"
+        "${SDL2TTF_PATH}/include/SDL2"
+)
 
 add_executable(RobboMillennium main.cpp
         src/gameStates/GameState.cpp
@@ -112,15 +115,31 @@ add_executable(RobboMillennium main.cpp
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
 
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
+target_link_libraries(${PROJECT_NAME} PRIVATE
+        mingw32
+        "${SDL2_PATH}/lib/libSDL2main.a"
+        "${SDL2_PATH}/lib/libSDL2.dll.a"
+        "${SDL2TTF_PATH}/lib/libSDL2_ttf.dll.a"
+)
 
 set(SDL2_DLL "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/bin/SDL2.dll")
+set(SDL2TTF_DLL "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-devel-2.24.0-mingw/x86_64-w64-mingw32/bin/SDL2_ttf.dll")
 
 if(WIN32)
     add_custom_command(
             TARGET ${PROJECT_NAME} POST_BUILD
             COMMAND "${CMAKE_COMMAND}" -E copy_if_different
                 "${SDL2_DLL}"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+            VERBATIM
+    )
+endif()
+
+if(WIN32)
+    add_custom_command(
+            TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+                "${SDL2TFF_DLL}"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
             VERBATIM
     )

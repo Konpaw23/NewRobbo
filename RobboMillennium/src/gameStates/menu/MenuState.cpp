@@ -43,6 +43,7 @@ void MenuState::Update()
 void MenuState::Render()
 {
     this->m_window->PutTexture(MENU_TLO, 0, 0);
+    this->m_window->Write("ROBBOOOOOOOOOOOOOOOOOOOOO", 200);
 
     for(auto& pair : m_buttons)
     {

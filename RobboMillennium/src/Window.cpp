@@ -3,6 +3,7 @@
 Window::Window(const std::string& title, int width, int height)
 {
     SDL_Init(SDL_INIT_EVERYTHING);
+    TTF_Init();
 
     m_window = SDL_CreateWindow(title.c_str(),
                               SDL_WINDOWPOS_UNDEFINED,
@@ -14,6 +15,12 @@ Window::Window(const std::string& title, int width, int height)
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 
     AddAllTextures();
+
+    m_font = TTF_OpenFont("../assets/textures/fonts/Debrosee-ALPnL.ttf", 128);
+    if(!m_font)
+    {
+        std::cerr << "font opening error: " << TTF_GetError() << std::endl;
+    }
 
     //main color - black
     SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
@@ -37,6 +44,23 @@ Coordinates Window::TextureSize(TextureName name)
     int w, h;
     SDL_QueryTexture(this->m_textures[name], nullptr, nullptr, &w, &h);
     return Coordinates(w, h);
+}
+
+void Window::Write(const char *text, int size)
+{
+    this->Write(text, {0,0}, size);
+}
+
+void Window::Write(const char* text, Coordinates position, int height)
+{
+    SDL_Surface* surface = TTF_RenderText_Solid(this->m_font, text, SDL_Color(255, 255, 255));
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+    SDL_Rect rect = {position.x, position.y, surface->w/surface->h * height, height};
+
+    SDL_RenderCopy(m_renderer, texture, nullptr, &rect);
+
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
 }
 
 void Window::PutTexture(TextureName name, int x, int y)

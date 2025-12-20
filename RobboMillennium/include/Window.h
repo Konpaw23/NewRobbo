@@ -10,6 +10,8 @@ public:
     //returns size of texture named by string that is saved in memory
     Coordinates TextureSize(TextureName name);
 
+    void Write(const char* text, int size);
+    void Write(const char* text, Coordinates position, int height);
     //puts texture on screen coords x, y
     void PutTexture(TextureName name, int x, int y);
     void Clear() const; //clears entire screen
@@ -25,5 +27,6 @@ private:
     void AddAllTextures();
     SDL_Window* m_window;
     SDL_Renderer* m_renderer;
+    TTF_Font* m_font;
     std::unordered_map<TextureName, SDL_Texture*> m_textures;
 };
