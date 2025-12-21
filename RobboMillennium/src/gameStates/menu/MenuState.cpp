@@ -49,6 +49,7 @@ void MenuState::Render()
     {
         pair.second->PutTexture();
     }
+    GameState::Render();
 
     this->m_window->Present();
 }

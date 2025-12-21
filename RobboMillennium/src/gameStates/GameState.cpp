@@ -3,6 +3,7 @@
 GameState::GameState(Window* window) : m_running(true), m_window(window)
 {
     time = clock();
+    FPSRefreshTime = clock();
 }
 
 GameState::~GameState()
@@ -33,6 +34,7 @@ void GameState::Run()
             Update();
             Render();
             time = clock();
+            this->frames++;
         }
     }
 }
@@ -49,4 +51,21 @@ void GameState::ProcessInput()
             m_running = false;
         }
     }
+}
+
+void GameState::DisplayFPS()
+{
+    this->FPSRefreshTimeDelta = clock() - FPSRefreshTime;
+    if(FPSRefreshTimeDelta >= CLOCKS_PER_SEC/2)
+    {
+        this->currentFPS = double(frames) * CLOCKS_PER_SEC / FPSRefreshTimeDelta;
+        frames = 0;
+        FPSRefreshTime = clock();
+    }
+    m_window->Write(std::to_string(currentFPS), {1865, 0}, 64);
+}
+
+void GameState::Render()
+{
+    this->DisplayFPS();
 }

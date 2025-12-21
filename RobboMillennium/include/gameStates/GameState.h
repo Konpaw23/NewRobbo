@@ -18,8 +18,14 @@ protected:
     double time;
     bool m_running;
     virtual void ProcessInput();
+    void DisplayFPS();
 
+    virtual void Render();
 private:
+    int currentFPS = 0;
+    int frames = 0;
+    double FPSRefreshTimeDelta;
+
+    double FPSRefreshTime;
     virtual void Update() = 0;
-    virtual void Render() = 0;
 };

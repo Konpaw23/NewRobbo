@@ -5,7 +5,6 @@ LevelState::LevelState(Window* window) : GameState(window)
     this->m_window->Clear();
     this->state = LEVEL;
     this->levelNumber = 1;
-
     this->lives = 5;
     this->level = new Level(m_window, levelNumber, this);
     this->infoPanel = new InfoPanel(this->m_window, this->GetDataForInfoPanel());
@@ -272,6 +271,8 @@ void LevelState::Render()
     if(isPressedLeft)
         pressInfo += "L ";
     m_window->Write(pressInfo, 64);
+
+    GameState::Render();
 
     m_window->Present();
 }
