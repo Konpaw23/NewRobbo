@@ -98,24 +98,24 @@ void LevelState::ProcessInput()
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0)
     {
-        if(e.key.type == SDL_KEYDOWN)
+        if(e.key.type == SDL_KEYDOWN && e.key.repeat == 0)
         {
             switch(e.key.keysym.sym)
             {
+                case SDLK_a:
                 case SDLK_LEFT:
-                    isPressedLeft = true;
                     lastActionPressed = GO_LEFT;
                     break;
+                case SDLK_d:
                 case SDLK_RIGHT:
-                    isPressedRight = true;
                     lastActionPressed = GO_RIGHT;
                     break;
+                case SDLK_w:
                 case SDLK_UP:
-                    isPressedUp = true;
                     lastActionPressed = GO_UP;
                     break;
+                case SDLK_s:
                 case SDLK_DOWN:
-                    isPressedDown = true;
                     lastActionPressed = GO_DOWN;
                     break;
                 case SDLK_SPACE:
@@ -130,32 +130,89 @@ void LevelState::ProcessInput()
                     break;
             }
         }
-        else if(e.key.type == SDL_KEYUP)
-        {
-            switch(e.key.keysym.sym)
-            {
-                case SDLK_LEFT:
-                    isPressedLeft = false;
-                    break;
-                case SDLK_RIGHT:
-                    isPressedRight = false;
-                    break;
-                case SDLK_UP:
-                    isPressedUp = false;
-                    break;
-                case SDLK_DOWN:
-                    isPressedDown = false;
-                    break;
-                case SDLK_SPACE:
-                    isPressedSpace = false;
-                    break;
-            }
-        }
         else
         {
             GameState::ProcessInput();
         }
     }
+
+    const Uint8* keys = SDL_GetKeyboardState(nullptr);
+
+    isPressedLeft = keys[SDL_SCANCODE_A] || keys[SDL_SCANCODE_LEFT];
+    isPressedRight = keys[SDL_SCANCODE_D] || keys[SDL_SCANCODE_RIGHT];
+    isPressedUp = keys[SDL_SCANCODE_W] || keys[SDL_SCANCODE_UP];
+    isPressedDown = keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN];
+    isPressedSpace = keys[SDL_SCANCODE_SPACE];
+
+//    SDL_Event e;
+//    while (SDL_PollEvent(&e) != 0)
+//    {
+//        if(e.key.type == SDL_KEYDOWN && e.key.repeat == 0)
+//        {
+//            switch(e.key.keysym.sym)
+//            {
+//                case SDLK_a:
+//                case SDLK_LEFT:
+//                    isPressedLeft = true;
+//                    lastActionPressed = GO_LEFT;
+//                    break;
+//                case SDLK_d:
+//                case SDLK_RIGHT:
+//                    isPressedRight = true;
+//                    lastActionPressed = GO_RIGHT;
+//                    break;
+//                case SDLK_w:
+//                case SDLK_UP:
+//                    isPressedUp = true;
+//                    lastActionPressed = GO_UP;
+//                    break;
+//                case SDLK_s:
+//                case SDLK_DOWN:
+//                    isPressedDown = true;
+//                    lastActionPressed = GO_DOWN;
+//                    break;
+//                case SDLK_SPACE:
+//                    isPressedSpace = true;
+//                    break;
+//                case SDLK_ESCAPE:
+//                    lastActionPressed = SELF_DESTRUCT;
+//                    break;
+//                case SDLK_F10:
+//                    state = MENU;
+//                    m_running = false;
+//                    break;
+//            }
+//        }
+//        else if(e.key.type == SDL_KEYUP)
+//        {
+//            switch(e.key.keysym.sym)
+//            {
+//                case SDLK_a:
+//                case SDLK_LEFT:
+//                    isPressedLeft = false;
+//                    break;
+//                case SDLK_d:
+//                case SDLK_RIGHT:
+//                    isPressedRight = false;
+//                    break;
+//                case SDLK_w:
+//                case SDLK_UP:
+//                    isPressedUp = false;
+//                    break;
+//                case SDLK_s:
+//                case SDLK_DOWN:
+//                    isPressedDown = false;
+//                    break;
+//                case SDLK_SPACE:
+//                    isPressedSpace = false;
+//                    break;
+//            }
+//        }
+//        else
+//        {
+//            GameState::ProcessInput();
+//        }
+//    }
 }
 
 void LevelState::Update()
@@ -199,8 +256,23 @@ void LevelState::Update()
 
 void LevelState::Render()
 {
+    m_window->Clear();
     level->PutLevelPicture();
     PutInfoPanel();
+
+    std::string pressInfo = "";
+    if(isPressedSpace)
+        pressInfo += "SHOOT ";
+    if(isPressedRight)
+        pressInfo += "R ";
+    if(isPressedDown)
+        pressInfo += "D ";
+    if(isPressedUp)
+        pressInfo += "U ";
+    if(isPressedLeft)
+        pressInfo += "L ";
+    m_window->Write(pressInfo, 64);
+
     m_window->Present();
 }
 
@@ -214,23 +286,24 @@ void LevelState::PutInfoPanel()
 void LevelState::SetPlayerMove()
 {
     //TODO optimize
-    if(isPressedRight && (playerAction == GO_RIGHT || playerAction == SHOT_RIGHT))
-    {
-        playerAction = GO_RIGHT;
-    }
-    else if(isPressedLeft && (playerAction == GO_LEFT || playerAction == SHOT_LEFT))
-    {
-        playerAction = GO_LEFT;
-    }
-    else if(isPressedUp && (playerAction == GO_UP || playerAction == SHOT_UP))
-    {
-        playerAction = GO_UP;
-    }
-    else if(isPressedDown && (playerAction == GO_DOWN || playerAction == SHOT_DOWN))
-    {
-        playerAction = GO_DOWN;
-    }
-    else if(isPressedRight)
+//    if(isPressedRight && (playerAction == GO_RIGHT || playerAction == SHOT_RIGHT))
+//    {
+//        playerAction = GO_RIGHT;
+//    }
+//    else if(isPressedLeft && (playerAction == GO_LEFT || playerAction == SHOT_LEFT))
+//    {
+//        playerAction = GO_LEFT;
+//    }
+//    else if(isPressedUp && (playerAction == GO_UP || playerAction == SHOT_UP))
+//    {
+//        playerAction = GO_UP;
+//    }
+//    else if(isPressedDown && (playerAction == GO_DOWN || playerAction == SHOT_DOWN))
+//    {
+//        playerAction = GO_DOWN;
+//    }
+//    else
+    if(isPressedRight)
     {
         playerAction = GO_RIGHT;
     }

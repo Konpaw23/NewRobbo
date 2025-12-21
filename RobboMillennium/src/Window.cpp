@@ -51,11 +51,18 @@ void Window::Write(const char *text, int size)
     this->Write(text, {0,0}, size);
 }
 
-void Window::Write(const char* text, Coordinates position, int height)
+void Window::Write(const std::string &text, int size)
 {
+    this->Write(text.c_str(), {0,0}, size);
+}
+
+void Window::Write(const char* text, Coordinates position, int size)
+{
+    if(text[0] == '\0')
+        return;
     SDL_Surface* surface = TTF_RenderText_Solid(this->m_font, text, SDL_Color(255, 255, 255));
     SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
-    SDL_Rect rect = {position.x, position.y, surface->w * height / surface->h, height};
+    SDL_Rect rect = {position.x, position.y, surface->w * size / surface->h, size};
 
     SDL_RenderCopy(m_renderer, texture, nullptr, &rect);
 
@@ -63,9 +70,9 @@ void Window::Write(const char* text, Coordinates position, int height)
     SDL_DestroyTexture(texture);
 }
 
-void Window::Write(const std::string& text, Coordinates position, int height)
+void Window::Write(const std::string& text, Coordinates position, int size)
 {
-    this->Write(text.c_str(), position, height);
+    this->Write(text.c_str(), position, size);
 }
 
 void Window::PutTexture(TextureName name, int x, int y, int width, int height)

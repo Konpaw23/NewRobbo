@@ -19,7 +19,7 @@ void InfoPanel::Refresh()
     int xPos = this->position.x;
     int xMargin = 40;
     int xField = 90;
-    int xTextSize = 45;
+    int xTextSize = 65;
     int yPos = this->position.y + (this->size.y - xField) / 2;
     int textSize = 96;
     int yPosText = this->position.y + (this->size.y - textSize) / 2;
