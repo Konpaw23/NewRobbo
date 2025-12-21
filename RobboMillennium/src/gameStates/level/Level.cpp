@@ -530,7 +530,7 @@ int Level::GetAmmoNumber()
     return this->player->GetAmmoNumber();
 }
 
-void Level::UpdateLevelPosition(double deltaTime)
+void Level::UpdateLevelPosition(double deltaTime, Uint64 perfFreq)
 {
     if(this->player == nullptr)
     {
@@ -548,7 +548,7 @@ void Level::UpdateLevelPosition(double deltaTime)
         }
     }
 
-    double moveRange = deltaTime / CLOCKS_PER_SEC * (FIELD_SIZE / SEQUENCE_DURATION);
+    double moveRange = deltaTime * (double(FIELD_SIZE) / SEQUENCE_DURATION);
     if(moveLevelPositionVertically < 0)
     {
         if(moveRange > -1 * moveLevelPositionVertically)

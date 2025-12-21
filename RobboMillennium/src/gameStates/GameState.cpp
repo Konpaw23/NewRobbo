@@ -1,9 +1,12 @@
 #include "../../include/gameStates/GameState.h"
+#include <thread>
+#include <chrono>
 
 GameState::GameState(Window* window) : m_running(true), m_window(window)
 {
-    time = clock();
-    FPSRefreshTime = clock();
+    tick = SDL_GetPerformanceCounter();
+    FPSRefreshTick = SDL_GetPerformanceCounter();
+    perfFreq = SDL_GetPerformanceFrequency();
 }
 
 GameState::~GameState()
@@ -24,17 +27,17 @@ bool GameState::IsRunning()
 
 void GameState::Run()
 {
-    //fixed to 60 fps
+    //fixed to 165 fps
     while(m_running)
     {
-        deltaTime = clock() - time;
-        if (deltaTime >= 1.0/60.0 * CLOCKS_PER_SEC)
+        deltaTime = double( SDL_GetPerformanceCounter() - tick ) / perfFreq;
+        if (deltaTime >= 1.0/165.0)
         {
+            tick = SDL_GetPerformanceCounter();
+            this->frames++;
             ProcessInput();
             Update();
             Render();
-            time = clock();
-            this->frames++;
         }
     }
 }
@@ -55,14 +58,14 @@ void GameState::ProcessInput()
 
 void GameState::DisplayFPS()
 {
-    this->FPSRefreshTimeDelta = clock() - FPSRefreshTime;
-    if(FPSRefreshTimeDelta >= CLOCKS_PER_SEC/2)
+    this->FPSRefreshTimeDelta = double( SDL_GetPerformanceCounter() - FPSRefreshTick ) / perfFreq;
+    if(FPSRefreshTimeDelta >= 1.0/2)
     {
-        this->currentFPS = double(frames) * CLOCKS_PER_SEC / FPSRefreshTimeDelta;
+        this->currentFPS = double(frames) / FPSRefreshTimeDelta;
         frames = 0;
-        FPSRefreshTime = clock();
+        FPSRefreshTick = SDL_GetPerformanceCounter();
     }
-    m_window->Write(std::to_string(currentFPS), {1865, 0}, 64);
+    m_window->Write(std::to_string(currentFPS), {1840, 0}, 64, {127,127,127});
 }
 
 void GameState::Render()

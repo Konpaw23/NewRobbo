@@ -14,6 +14,8 @@ public:
     void Write(const std::string& text, int size);
     void Write(const char* text, Coordinates position, int size);
     void Write(const std::string& text, Coordinates position, int size);
+    void Write(const char* text, Coordinates position, int size, SDL_Color color);
+    void Write(const std::string& text, Coordinates position, int size, SDL_Color color);
     //puts texture on screen coords x, y
     void PutTexture(TextureName name, int x, int y, int width, int height);
     void PutTexture(TextureName name, Coordinates position, Coordinates size);

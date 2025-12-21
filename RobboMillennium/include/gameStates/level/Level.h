@@ -52,7 +52,7 @@ public:
     int GetKeysNumber();
     int GetAmmoNumber();
 
-    void UpdateLevelPosition(double deltaTime);
+    void UpdateLevelPosition(double deltaTime, Uint64 perfFreq);
 
     void PutLevelPicture();
     void PutEmptyField(int x, int y);

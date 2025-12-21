@@ -8,7 +8,7 @@ LevelState::LevelState(Window* window) : GameState(window)
     this->lives = 5;
     this->level = new Level(m_window, levelNumber, this);
     this->infoPanel = new InfoPanel(this->m_window, this->GetDataForInfoPanel());
-    sequenceTime = clock();
+    sequenceTime = SDL_GetPerformanceCounter();
 }
 
 LevelState::LevelState(Window* window, int level_number) : GameState(window)
@@ -142,82 +142,12 @@ void LevelState::ProcessInput()
     isPressedUp = keys[SDL_SCANCODE_W] || keys[SDL_SCANCODE_UP];
     isPressedDown = keys[SDL_SCANCODE_S] || keys[SDL_SCANCODE_DOWN];
     isPressedSpace = keys[SDL_SCANCODE_SPACE];
-
-//    SDL_Event e;
-//    while (SDL_PollEvent(&e) != 0)
-//    {
-//        if(e.key.type == SDL_KEYDOWN && e.key.repeat == 0)
-//        {
-//            switch(e.key.keysym.sym)
-//            {
-//                case SDLK_a:
-//                case SDLK_LEFT:
-//                    isPressedLeft = true;
-//                    lastActionPressed = GO_LEFT;
-//                    break;
-//                case SDLK_d:
-//                case SDLK_RIGHT:
-//                    isPressedRight = true;
-//                    lastActionPressed = GO_RIGHT;
-//                    break;
-//                case SDLK_w:
-//                case SDLK_UP:
-//                    isPressedUp = true;
-//                    lastActionPressed = GO_UP;
-//                    break;
-//                case SDLK_s:
-//                case SDLK_DOWN:
-//                    isPressedDown = true;
-//                    lastActionPressed = GO_DOWN;
-//                    break;
-//                case SDLK_SPACE:
-//                    isPressedSpace = true;
-//                    break;
-//                case SDLK_ESCAPE:
-//                    lastActionPressed = SELF_DESTRUCT;
-//                    break;
-//                case SDLK_F10:
-//                    state = MENU;
-//                    m_running = false;
-//                    break;
-//            }
-//        }
-//        else if(e.key.type == SDL_KEYUP)
-//        {
-//            switch(e.key.keysym.sym)
-//            {
-//                case SDLK_a:
-//                case SDLK_LEFT:
-//                    isPressedLeft = false;
-//                    break;
-//                case SDLK_d:
-//                case SDLK_RIGHT:
-//                    isPressedRight = false;
-//                    break;
-//                case SDLK_w:
-//                case SDLK_UP:
-//                    isPressedUp = false;
-//                    break;
-//                case SDLK_s:
-//                case SDLK_DOWN:
-//                    isPressedDown = false;
-//                    break;
-//                case SDLK_SPACE:
-//                    isPressedSpace = false;
-//                    break;
-//            }
-//        }
-//        else
-//        {
-//            GameState::ProcessInput();
-//        }
-//    }
 }
 
 void LevelState::Update()
 {
-    deltaSequenceTime = clock() - sequenceTime;
-    if(deltaSequenceTime >= SEQUENCE_DURATION * CLOCKS_PER_SEC)
+    deltaSequenceTime = double( SDL_GetPerformanceCounter() - sequenceTime ) / GameState::perfFreq;
+    if(deltaSequenceTime >= SEQUENCE_DURATION)
     {
         SetPlayerMove();
         //TODO delay after level finish/death
@@ -248,9 +178,9 @@ void LevelState::Update()
             this->state = MENU;
             this->m_running = false;
         }
-        sequenceTime = clock();
+        sequenceTime = SDL_GetPerformanceCounter();
     }
-    level->UpdateLevelPosition(deltaTime);
+    level->UpdateLevelPosition(deltaTime, GameState::perfFreq);
 }
 
 void LevelState::Render()
@@ -287,23 +217,23 @@ void LevelState::PutInfoPanel()
 void LevelState::SetPlayerMove()
 {
     //TODO optimize
-//    if(isPressedRight && (playerAction == GO_RIGHT || playerAction == SHOT_RIGHT))
-//    {
-//        playerAction = GO_RIGHT;
-//    }
-//    else if(isPressedLeft && (playerAction == GO_LEFT || playerAction == SHOT_LEFT))
-//    {
-//        playerAction = GO_LEFT;
-//    }
-//    else if(isPressedUp && (playerAction == GO_UP || playerAction == SHOT_UP))
-//    {
-//        playerAction = GO_UP;
-//    }
-//    else if(isPressedDown && (playerAction == GO_DOWN || playerAction == SHOT_DOWN))
-//    {
-//        playerAction = GO_DOWN;
-//    }
-//    else
+    if(isPressedRight && (playerAction == GO_RIGHT || playerAction == SHOT_RIGHT))
+    {
+        playerAction = GO_RIGHT;
+    }
+    else if(isPressedLeft && (playerAction == GO_LEFT || playerAction == SHOT_LEFT))
+    {
+        playerAction = GO_LEFT;
+    }
+    else if(isPressedUp && (playerAction == GO_UP || playerAction == SHOT_UP))
+    {
+        playerAction = GO_UP;
+    }
+    else if(isPressedDown && (playerAction == GO_DOWN || playerAction == SHOT_DOWN))
+    {
+        playerAction = GO_DOWN;
+    }
+    else
     if(isPressedRight)
     {
         playerAction = GO_RIGHT;

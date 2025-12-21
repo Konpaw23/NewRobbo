@@ -15,7 +15,8 @@ protected:
     GameStateName state;
     Window* m_window;
     double deltaTime;
-    double time;
+    Uint64 tick;
+    Uint64 perfFreq;
     bool m_running;
     virtual void ProcessInput();
     void DisplayFPS();
@@ -26,6 +27,6 @@ private:
     int frames = 0;
     double FPSRefreshTimeDelta;
 
-    double FPSRefreshTime;
+    Uint64 FPSRefreshTick;
     virtual void Update() = 0;
 };
