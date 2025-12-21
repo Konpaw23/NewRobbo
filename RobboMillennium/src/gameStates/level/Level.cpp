@@ -1,11 +1,11 @@
 #include "../../../include/gameStates/level/Level.h"
 #include "../../../include/gameStates/level/LevelState.h"
 
-Level::Level(Window* window, int levelNumber, LevelState* levelState) : m_window(window), height(LEVEL_HEIGHT), width(LEVEL_WIDTH), levelState(levelState)
+Level::Level(Window* window, int levelNumber, std::string planet, LevelState* levelState) : m_window(window), height(LEVEL_HEIGHT), width(LEVEL_WIDTH), levelState(levelState)
 {
     screwsToCollect = 0;
     FieldsMemoryAlloc();
-    LoadObjects(levelNumber);
+    LoadObjects(levelNumber, planet);
     if(screwsToCollect <= 0 && ship != nullptr)
     {
         this->ship->OpenExit();
@@ -995,13 +995,13 @@ void Level::FieldsMemoryDealloc()
 }
 
 //here number of screws to collect is calculated
-void Level::LoadObjects(int levelNumber)
+void Level::LoadObjects(int levelNumber, std::string planet)
 {
-    std::string fileName = "levels/level" + std::to_string(levelNumber) + ".txt";
+    std::string fileName = "levels/" + planet + "/level" + std::to_string(levelNumber) + ".txt";
     std::ifstream levelData(fileName);
     if(!levelData.is_open())
     {
-        std::cout << "!!! Failed to open file: " << fileName << " !!!" << std::endl;
+        std::cerr << "Failed to open file: " << fileName << std::endl;
     }
 
     std::unordered_map<int, MirrorGroup*> mirrorGroups = {};

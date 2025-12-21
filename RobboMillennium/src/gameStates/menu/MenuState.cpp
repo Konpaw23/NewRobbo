@@ -18,7 +18,7 @@ void MenuState::ProcessInput()
         if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN)
         {
             if(m_buttons["Gra"]->IsHovered())
-                state = LEVEL;
+                state = PLANET_MENU;
             else if(m_buttons["Wyjscie"]->IsHovered())
                 state = EXIT;
         }
@@ -34,7 +34,7 @@ void MenuState::Update()
         pair.second->HandleMouseMovement(mousePosition);
     }
 
-    if(state == EXIT || state == LEVEL)
+    if(state == EXIT || state == PLANET_MENU)
     {
         m_running = false;
     }

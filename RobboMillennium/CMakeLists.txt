@@ -110,6 +110,8 @@ add_executable(RobboMillennium main.cpp
         src/gameStates/level/InfoPanel.cpp
         include/gameStates/level/InfoPanel.h
         include/structs.h
+        src/gameStates/menu/PlanetChoiceMenu.cpp
+        include/gameStates/menu/PlanetChoiceMenu.h
 )
 
 include_directories(

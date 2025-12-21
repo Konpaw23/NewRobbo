@@ -3,10 +3,41 @@
 LevelState::LevelState(Window* window) : GameState(window)
 {
     this->m_window->Clear();
-    this->state = LEVEL;
+    this->state = BLUE_PLANET_LEVELS;
     this->levelNumber = 1;
+    switch(this->state)
+    {
+        case RED_PLANET_LEVELS:
+            this->planet = "red";
+            break;
+        case BLUE_PLANET_LEVELS:
+        default:
+            this->planet = "blue";
+            break;
+    }
     this->lives = 5;
-    this->level = new Level(m_window, levelNumber, this);
+    this->level = new Level(m_window, levelNumber, planet, this);
+    this->infoPanel = new InfoPanel(this->m_window, this->GetDataForInfoPanel());
+    sequenceTime = SDL_GetPerformanceCounter();
+}
+
+LevelState::LevelState(Window *window, GameStateName planet) : GameState(window)
+{
+    this->m_window->Clear();
+    this->state = planet;
+    this->levelNumber = 1;
+    switch(this->state)
+    {
+        case RED_PLANET_LEVELS:
+            this->planet = "red";
+            break;
+        case BLUE_PLANET_LEVELS:
+        default:
+            this->planet = "blue";
+            break;
+    }
+    this->lives = 5;
+    this->level = new Level(m_window, levelNumber, this->planet, this);
     this->infoPanel = new InfoPanel(this->m_window, this->GetDataForInfoPanel());
     sequenceTime = SDL_GetPerformanceCounter();
 }
@@ -14,9 +45,19 @@ LevelState::LevelState(Window* window) : GameState(window)
 LevelState::LevelState(Window* window, int level_number) : GameState(window)
 {
     this->m_window->Clear();
-    this->state = LEVEL;
+    this->state = BLUE_PLANET_LEVELS;
     this->levelNumber = level_number;
-    this->level = new Level(m_window, levelNumber, this);
+    switch(this->state)
+    {
+        case RED_PLANET_LEVELS:
+            this->planet = "red";
+            break;
+        case BLUE_PLANET_LEVELS:
+        default:
+            this->planet = "blue";
+            break;
+    }
+    this->level = new Level(m_window, levelNumber, this->planet, this);
 }
 
 void LevelState::AddLife()
@@ -160,7 +201,7 @@ void LevelState::Update()
                 this->isFirstLevelGame = true;
                 this->levelLivesPositions.clear();
                 levelNumber++;
-                level = new Level(m_window, levelNumber, this);
+                level = new Level(m_window, levelNumber, this->planet, this);
             }
             level->SetPlayerAction(playerAction);
             level->RunSequence();
@@ -171,7 +212,7 @@ void LevelState::Update()
             lives--;
             //TODO reset level method
             delete level;
-            level = new Level(m_window, levelNumber, this);
+            level = new Level(m_window, levelNumber, this->planet, this);
         }
         else
         {

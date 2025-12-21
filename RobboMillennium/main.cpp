@@ -1,8 +1,9 @@
-#include "include/gameStates/GameState.h"
-#include "include/gameStates/menu/MenuState.h"
-#include "include/gameStates/level/LevelState.h"
+#include "gameStates/GameState.h"
+#include "gameStates/menu/MenuState.h"
+#include "gameStates/menu/PlanetChoiceMenu.h"
+#include "gameStates/level/LevelState.h"
 
-#include "include/basicProjectHeaders.h"
+#include "basicProjectHeaders.h"
 
 int main(int argc, char* argv[])
 {
@@ -15,7 +16,7 @@ int main(int argc, char* argv[])
     srand(time(NULL));
 
     //game states loop
-    while(1)
+    while(true)
     {
         if(state == nullptr)
             break;
@@ -27,8 +28,14 @@ int main(int argc, char* argv[])
             case MENU:
                 state = new MenuState(window);
                 break;
-            case LEVEL:
-                state = new LevelState(window);
+            case PLANET_MENU:
+                state = new PlanetChoiceMenu(window);
+                break;
+            case BLUE_PLANET_LEVELS:
+                state = new LevelState(window, BLUE_PLANET_LEVELS);
+                break;
+            case RED_PLANET_LEVELS:
+                state = new LevelState(window, RED_PLANET_LEVELS);
                 break;
             case EXIT:
                 state = nullptr;

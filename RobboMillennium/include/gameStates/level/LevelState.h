@@ -3,11 +3,13 @@
 #include "../../basicProjectHeaders.h"
 #include "Level.h"
 #include "InfoPanel.h"
+#include "enums.h"
 
 class LevelState : public GameState
 {
 public:
     LevelState(Window* window);
+    LevelState(Window* window, GameStateName planet);
     LevelState(Window* window, int levelNumber);
     void AddLife();
     void SetLivesPositions(std::vector<Coordinates> positions);
@@ -18,6 +20,7 @@ public:
 private:
     Level* level;
     int levelNumber;
+    std::string planet;
     RobboAction playerAction;
     int lives;
     std::vector<Coordinates> levelLivesPositions = {};

@@ -135,6 +135,10 @@ void Window::AddAllTextures()
     AddTexture(PRZYCISK_GRA_AKTYWNY, "../assets/textures/menu/przyciskGraAktywny.bmp");
     AddTexture(PRZYCISK_WYJSCIE, "../assets/textures/menu/przyciskWyjscie.bmp");
     AddTexture(PRZYCISK_WYJSCIE_AKTYWNY, "../assets/textures/menu/przyciskWyjscieAktywny.bmp");
+    AddTexture(BLUE_PLANET_BUTTON, "../assets/textures/menu/bluePlanetButton.bmp");
+    AddTexture(BLUE_PLANET_BUTTON_ACTIVE, "../assets/textures/menu/bluePlanetButtonActive.bmp");
+    AddTexture(RED_PLANET_BUTTON, "../assets/textures/menu/redPlanetButton.bmp");
+    AddTexture(RED_PLANET_BUTTON_ACTIVE, "../assets/textures/menu/redPlanetButtonActive.bmp");
     AddTexture(LEVEL_FLOOR, "../assets/textures/level/pole.bmp");
     AddTexture(LEVEL_ROBBO, "../assets/textures/level/robbo.bmp");
     AddTexture(LEVEL_WALL, "../assets/textures/level/sciana.bmp");

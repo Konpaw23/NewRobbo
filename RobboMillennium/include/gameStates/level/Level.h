@@ -5,7 +5,7 @@
 class Level
 {
 public:
-    Level(Window* window, int levelNumber, class LevelState* levelState);
+    Level(Window* window, int levelNumber, std::string planet, class LevelState* levelState);
     ~Level();
 
     void RunSequence();
@@ -75,7 +75,7 @@ private:
     void DeleteAllObjects();
     void FieldsMemoryDealloc();
 
-    void LoadObjects(int levelNumber);
+    void LoadObjects(int levelNumber, std::string planet);
     void AddToActiveObjects(class ActiveObject* object);
     void RemoveFromActiveObjects(int index);
     void DeleteDestroyedObjects();
