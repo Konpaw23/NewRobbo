@@ -142,6 +142,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_FLOOR, "../assets/textures/level/pole.bmp");
     AddTexture(LEVEL_ROBBO, "../assets/textures/level/robbo.bmp");
     AddTexture(LEVEL_WALL, "../assets/textures/level/sciana.bmp");
+    AddTexture(LEVEL_SPIKES, "../assets/textures/level/spikes.bmp");
     AddTexture(LEVEL_DOOR, "../assets/textures/level/door.bmp");
     AddTexture(LEVEL_MIRROR, "../assets/textures/level/mirror.bmp");
     AddTexture(LEVEL_CHEST, "../assets/textures/level/skrzynia.bmp");
@@ -152,6 +153,7 @@ void Window::AddAllTextures()
     AddTexture(LEVEL_KEY, "../assets/textures/level/key.bmp");
     AddTexture(LEVEL_AMMO, "../assets/textures/level/ammo.bmp");
     AddTexture(LEVEL_LIFE, "../assets/textures/level/life.bmp");
+    AddTexture(LEVEL_STOP, "../assets/textures/level/stop.bmp");
     AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
     AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
     AddTexture(LEVEL_BLASTER, "../assets/textures/level/blaster.bmp");

@@ -26,6 +26,7 @@ enum TextureName
     LEVEL_ROBBO,
     LEVEL_BUSH,
     LEVEL_WALL,
+    LEVEL_SPIKES,
     LEVEL_DOOR,
     LEVEL_MIRROR,
     LEVEL_CHEST,
@@ -38,6 +39,7 @@ enum TextureName
     LEVEL_BULLET,
     LEVEL_BLASTER,
     LEVEL_LIFE,
+    LEVEL_STOP,
 
     LEVEL_SMOKE01,
     LEVEL_SMOKE02,
@@ -104,6 +106,7 @@ enum GameObjectName
 {
     WALL,
     BUSH_WALL,
+    SPIKES,
     DOOR,
     MIRROR,
     BUSH,
@@ -119,6 +122,7 @@ enum GameObjectName
     KEY,
     AMMO,
     LIFE,
+    STOP,
     BULLET,
     BLASTER,
     SMOKE,

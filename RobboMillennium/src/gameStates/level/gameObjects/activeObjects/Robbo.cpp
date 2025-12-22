@@ -77,6 +77,12 @@ bool Robbo::Move(Direction dir)
             {
                 push->PushPush(dir);
             }
+
+            Spikes* spikes = dynamic_cast<Spikes*>(other);
+            if(spikes != nullptr)
+            {
+                this->Destroy();
+            }
         }
     }
 
@@ -150,7 +156,7 @@ void Robbo::AddAmmo()
 
 void Robbo::Shot(Direction dir)
 {
-    if(ammo > 0 && shootDelay == 0)
+    if(ammo > 0 && shootDelay == 0 && !level->IsLevelStopped())
     {
         ammo--;
         shootDelay += 3;

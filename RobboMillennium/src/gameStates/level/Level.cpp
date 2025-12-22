@@ -24,14 +24,21 @@ void Level::RunSequence()
 {
     this->turnNumber++;
 
-    //copy of vector because objects can be added after Object turn
-    std::vector<ActiveObject*> initialVector(this->activeObjects);
-    for(int i = 0; i < initialVector.size(); i++)
+    if(!this->stopActive)
     {
-        if(initialVector[i] != nullptr && initialVector[i]->IsActive())
+        //copy of vector because objects can be added after Object turn
+        std::vector<ActiveObject*> initialVector(this->activeObjects);
+        for(int i = 0; i < initialVector.size(); i++)
         {
-            initialVector[i]->Run();
+            if(initialVector[i] != nullptr && initialVector[i]->IsActive())
+            {
+                initialVector[i]->Run();
+            }
         }
+    }
+    else
+    {
+        this->stopActive--;
     }
     if(IsPlayerAlive())
     {
@@ -148,6 +155,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
         case BUSH_WALL:
             fields[y][x] = new BushWall(Coordinates(x,y), this);
             break;
+        case SPIKES:
+            fields[y][x] = new Spikes(Coordinates(x,y), this);
+            break;
         case DOOR:
             fields[y][x] = new Door(Coordinates(x,y), this);
             break;
@@ -179,6 +189,9 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case LIFE:
             fields[y][x] = new Life(Coordinates(x, y), this);
+            break;
+        case STOP:
+            fields[y][x] = new Stop(Coordinates(x, y), this);
             break;
         case BUSH:
             fields[y][x] = new Bush(Coordinates(x,y), this);
@@ -315,6 +328,9 @@ void Level::CreateObject(GameObjectName name, int x, int y, Direction rotation, 
             this->AddToActiveObjects(seahorse);
             break;
         }
+        default:
+            this->CreateObject(name, x, y, rotation);
+            break;
     }
 }
 
@@ -649,6 +665,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
         case WALL:
             m_window->PutTexture(LEVEL_WALL, renderPosition.x, renderPosition.y);
             break;
+        case SPIKES:
+            m_window->PutTexture(LEVEL_SPIKES, renderPosition.x, renderPosition.y);
+            break;
         case DOOR:
             m_window->PutTexture(LEVEL_DOOR, renderPosition.x, renderPosition.y);
             break;
@@ -678,6 +697,9 @@ void Level::PutObject(GameObjectName name, int x, int y)
             break;
         case LIFE:
             m_window->PutTexture(LEVEL_LIFE, renderPosition.x, renderPosition.y);
+            break;
+        case STOP:
+            m_window->PutTexture(LEVEL_STOP, renderPosition.x, renderPosition.y);
             break;
         case BULLET:
             m_window->PutTexture(LEVEL_BULLET, renderPosition.x, renderPosition.y);
@@ -940,6 +962,16 @@ void Level::SetLifeAsTaken(Coordinates position)
     this->levelState->RemoveLiveAtPosition(position);
 }
 
+void Level::ActivateStop(int sequences)
+{
+    this->stopActive += sequences;
+}
+
+bool Level::IsLevelStopped()
+{
+    return (this->stopActive > 0);
+}
+
 void Level::FieldsMemoryAlloc()
 {
     if(player != nullptr)
@@ -949,7 +981,7 @@ void Level::FieldsMemoryAlloc()
 
     if(fields != nullptr)
     {
-        std::cout << "!!! Can't to allocate memory for level fields (already allocated) !!!" << std::endl;
+        std::cerr << "Can't to allocate memory for level fields (already allocated)" << std::endl;
         return;
     }
 
@@ -1019,6 +1051,9 @@ void Level::LoadObjects(int levelNumber, std::string planet)
             case '/':
                 CreateObject(BUSH_WALL, x, y);
                 break;
+            case 'x':
+                CreateObject(SPIKES, x, y);
+                break;
             case '|':
                 CreateObject(DOOR, x, y);
                 break;
@@ -1060,6 +1095,9 @@ void Level::LoadObjects(int levelNumber, std::string planet)
                     }
                 }
                 CreateObject(LIFE, x, y);
+                break;
+            case '_':
+                CreateObject(STOP, x, y);
                 break;
             case '%':
                 CreateObject(BUSH, x, y);

@@ -112,6 +112,10 @@ add_executable(RobboMillennium main.cpp
         include/structs.h
         src/gameStates/menu/PlanetChoiceMenu.cpp
         include/gameStates/menu/PlanetChoiceMenu.h
+        src/gameStates/level/gameObjects/staticObjects/Spikes.cpp
+        include/gameStates/level/gameObjects/staticObjects/Spikes.h
+        src/gameStates/level/gameObjects/collectibles/Stop.cpp
+        include/gameStates/level/gameObjects/collectibles/Stop.h
 )
 
 include_directories(

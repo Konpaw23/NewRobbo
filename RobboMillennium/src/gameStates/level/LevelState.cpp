@@ -25,7 +25,7 @@ LevelState::LevelState(Window *window, GameStateName planet) : GameState(window)
 {
     this->m_window->Clear();
     this->state = planet;
-    this->levelNumber = 1;
+    this->levelNumber = 5;
     switch(this->state)
     {
         case RED_PLANET_LEVELS:

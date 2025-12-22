@@ -67,6 +67,9 @@ public:
     void AddLife();
     void SetLifeAsTaken(Coordinates position);
 
+    void ActivateStop(int sequences);
+    bool IsLevelStopped();
+
 private:
     LevelState* levelState;
 
@@ -86,6 +89,9 @@ private:
     int width;
 
     int turnNumber = 0;
+
+    //freeze all object instead of Robbo if higher than 0
+    int stopActive = 0;
 
     class Robbo* player = nullptr;
     bool isRobboVisible = true;
