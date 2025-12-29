@@ -1,31 +1,31 @@
 WWWWWWWWWWWWWWWW
-W*            &W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-W              W
-WWWWWWWWWWWWWWWW
+W           x
+W WWWWWW WW x W
+W WW   W    x W
+W WW x W xxxx W
+W WW x W xxx  W
+W    x W xxx WW
+Wxxxxx W  o  WW
+Wxxxxx WWWWWWWW
+W    $ WWW$$$WW
+W WWWWWW$$$x$$$
+W W$     xxxxxxW
+W WWWWWW x$  xxW
+W WWWWW@   x   W
+W W$   xxxxxxx!W
+W W$xx xx  $xx W
+W W$$x xx xxxx$W
+W WW$x xx      W
+W W$$x xx x@WWWW
+W W$xx xxxx$$$$W
+W  $xx   xx xx W
+Wxxxxxx &   xx W
+W$   $x  xxxxx W
+W WWW xxxx$ $x W
+W$W$x xxxx x x W
+W W$   $   x x W
+W!WWWWWWWWWW x W
+W WWW$$$W $$ x W
+W W$$$x$$$xxxx W
+W*W$xxxxxxxxxx$W
+WWW$$$$    $$$$W
