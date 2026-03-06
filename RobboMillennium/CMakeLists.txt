@@ -129,32 +129,45 @@ file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
 target_link_libraries(${PROJECT_NAME} PRIVATE
         mingw32
         "${SDL2_PATH}/lib/libSDL2main.a"
-        "${SDL2_PATH}/lib/libSDL2.dll.a"
-        "${SDL2TTF_PATH}/lib/libSDL2_ttf.dll.a"
+        "${SDL2_PATH}/lib/libSDL2.a"
+        "${SDL2TTF_PATH}/lib/libSDL2_ttf.a"
+
+        setupapi
+        imm32
+        winmm
+        version
+        rpcrt4
+        cfgmgr32
 )
 
-set(SDL2_DLL "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/bin/SDL2.dll")
-set(SDL2TTF_DLL "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-devel-2.24.0-mingw/x86_64-w64-mingw32/bin/SDL2_ttf.dll")
+target_link_options(${PROJECT_NAME} PRIVATE
+        -static
+        -static-libgcc
+        -static-libstdc++
+)
 
-if(WIN32)
-    add_custom_command(
-            TARGET ${PROJECT_NAME} POST_BUILD
-            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-                "${SDL2_DLL}"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-            VERBATIM
-    )
-endif()
-
-if(WIN32)
-    add_custom_command(
-            TARGET ${PROJECT_NAME} POST_BUILD
-            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-                "${SDL2TFF_DLL}"
-                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-            VERBATIM
-    )
-endif()
+#set(SDL2_DLL "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32/bin/SDL2.dll")
+#set(SDL2TTF_DLL "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-devel-2.24.0-mingw/x86_64-w64-mingw32/bin/SDL2_ttf.dll")
+#
+#if(WIN32)
+#    add_custom_command(
+#            TARGET ${PROJECT_NAME} POST_BUILD
+#            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+#                "${SDL2_DLL}"
+#                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+#            VERBATIM
+#    )
+#endif()
+#
+#if(WIN32)
+#    add_custom_command(
+#            TARGET ${PROJECT_NAME} POST_BUILD
+#            COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+#                "${SDL2TTF_DLL}"
+#                "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+#            VERBATIM
+#    )
+#endif()
 
 add_custom_command(
         TARGET ${PROJECT_NAME} POST_BUILD
