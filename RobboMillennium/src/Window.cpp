@@ -130,76 +130,107 @@ void Window::ClearTextures()
 
 void Window::AddAllTextures()
 {
-    AddTexture(MENU_TLO, "../assets/textures/menu/menu.bmp");
-    AddTexture(PRZYCISK_GRA, "../assets/textures/menu/przyciskGra.bmp");
-    AddTexture(PRZYCISK_GRA_AKTYWNY, "../assets/textures/menu/przyciskGraAktywny.bmp");
-    AddTexture(PRZYCISK_WYJSCIE, "../assets/textures/menu/przyciskWyjscie.bmp");
-    AddTexture(PRZYCISK_WYJSCIE_AKTYWNY, "../assets/textures/menu/przyciskWyjscieAktywny.bmp");
-    AddTexture(BLUE_PLANET_BUTTON, "../assets/textures/menu/bluePlanetButton.bmp");
-    AddTexture(BLUE_PLANET_BUTTON_ACTIVE, "../assets/textures/menu/bluePlanetButtonActive.bmp");
-    AddTexture(RED_PLANET_BUTTON, "../assets/textures/menu/redPlanetButton.bmp");
-    AddTexture(RED_PLANET_BUTTON_ACTIVE, "../assets/textures/menu/redPlanetButtonActive.bmp");
-    AddTexture(LEVEL_FLOOR, "../assets/textures/level/pole.bmp");
-    AddTexture(LEVEL_ROBBO, "../assets/textures/level/robbo.bmp");
-    AddTexture(LEVEL_WALL, "../assets/textures/level/sciana.bmp");
-    AddTexture(LEVEL_SPIKES, "../assets/textures/level/spikes.bmp");
-    AddTexture(LEVEL_DOOR, "../assets/textures/level/door.bmp");
-    AddTexture(LEVEL_MIRROR, "../assets/textures/level/mirror.bmp");
-    AddTexture(LEVEL_CHEST, "../assets/textures/level/skrzynia.bmp");
-    AddTexture(LEVEL_PUSH, "../assets/textures/level/push.bmp");
-    AddTexture(LEVEL_BOMB, "../assets/textures/level/bomb.bmp");
-    AddTexture(LEVEL_SURPRISE, "../assets/textures/level/surprise.bmp");
-    AddTexture(LEVEL_SCREW, "../assets/textures/level/screw.bmp");
-    AddTexture(LEVEL_KEY, "../assets/textures/level/key.bmp");
-    AddTexture(LEVEL_AMMO, "../assets/textures/level/ammo.bmp");
-    AddTexture(LEVEL_LIFE, "../assets/textures/level/life.bmp");
-    AddTexture(LEVEL_STOP, "../assets/textures/level/stop.bmp");
-    AddTexture(LEVEL_PANEL, "../assets/textures/level/panel.bmp");
-    AddTexture(LEVEL_BULLET, "../assets/textures/level/bullet.bmp");
-    AddTexture(LEVEL_BLASTER, "../assets/textures/level/blaster.bmp");
-    AddTexture(LEVEL_BUSH, "../assets/textures/level/bush.bmp");
-    AddTexture(LEVEL_SMOKE01, "../assets/textures/level/smoke/01.bmp");
-    AddTexture(LEVEL_SMOKE02, "../assets/textures/level/smoke/02.bmp");
-    AddTexture(LEVEL_SMOKE03, "../assets/textures/level/smoke/03.bmp");
-    AddTexture(LEVEL_SMOKE04, "../assets/textures/level/smoke/04.bmp");
-    AddTexture(LEVEL_SMOKE05, "../assets/textures/level/smoke/05.bmp");
-    AddTexture(LEVEL_SMOKE06, "../assets/textures/level/smoke/06.bmp");
-    AddTexture(LEVEL_SMOKE07, "../assets/textures/level/smoke/07.bmp");
-    AddTexture(LEVEL_LASER_SHOOTER_DOWN, "../assets/textures/level/laser/shooterD.bmp");
-    AddTexture(LEVEL_LASER_SHOOTER_UP, "../assets/textures/level/laser/shooterU.bmp");
-    AddTexture(LEVEL_LASER_SHOOTER_LEFT, "../assets/textures/level/laser/shooterL.bmp");
-    AddTexture(LEVEL_LASER_SHOOTER_RIGHT, "../assets/textures/level/laser/shooterR.bmp");
-    AddTexture(LEVEL_LASER_HEAD_DOWN, "../assets/textures/level/laser/laserHeadDown.bmp");
-    AddTexture(LEVEL_LASER_HEAD_UP, "../assets/textures/level/laser/laserHeadUp.bmp");
-    AddTexture(LEVEL_LASER_HEAD_LEFT, "../assets/textures/level/laser/laserHeadLeft.bmp");
-    AddTexture(LEVEL_LASER_HEAD_RIGHT, "../assets/textures/level/laser/laserHeadRight.bmp");
-    AddTexture(LEVEL_LASER_BODY_VERTICAL, "../assets/textures/level/laser/laserBodyVertical.bmp");
-    AddTexture(LEVEL_LASER_BODY_HORIZONTAL, "../assets/textures/level/laser/laserBodyHorizontal.bmp");
-    AddTexture(LEVEL_CANNON_UP, "../assets/textures/level/cannon/up.bmp");
-    AddTexture(LEVEL_CANNON_DOWN, "../assets/textures/level/cannon/down.bmp");
-    AddTexture(LEVEL_CANNON_LEFT, "../assets/textures/level/cannon/left.bmp");
-    AddTexture(LEVEL_CANNON_RIGHT, "../assets/textures/level/cannon/right.bmp");
-    AddTexture(LEVEL_MOVING_CANNON, "../assets/textures/level/movingCannon.bmp");
-    AddTexture(LEVEL_BLASTER_CANNON_UP, "../assets/textures/level/blasterCannon/up.bmp");
-    AddTexture(LEVEL_BLASTER_CANNON_DOWN, "../assets/textures/level/blasterCannon/down.bmp");
-    AddTexture(LEVEL_BLASTER_CANNON_LEFT, "../assets/textures/level/blasterCannon/left.bmp");
-    AddTexture(LEVEL_BLASTER_CANNON_RIGHT, "../assets/textures/level/blasterCannon/right.bmp");
-    AddTexture(LEVEL_SHIP_CLOSED, "../assets/textures/level/ship/closed.bmp");
-    AddTexture(LEVEL_SHIP_OPEN, "../assets/textures/level/ship/open.bmp");
-    AddTexture(LEVEL_MAGNET_LEFT, "../assets/textures/level/magnet/left.bmp");
-    AddTexture(LEVEL_MAGNET_RIGHT, "../assets/textures/level/magnet/right.bmp");
-    AddTexture(LEVEL_MAGNET_UP, "../assets/textures/level/magnet/up.bmp");
-    AddTexture(LEVEL_MAGNET_DOWN, "../assets/textures/level/magnet/down.bmp");
-    AddTexture(LEVEL_GOLDEN_SEAHORSE_UP, "../assets/textures/level/goldenSeahorse/goldenSeahorseUp.bmp");
-    AddTexture(LEVEL_GOLDEN_SEAHORSE_DOWN, "../assets/textures/level/goldenSeahorse/goldenSeahorseDown.bmp");
-    AddTexture(LEVEL_GOLDEN_SEAHORSE_LEFT, "../assets/textures/level/goldenSeahorse/goldenSeahorseLeft.bmp");
-    AddTexture(LEVEL_GOLDEN_SEAHORSE_RIGHT, "../assets/textures/level/goldenSeahorse/goldenSeahorseRight.bmp");
-    AddTexture(LEVEL_PURPLE_SEAHORSE_UP, "../assets/textures/level/purpleSeahorse/purpleSeahorseUp.bmp");
-    AddTexture(LEVEL_PURPLE_SEAHORSE_DOWN, "../assets/textures/level/purpleSeahorse/purpleSeahorseDown.bmp");
-    AddTexture(LEVEL_PURPLE_SEAHORSE_LEFT, "../assets/textures/level/purpleSeahorse/purpleSeahorseLeft.bmp");
-    AddTexture(LEVEL_PURPLE_SEAHORSE_RIGHT, "../assets/textures/level/purpleSeahorse/purpleSeahorseRight.bmp");
-    AddTexture(LEVEL_COOKIE_MONSTER_LEFT, "../assets/textures/level/cookieMonster/left.bmp");
-    AddTexture(LEVEL_COOKIE_MONSTER_RIGHT, "../assets/textures/level/cookieMonster/right.bmp");
-    AddTexture(LEVEL_EYE, "../assets/textures/level/eye.bmp");
-    AddTexture(LEVEL_SNAKE, "../assets/textures/level/snake.bmp");
+    std::string t_dir = assets_dir + "/textures";
+
+    struct TexturePaths
+    {
+        TextureName name;
+        std::string path;
+    };
+
+    TexturePaths paths[] =
+    {
+        {MENU_TLO, "/menu/menu.bmp"},
+        {PRZYCISK_GRA, "/menu/przyciskGra.bmp"},
+        {PRZYCISK_WYJSCIE, "/menu/przyciskWyjscie.bmp"},
+        {PRZYCISK_WYJSCIE_AKTYWNY, "/menu/przyciskWyjscieAktywny.bmp"},
+        {BLUE_PLANET_BUTTON, "/menu/bluePlanetButton.bmp"},
+        {BLUE_PLANET_BUTTON_ACTIVE, "/menu/bluePlanetButtonActive.bmp"},
+        {RED_PLANET_BUTTON, "/menu/redPlanetButton.bmp"},
+        {RED_PLANET_BUTTON_ACTIVE, "/menu/redPlanetButtonActive.bmp"},
+
+        {LEVEL_FLOOR, "level/pole.bmp"},
+        {LEVEL_ROBBO, "/level/robbo.bmp"},
+        {LEVEL_BUSH, "/level/bush.bmp"},
+        {LEVEL_WALL, "/level/sciana.bmp"},
+        {LEVEL_SPIKES, "/level/spikes.bmp"},
+        {LEVEL_DOOR, "/level/door.bmp"},
+        {LEVEL_MIRROR, "/level/mirror.bmp"},
+        {LEVEL_CHEST, "/level/skrzynia.bmp"},
+        {LEVEL_PUSH, "/level/push.bmp"},
+        {LEVEL_BOMB, "/level/bomb.bmp"},
+        {LEVEL_SURPRISE, "/level/surprise.bmp"},
+        {LEVEL_SCREW, "/level/screw.bmp"},
+        {LEVEL_KEY, "/level/key.bmp"},
+        {LEVEL_AMMO, "/level/ammo.bmp"},
+        {LEVEL_BULLET, "/level/bullet.bmp"},
+        {LEVEL_BLASTER, "/level/blaster.bmp"},
+        {LEVEL_LIFE, "/level/life.bmp"},
+        {LEVEL_STOP, "/level/stop.bmp"},
+
+        {LEVEL_SMOKE01, "/level/smoke/01.bmp"},
+        {LEVEL_SMOKE02, "/level/smoke/02.bmp"},
+        {LEVEL_SMOKE03, "/level/smoke/03.bmp"},
+        {LEVEL_SMOKE04, "/level/smoke/04.bmp"},
+        {LEVEL_SMOKE05, "/level/smoke/05.bmp"},
+        {LEVEL_SMOKE06, "/level/smoke/06.bmp"},
+        {LEVEL_SMOKE07, "/level/smoke/07.bmp"},
+
+        {LEVEL_MAGNET_UP, "/level/magnet/up.bmp"},
+        {LEVEL_MAGNET_DOWN, "/level/magnet/down.bmp"},
+        {LEVEL_MAGNET_LEFT, "/level/magnet/left.bmp"},
+        {LEVEL_MAGNET_RIGHT, "/level/magnet/right.bmp"},
+
+        {LEVEL_LASER_SHOOTER_UP, "/level/laser/shooterU.bmp"},
+        {LEVEL_LASER_SHOOTER_DOWN, "/level/laser/shooterD.bmp"},
+        {LEVEL_LASER_SHOOTER_LEFT, "/level/laser/shooterL.bmp"},
+        {LEVEL_LASER_SHOOTER_RIGHT, "/level/laser/shooterR.bmp"},
+
+        {LEVEL_LASER_HEAD_UP, "/level/laser/laserHeadUp.bmp"},
+        {LEVEL_LASER_HEAD_DOWN, "/level/laser/laserHeadDown.bmp"},
+        {LEVEL_LASER_HEAD_LEFT, "/level/laser/laserHeadLeft.bmp"},
+        {LEVEL_LASER_HEAD_RIGHT, "/level/laser/laserHeadRight.bmp"},
+
+        {LEVEL_LASER_BODY_VERTICAL, "/level/laser/laserBodyVertical.bmp"},
+        {LEVEL_LASER_BODY_HORIZONTAL, "/level/laser/laserBodyHorizontal.bmp"},
+
+        {LEVEL_CANNON_UP, "/level/cannon/up.bmp"},
+        {LEVEL_CANNON_DOWN, "/level/cannon/down.bmp"},
+        {LEVEL_CANNON_LEFT, "/level/cannon/left.bmp"},
+        {LEVEL_CANNON_RIGHT, "/level/cannon/right.bmp"},
+
+        {LEVEL_MOVING_CANNON, "/level/movingCannon.bmp"},
+
+        {LEVEL_BLASTER_CANNON_UP, "/level/blasterCannon/up.bmp"},
+        {LEVEL_BLASTER_CANNON_DOWN, "/level/blasterCannon/down.bmp"},
+        {LEVEL_BLASTER_CANNON_LEFT, "/level/blasterCannon/left.bmp"},
+        {LEVEL_BLASTER_CANNON_RIGHT, "/level/blasterCannon/right.bmp"},
+
+        {LEVEL_SHIP_CLOSED, "/level/ship/closed.bmp"},
+        {LEVEL_SHIP_OPEN, "/level/ship/open.bmp"},
+
+        {LEVEL_GOLDEN_SEAHORSE_UP, "/level/goldenSeahorse/goldenSeahorseUp.bmp"},
+        {LEVEL_GOLDEN_SEAHORSE_DOWN, "/level/goldenSeahorse/goldenSeahorseDown.bmp"},
+        {LEVEL_GOLDEN_SEAHORSE_LEFT, "/level/goldenSeahorse/goldenSeahorseLeft.bmp"},
+        {LEVEL_GOLDEN_SEAHORSE_RIGHT, "/level/goldenSeahorse/goldenSeahorseRight.bmp"},
+
+        {LEVEL_PURPLE_SEAHORSE_UP, "/level/purpleSeahorse/goldenSeahorseUp.bmp"},
+        {LEVEL_PURPLE_SEAHORSE_DOWN, "/level/purpleSeahorse/goldenSeahorseDown.bmp"},
+        {LEVEL_PURPLE_SEAHORSE_LEFT, "/level/purpleSeahorse/goldenSeahorseLeft.bmp"},
+        {LEVEL_PURPLE_SEAHORSE_RIGHT, "/level/purpleSeahorse/goldenSeahorseRight.bmp"},
+
+        {LEVEL_COOKIE_MONSTER_LEFT, "/level/cookieMonster/left.bmp"},
+        {LEVEL_COOKIE_MONSTER_RIGHT, "/level/cookieMonster/right.bmp"},
+
+        {LEVEL_EYE, "/level/eye.bmp"},
+
+        {LEVEL_SNAKE, "/level/snake.bmp"},
+
+        {LEVEL_PANEL, "/level/panel.bmp"},
+    };
+
+    for(const auto& p : paths)
+    {
+        AddTexture(p.name, t_dir + p.path);
+    }
 }
