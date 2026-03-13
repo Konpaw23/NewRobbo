@@ -31,7 +31,7 @@ public:
 
 private:
     void AddAllTextures();
-    const std::string assets_dir = "assets";
+    const std::string assets_dir = "assets/";
     SDL_Window* m_window;
     SDL_Renderer* m_renderer;
     TTF_Font* m_font;

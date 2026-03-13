@@ -11,11 +11,10 @@ MovingObject::MovingObject(bool canBeMovedByRobbo) : GameObject(), canBeMovedByR
     ;
 }
 
-//TODO I don't like this func
 bool MovingObject::Move(Direction dir)
 {
-    Coordinates* dest = level->GetNextPosition(this->position, dir);
-    if(dest == nullptr)
+    std::optional<Coordinates> dest = level->GetNextPosition(this->position, dir);
+    if(!dest.has_value())
         //position out of level range
         return false;
     GameObject* other = level->GetObjectFromPosition(*dest);
@@ -23,9 +22,7 @@ bool MovingObject::Move(Direction dir)
     {
         level->MoveObject(this, *dest);
         this->position = *dest;
-        delete dest;
         return true;
     }
-    delete dest;
     return false;
 }

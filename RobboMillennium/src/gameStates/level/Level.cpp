@@ -458,15 +458,13 @@ bool Level::IsLevelFinished()
     return this->isLevelFinished;
 }
 
-//TODO I don't like this func I should make it works in other way
-//returns nullptr when position out of range
-Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
+//returns empty when position out of range
+std::optional<Coordinates> Level::GetNextPosition(Coordinates current, Direction dir)
 {
-    Coordinates* new_pos = new Coordinates(current.GetNext(dir));
-    if(new_pos->x < 0 || new_pos->x >= width || new_pos->y < 0 || new_pos->y >= height)
+    Coordinates new_pos = Coordinates(current.GetNext(dir));
+    if(new_pos.x < 0 || new_pos.x >= width || new_pos.y < 0 || new_pos.y >= height)
     {
-        delete new_pos;
-        return nullptr;
+        return std::nullopt;
     }
     return new_pos;
 }
@@ -474,40 +472,32 @@ Coordinates* Level::GetNextPosition(Coordinates current, Direction dir)
 std::vector<Coordinates> Level::GetFieldsAround(Coordinates position)
 {
     std::vector<Coordinates> vector = {};
-    //TODO this will be fixed when I fix GetNextPosition
-    //TODO MAKARON
+    //TODO write cleaner code
     Direction pattern[4] = {LEFT, RIGHT, UP, DOWN};
-    Coordinates* buffer = nullptr;
+    std::optional<Coordinates> next_cords;
     for(int i = 0; i < 4; i++)
     {
-        buffer = this->GetNextPosition(position, pattern[i]);
-        if(buffer != nullptr)
+        next_cords = this->GetNextPosition(position, pattern[i]);
+        if(next_cords.has_value())
         {
-            vector.push_back(*buffer);
+            vector.push_back(*next_cords);
 
             //if left or right from starting position is available, we check also up and down from this
             //so all 4 corners also will be included
             if(pattern[i] == LEFT || pattern[i] == RIGHT)
             {
-                Coordinates cords = *buffer;
-                delete buffer;
-                buffer = this->GetNextPosition(cords, UP);
-                if(buffer != nullptr)
+                Coordinates cords = *next_cords;
+                next_cords = this->GetNextPosition(cords, UP);
+                if(next_cords.has_value())
                 {
-                    vector.push_back(*buffer);
-                    delete buffer;
+                    vector.push_back(*next_cords);
                 }
 
-                buffer = this->GetNextPosition(cords, DOWN);
-                if(buffer != nullptr)
+                next_cords = this->GetNextPosition(cords, DOWN);
+                if(next_cords.has_value())
                 {
-                    vector.push_back(*buffer);
-                    delete buffer;
+                    vector.push_back(*next_cords);
                 }
-            }
-            else
-            {
-                delete buffer;
             }
         }
     }
@@ -518,14 +508,13 @@ std::vector<Coordinates> Level::GetFieldsNextTo(Coordinates position)
 {
     std::vector<Coordinates> fieldsFound = {};
     Direction directions[4] = {UP, DOWN, LEFT, RIGHT};
-    Coordinates* buffer = nullptr;
+    std::optional<Coordinates> next_cords;
     for(int i = 0; i < 4; i++)
     {
-        buffer = this->GetNextPosition(position, directions[i]);
-        if(buffer != nullptr)
+        next_cords = this->GetNextPosition(position, directions[i]);
+        if(next_cords.has_value())
         {
-            fieldsFound.push_back(*buffer);
-            delete buffer;
+            fieldsFound.push_back(*next_cords);
         }
     }
     return fieldsFound;

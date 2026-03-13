@@ -11,9 +11,9 @@ void LaserHead::Run()
 {
     if(shooting)
     {
-        Coordinates* nextPosition = this->level->GetNextPosition(this->position, this->rotation);
+        std::optional<Coordinates> nextPosition = this->level->GetNextPosition(this->position, this->rotation);
 
-        if(nextPosition == nullptr)
+        if(!nextPosition.has_value())
         {
             this->shooting = false;
             this->GoBack();
@@ -34,9 +34,6 @@ void LaserHead::Run()
             this->shooting = false;
             this->GoBack();
         }
-
-
-        delete nextPosition;
     }
     else
     {
@@ -54,8 +51,8 @@ void LaserHead::GoForward()
 void LaserHead::GoBack()
 {
     Direction backDir = GetOppositeDirection(rotation);
-    Coordinates* nextPos = this->level->GetNextPosition(this->position, backDir);
-    if(nextPos != nullptr)
+    std::optional<Coordinates> nextPos = this->level->GetNextPosition(this->position, backDir);
+    if(nextPos.has_value())
     {
         GameObject* other = this->level->GetObjectFromPosition(*nextPos);
         if(other != nullptr && other->GetObjectName() == LASER_BODY)
@@ -67,6 +64,5 @@ void LaserHead::GoBack()
         {
             this->level->RemoveObject(this);
         }
-        delete nextPos;
     }
 }

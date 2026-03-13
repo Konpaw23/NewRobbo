@@ -21,11 +21,10 @@ bool Robbo::Move(Direction dir)
 
     if(!MovingObject::Move(dir))
     {
-        //TODO powalone rzeczy sie tu dzieja
-        Coordinates* dest = this->level->GetNextPosition(this->position, dir);
-        if(dest != nullptr)
+        std::optional<Coordinates> next_cords = this->level->GetNextPosition(this->position, dir);
+        if(next_cords.has_value())
         {
-            GameObject* other = level->GetObjectFromPosition(*dest);
+            GameObject* other = level->GetObjectFromPosition(*next_cords);
             MovingObject* movingObject = dynamic_cast<MovingObject*>(other);
             if(movingObject != nullptr && movingObject->canBeMovedByRobbo)
             {
@@ -42,7 +41,6 @@ bool Robbo::Move(Direction dir)
                 {
                     //can use this function because movable object is moved already (inside if statement above)
                     MovingObject::Move(dir);
-                    delete dest;
                     return true;
                 }
             }
@@ -52,9 +50,8 @@ bool Robbo::Move(Direction dir)
             if(item != nullptr)
             {
                 item->PickUp(this);
-                level->MoveObject(this, *dest);
-                this->position = *dest;
-                delete dest;
+                level->MoveObject(this, *next_cords);
+                this->position = *next_cords;
                 return true;
             }
 

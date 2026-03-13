@@ -1,6 +1,7 @@
 #pragma once
 #include "../../basicProjectHeaders.h"
 #include "LevelHeaders.h"
+#include <optional>
 
 class Level
 {
@@ -45,7 +46,7 @@ public:
     void FinishLevel();
     bool IsLevelFinished();
 
-    Coordinates* GetNextPosition(Coordinates current, Direction dir);
+    std::optional<Coordinates> GetNextPosition(Coordinates current, Direction dir);
     std::vector<Coordinates> GetFieldsAround(Coordinates position);
     std::vector<Coordinates> GetFieldsNextTo(Coordinates position);
     int GetScrewsNumber();

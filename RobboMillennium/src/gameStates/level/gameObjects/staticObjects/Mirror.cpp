@@ -60,16 +60,11 @@ bool Mirror::Exit(Robbo *robbo, Direction out)
 
     for(int i = 0; i < 4; i++)
     {
-        Coordinates* outPosition = this->level->GetNextPosition(this->position, possibleFields[i]);
-        if(outPosition != nullptr)
+        std::optional<Coordinates> outPosition = this->level->GetNextPosition(this->position, possibleFields[i]);
+        if(outPosition.has_value() && this->level->GetObjectFromPosition(*outPosition) == nullptr)
         {
-            if(this->level->GetObjectFromPosition(*outPosition) == nullptr)
-            {
-                robbo->Teleport(*outPosition);
-                delete outPosition;
-                return true;
-            }
-            delete outPosition;
+            robbo->Teleport(*outPosition);
+            return true;
         }
     }
     return false;
