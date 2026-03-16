@@ -23,6 +23,7 @@ protected:
 
     virtual void Render();
 private:
+    int refreshRate;
     int currentFPS = 0;
     int frames = 0;
     double FPSRefreshTimeDelta;

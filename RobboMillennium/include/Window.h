@@ -4,7 +4,7 @@
 class Window
 {
 public:
-    Window(const std::string& title, int width, int height);
+    Window(const std::string& title);
     ~Window();
 
     //returns size of texture named by string that is saved in memory
@@ -29,9 +29,17 @@ public:
     void AddTexture(TextureName name, const std::string path);
     void ClearTextures(); //deletes all textures from memory
 
+    Coordinates GetScreenSize();
+    double GetXScaling();
+    double GetYScaling();
+
 private:
     void AddAllTextures();
     const std::string assets_dir = "assets/";
+    int screen_width;
+    int screen_height;
+    double x_scaling;
+    double y_scaling;
     SDL_Window* m_window;
     SDL_Renderer* m_renderer;
     TTF_Font* m_font;

@@ -60,12 +60,16 @@ void MenuState::AddButton(std::string buttonName, TextureName textureInactive, T
     m_buttons[buttonName] = new Button(m_window, position, size, textureInactive, textureActive);
 }
 
+//TODO maybe this is not a good place positioning buttons
 void MenuState::AddAllButtons()
 {
-    Coordinates position = Coordinates((SCREEN_WIDTH - m_window->TextureSize(PRZYCISK_GRA).x) / 2, 200);
+    Coordinates scr_size = this->m_window->GetScreenSize();
+    //Coordinates position = Coordinates((scr_size.x - m_window->TextureSize(PRZYCISK_GRA).x) / 2, scr_size.y/5.4);
+    Coordinates position = Coordinates((GAME_WIDTH - m_window->TextureSize(PRZYCISK_GRA).x) / 2, 200);
     AddButton("Gra", PRZYCISK_GRA, PRZYCISK_GRA_AKTYWNY, position);
 
-    position = Coordinates((SCREEN_WIDTH - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, 600);
+    //position = Coordinates((scr_size.x - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, scr_size.y/1.8);
+    position = Coordinates((GAME_WIDTH - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, 600);
     AddButton("Wyjscie", PRZYCISK_WYJSCIE, PRZYCISK_WYJSCIE_AKTYWNY, position);
 }
 

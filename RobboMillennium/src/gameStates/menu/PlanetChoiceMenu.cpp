@@ -63,13 +63,18 @@ void PlanetChoiceMenu::AddButton(std::string buttonName, TextureName textureInac
 
 void PlanetChoiceMenu::AddAllButtons()
 {
-    Coordinates position = Coordinates((SCREEN_WIDTH - m_window->TextureSize(BLUE_PLANET_BUTTON).x) / 2, 100);
+    Coordinates scr_size = this->m_window->GetScreenSize();
+
+    //Coordinates position = Coordinates((scr_size.x - m_window->TextureSize(BLUE_PLANET_BUTTON).x) / 2, scr_size.y/10.8);
+    Coordinates position = Coordinates((GAME_WIDTH - m_window->TextureSize(BLUE_PLANET_BUTTON).x) / 2, 100);
     AddButton("Blue", BLUE_PLANET_BUTTON, BLUE_PLANET_BUTTON_ACTIVE, position);
 
-    position = Coordinates((SCREEN_WIDTH - m_window->TextureSize(RED_PLANET_BUTTON).x) / 2, 400);
+    //position = Coordinates((scr_size.x - m_window->TextureSize(RED_PLANET_BUTTON).x) / 2, scr_size.y/2.7);
+    position = Coordinates((GAME_WIDTH - m_window->TextureSize(RED_PLANET_BUTTON).x) / 2, 400);
     AddButton("Red", RED_PLANET_BUTTON, RED_PLANET_BUTTON_ACTIVE, position);
 
-    position = Coordinates((SCREEN_WIDTH - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, 700);
+    //position = Coordinates((scr_size.x - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, scr_size.y/1.54);
+    position = Coordinates((GAME_WIDTH - m_window->TextureSize(PRZYCISK_WYJSCIE).x) / 2, 700);
     AddButton("Wyjscie", PRZYCISK_WYJSCIE, PRZYCISK_WYJSCIE_AKTYWNY, position);
 }
 

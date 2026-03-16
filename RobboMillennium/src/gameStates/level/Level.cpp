@@ -919,7 +919,7 @@ void Level::PutObject(GameObjectName name, int x, int y, Axis axis)
 
 Coordinates Level::GetFieldPositionInPixelsOnScreen(int x, int y)
 {
-    return Coordinates((SCREEN_WIDTH - (FIELD_SIZE * this->width) )/2 + (x * FIELD_SIZE),
+    return Coordinates((GAME_WIDTH - (FIELD_SIZE * this->width) )/2 + (x * FIELD_SIZE),
                        y * FIELD_SIZE - levelRenderingUpperPosition);
 }
 

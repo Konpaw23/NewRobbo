@@ -1,8 +1,8 @@
 #pragma once
 
 //screen size where game will be printed
-#define SCREEN_WIDTH 1920
-#define SCREEN_HEIGHT 1080
+#define GAME_WIDTH 1920
+#define GAME_HEIGHT 1080
 
 //number of fields in cols and rows at basic level
 #define LEVEL_WIDTH 16

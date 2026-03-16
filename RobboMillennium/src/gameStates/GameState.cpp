@@ -7,6 +7,10 @@ GameState::GameState(Window* window) : m_running(true), m_window(window)
     tick = SDL_GetPerformanceCounter();
     FPSRefreshTick = SDL_GetPerformanceCounter();
     perfFreq = SDL_GetPerformanceFrequency();
+
+    SDL_DisplayMode dm;
+    SDL_GetCurrentDisplayMode(0, &dm);
+    refreshRate = dm.refresh_rate;
 }
 
 GameState::~GameState()
@@ -27,11 +31,10 @@ bool GameState::IsRunning()
 
 void GameState::Run()
 {
-    //fixed to 165 fps
     while(m_running)
     {
         deltaTime = double( SDL_GetPerformanceCounter() - tick ) / perfFreq;
-        if (deltaTime >= 1.0/165.0)
+        if (deltaTime >= 1.0/refreshRate)
         {
             tick = SDL_GetPerformanceCounter();
             this->frames++;

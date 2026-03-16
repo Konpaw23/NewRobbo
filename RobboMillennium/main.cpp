@@ -8,7 +8,7 @@
 int main(int argc, char* argv[])
 {
     //creates window where entire game will be printed
-    Window* window = new Window("Robbo Millennium", SCREEN_WIDTH, SCREEN_HEIGHT);
+    Window* window = new Window("Robbo Millennium");
 
     //declares gamestate that points current state of game
     GameState* state = new MenuState(window);

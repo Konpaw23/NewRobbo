@@ -1,16 +1,40 @@
 #include "../include/Window.h"
 
-Window::Window(const std::string& title, int width, int height)
+Window::Window(const std::string& title)
 {
+
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
-
+    SDL_DisplayMode dm;
+    SDL_GetCurrentDisplayMode(0, &dm);
+    screen_height = dm.h;
+    screen_width = dm.w;
+    if(double(screen_width)/screen_height > double(GAME_WIDTH)/GAME_HEIGHT)
+    {
+        screen_width = screen_height * ( double(GAME_WIDTH)/GAME_HEIGHT );
+    }
+    else if(double(screen_width)/screen_height < double(GAME_WIDTH)/GAME_HEIGHT)
+    {
+        screen_height = double(screen_width) / ( double(GAME_WIDTH)/GAME_HEIGHT );
+    }
+    x_scaling = double(screen_width) / GAME_WIDTH;
+    y_scaling = double(screen_height) / GAME_HEIGHT;
+    if(x_scaling < y_scaling)
+    {
+        y_scaling = x_scaling;
+    }
+    else
+    {
+        x_scaling = y_scaling;
+    }
     m_window = SDL_CreateWindow(title.c_str(),
                               SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED,
-                              width,
-                              height,
+                              screen_width,
+                              screen_height,
                               SDL_WINDOW_SHOWN);
+
+    SDL_SetWindowPosition(m_window, 0,0);
 
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 
@@ -72,7 +96,7 @@ void Window::Write(const char *text, Coordinates position, int size, SDL_Color c
         return;
     SDL_Surface* surface = TTF_RenderText_Solid(this->m_font, text, color);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
-    SDL_Rect rect = {position.x, position.y, surface->w * size / surface->h, size};
+    SDL_Rect rect = {int(double(position.x)*x_scaling), int(double(position.y)*y_scaling), int(double(surface->w * size / surface->h)*x_scaling), int(double(size)*y_scaling)};
 
     SDL_RenderCopy(m_renderer, texture, nullptr, &rect);
 
@@ -85,9 +109,12 @@ void Window::Write(const std::string &text, Coordinates position, int size, SDL_
     this->Write(text.c_str(), position, size, color);
 }
 
+//TODO too many type changes
 void Window::PutTexture(TextureName name, int x, int y, int width, int height)
 {
-    SDL_Rect destRect = {x, y, width, height};
+    double x_scaling = double(screen_width) / GAME_WIDTH;
+    double y_scaling = double(screen_height) / GAME_HEIGHT;
+    SDL_Rect destRect = {int(double(x)*x_scaling), int(double(y)*y_scaling), int(double(width)*x_scaling), int(double(height)*y_scaling)};
     SDL_RenderCopy(m_renderer, this->m_textures[name], nullptr, &destRect);
 }
 
@@ -132,6 +159,21 @@ void Window::ClearTextures()
         SDL_DestroyTexture(pair.second);
     }
     m_textures.clear();
+}
+
+Coordinates Window::GetScreenSize()
+{
+    return {screen_width, screen_height};
+}
+
+double Window::GetXScaling()
+{
+    return x_scaling;
+}
+
+double Window::GetYScaling()
+{
+    return y_scaling;
 }
 
 void Window::AddAllTextures()

@@ -16,10 +16,12 @@ Button::Button(Window* window, Coordinates position, Coordinates size, TextureNa
 
 void Button::HandleMouseMovement(Coordinates mousePosition)
 {
+    double x_scaling = m_window->GetXScaling();
+    double y_scaling = m_window->GetXScaling();
     int mouseX = mousePosition.x;
     int mouseY = mousePosition.y;
-    if(mouseX >= m_position.x && mouseX <= m_position.x + m_size.x &&
-        mouseY >= m_position.y && mouseY <= m_position.y + m_size.y)
+    if(mouseX >= m_position.x*x_scaling && mouseX <= (m_position.x + m_size.x)*x_scaling &&
+        mouseY >= m_position.y*y_scaling && mouseY <= (m_position.y + m_size.y)*y_scaling)
     {
         this->m_isHovered = true;
     }
@@ -34,6 +36,8 @@ bool Button::IsHovered()
 
 int Button::PutTexture()
 {
+    double x_scaling = m_window->GetXScaling();
+    double y_scaling = m_window->GetYScaling();
     if(m_textureInactive == NULL_TEXTURE || m_textureActive == NULL_TEXTURE)
     {
         return 1;

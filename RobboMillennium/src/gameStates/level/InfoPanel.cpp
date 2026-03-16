@@ -1,8 +1,8 @@
 #include "../../../include/gameStates/level/InfoPanel.h"
 
 InfoPanel::InfoPanel(Window* window, InfoPanelData data) :
-    position({SCREEN_WIDTH/2-LEVEL_WIDTH*FIELD_SIZE/2, 10*FIELD_SIZE}),
-    size({LEVEL_WIDTH*FIELD_SIZE, SCREEN_HEIGHT - 10*FIELD_SIZE}),
+    position({GAME_WIDTH/2-LEVEL_WIDTH*FIELD_SIZE/2, 10*FIELD_SIZE}),
+    size({LEVEL_WIDTH*FIELD_SIZE, GAME_HEIGHT - 10*FIELD_SIZE}),
     window(window),
     data(data)
 {
@@ -16,6 +16,8 @@ void InfoPanel::Update(InfoPanelData newData)
 
 void InfoPanel::Refresh()
 {
+    double x_scaling = window->GetXScaling();
+    double y_scaling = window->GetYScaling();
     int xPos = this->position.x;
     int xMargin = 40;
     int xField = 90;
