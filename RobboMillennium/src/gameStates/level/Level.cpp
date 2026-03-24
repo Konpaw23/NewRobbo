@@ -961,6 +961,55 @@ bool Level::IsLevelStopped()
     return (this->stopActive > 0);
 }
 
+void Level::RemoveAllKillingObjects()
+{
+    std::vector<ActiveObject*> initialVector(this->activeObjects);
+
+    KillingObject* killingObject;
+
+    for(auto & activeObject : initialVector)
+    {
+        killingObject = dynamic_cast<KillingObject*>(activeObject);
+        if(killingObject != nullptr)
+        {
+            RemoveObject(killingObject);
+        }
+    }
+}
+
+void Level::RemoveAllDoors()
+{
+    GameObject* obj;
+    for(int i = 0; i < this->height; i++)
+    {
+        for(int j = 0; j < this->width; j++)
+        {
+            obj = fields[i][j];
+            if(obj != nullptr && obj->GetObjectName() == DOOR)
+            {
+                RemoveObject(fields[i][j]);
+            }
+        }
+    }
+}
+
+void Level::ReplaceObjects(GameObjectName objToReplace, GameObjectName replacingObject)
+{
+    GameObject* obj;
+    for(int i = 0; i < this->height; i++)
+    {
+        for(int j = 0; j < this->width; j++)
+        {
+            obj = fields[i][j];
+            if(obj != nullptr && obj->GetObjectName() == objToReplace)
+            {
+                RemoveObject(fields[i][j]);
+                CreateObject(replacingObject, j, i);
+            }
+        }
+    }
+}
+
 void Level::FieldsMemoryAlloc()
 {
     if(player != nullptr)

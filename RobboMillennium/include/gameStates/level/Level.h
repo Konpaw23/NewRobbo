@@ -71,6 +71,10 @@ public:
     void ActivateStop(int sequences);
     bool IsLevelStopped();
 
+    void RemoveAllKillingObjects();
+    void RemoveAllDoors();
+    void ReplaceObjects(GameObjectName objToReplace, GameObjectName replacingObject);
+
 private:
     LevelState* levelState;
 

@@ -71,5 +71,12 @@ void Surprise::Open()
     {
         objectToCreate = EYE;
     }
+    else if((random -= SURPRISE_SUPER) < 0)
+    {
+        objectToCreate = LIFE;
+        level->RemoveAllKillingObjects();
+        level->RemoveAllDoors();
+        level->ReplaceObjects(MAGNET, WALL);
+    }
     this->level->CreateObject(objectToCreate, position.x, position.y);
 }
