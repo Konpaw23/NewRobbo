@@ -46,6 +46,8 @@ private:
     void Update() override;
     void Render() override;
 
+    void SaveGame();
+
     void PutInfoPanel();
 
     void SetPlayerMove();

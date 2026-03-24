@@ -25,7 +25,27 @@ LevelState::LevelState(Window *window, GameStateName planet) : GameState(window)
 {
     this->m_window->Clear();
     this->state = planet;
-    this->levelNumber = 1;
+    std::ifstream save("save.txt");
+    if(save.is_open())
+    {
+        int n = 1;
+        save >> n;
+
+        if(planet == BLUE_PLANET_LEVELS)
+        {
+            this->levelNumber = n;
+        }
+        else
+        {
+            save >> n;
+            this->levelNumber = n;
+        }
+        save.close();
+    }
+    else
+    {
+        this->levelNumber = 1;
+    }
 
     switch(this->state)
     {
@@ -201,7 +221,14 @@ void LevelState::Update()
                 delete level;
                 this->isFirstLevelGame = true;
                 this->levelLivesPositions.clear();
+
                 levelNumber++;
+
+                if(levelNumber % 4 == 1)
+                {
+                    this->SaveGame();
+                }
+
                 level = new Level(m_window, levelNumber, this->planet, this);
             }
             level->SetPlayerAction(playerAction);
@@ -247,6 +274,36 @@ void LevelState::Render()
     GameState::Render();
 
     m_window->Present();
+}
+
+void LevelState::SaveGame()
+{
+    std::string savePath = "save.txt";
+    std::ifstream saveFileRead(savePath);
+    int level_b = 1, level_r = 1;
+
+    if(saveFileRead.is_open())
+    {
+        level_b = saveFileRead.get();
+        level_r = saveFileRead.get();
+        saveFileRead.close();
+    }
+
+    if(planet == "blue")
+        level_b = this->levelNumber;
+    else if(planet == "red")
+        level_r = this->levelNumber;
+
+    std::ofstream saveFileWrite(savePath);
+    if(saveFileWrite.is_open())
+    {
+        saveFileWrite << level_b << "\n" << level_r;
+        saveFileWrite.close();
+    }
+    else
+    {
+        std::cerr << "Failed to save game!\n";
+    }
 }
 
 void LevelState::PutInfoPanel()
