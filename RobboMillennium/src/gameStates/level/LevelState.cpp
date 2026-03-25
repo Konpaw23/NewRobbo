@@ -284,8 +284,8 @@ void LevelState::SaveGame()
 
     if(saveFileRead.is_open())
     {
-        level_b = saveFileRead.get();
-        level_r = saveFileRead.get();
+        saveFileRead >> level_b;
+        saveFileRead >> level_r;
         saveFileRead.close();
     }
 
