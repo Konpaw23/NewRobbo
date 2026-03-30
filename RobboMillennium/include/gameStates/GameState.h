@@ -5,6 +5,7 @@ class GameState
 {
 public:
     GameState(Window* window);
+    GameState(Window* window, bool vsync);
     ~GameState();
 
     GameStateName GetState();
@@ -27,6 +28,8 @@ private:
     int currentFPS = 0;
     int frames = 0;
     double FPSRefreshTimeDelta;
+
+    bool vsync = true;
 
     Uint64 FPSRefreshTick;
     virtual void Update() = 0;

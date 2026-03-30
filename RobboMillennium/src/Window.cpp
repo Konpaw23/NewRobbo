@@ -109,6 +109,25 @@ void Window::Write(const std::string &text, Coordinates position, int size, SDL_
     this->Write(text.c_str(), position, size, color);
 }
 
+//TODO eliminate redundance
+void Window::WriteOnRight(const std::string &text, int yPosition, int size, SDL_Color color)
+{
+    int xSize, xTextPosition;
+
+    if(text[0] == '\0')
+        return;
+    SDL_Surface* surface = TTF_RenderText_Solid(this->m_font, text.c_str(), color);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+    SDL_QueryTexture(texture, nullptr, nullptr, &xSize, nullptr);
+    xTextPosition = GAME_WIDTH - xSize;
+    SDL_Rect rect = {int(double(xTextPosition)*x_scaling), int(double(yPosition)*y_scaling), int(double(surface->w * size / surface->h)*x_scaling), int(double(size)*y_scaling)};
+
+    SDL_RenderCopy(m_renderer, texture, nullptr, &rect);
+
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+}
+
 //TODO too many type changes
 void Window::PutTexture(TextureName name, int x, int y, int width, int height)
 {

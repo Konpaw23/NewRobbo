@@ -11,6 +11,13 @@ GameState::GameState(Window* window) : m_running(true), m_window(window)
     SDL_DisplayMode dm;
     SDL_GetCurrentDisplayMode(0, &dm);
     refreshRate = dm.refresh_rate;
+
+    vsync = false;
+}
+
+GameState::GameState(Window *window, bool vsync) : GameState(window)
+{
+    this->vsync = vsync;
 }
 
 GameState::~GameState()
@@ -31,20 +38,35 @@ bool GameState::IsRunning()
 
 void GameState::Run()
 {
-    while(m_running)
+    if(vsync)
     {
-        deltaTime = double( SDL_GetPerformanceCounter() - tick ) / perfFreq;
-        if (deltaTime >= 1.0/refreshRate)
+        while(m_running)
         {
+            deltaTime = double( SDL_GetPerformanceCounter() - tick ) / perfFreq;
+            if (deltaTime >= 1.0/refreshRate)
+            {
+                tick = SDL_GetPerformanceCounter();
+                this->frames++;
+                ProcessInput();
+                Update();
+                Render();
+            }
+            else
+            {
+                std::this_thread::sleep_for(std::chrono::microseconds(250));
+            }
+        }
+    }
+    else
+    {
+        while(m_running)
+        {
+            deltaTime = double( SDL_GetPerformanceCounter() - tick ) / perfFreq;
             tick = SDL_GetPerformanceCounter();
             this->frames++;
             ProcessInput();
             Update();
             Render();
-        }
-        else
-        {
-            std::this_thread::sleep_for(std::chrono::microseconds(250));
         }
     }
 }
@@ -72,7 +94,7 @@ void GameState::DisplayFPS()
         frames = 0;
         FPSRefreshTick = SDL_GetPerformanceCounter();
     }
-    m_window->Write(std::to_string(currentFPS), {1840, 0}, 64, {127,127,127});
+    m_window->Write(std::to_string(currentFPS), {1805, 0}, 64, {127,127,127});
 }
 
 void GameState::Render()
