@@ -18,7 +18,6 @@ Level::~Level()
     FieldsMemoryDealloc();
 }
 
-//TODO make buffer for activeObjects to delete and objects that will be added in next turn
 //run every object in level in order
 void Level::RunSequence()
 {
