@@ -37,6 +37,9 @@ int main(int argc, char* argv[])
             case RED_PLANET_LEVELS:
                 state = new LevelState(window, RED_PLANET_LEVELS);
                 break;
+            case TEST_LEVELS:
+                state = new LevelState(window, TEST_LEVELS);
+                break;
             case EXIT:
                 state = nullptr;
                 break;

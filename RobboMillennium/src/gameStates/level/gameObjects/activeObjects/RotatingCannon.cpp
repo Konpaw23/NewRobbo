@@ -1,6 +1,5 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/RotatingCannon.h"
 
-//TODO better constructor without redundancy??
 RotatingCannon::RotatingCannon(Coordinates position, Direction initialRotation, Level* level) : Cannon(position, initialRotation, level),
                                                                                                 GameObject(ROTATING_CANNON, position, false, true, level)
 {

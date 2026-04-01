@@ -24,6 +24,15 @@ void PlanetChoiceMenu::ProcessInput()
             else if(m_buttons["Wyjscie"]->IsHovered())
                 state = MENU;
         }
+        else if(e.key.type == SDL_KEYDOWN)
+        {
+            switch(e.key.keysym.sym)
+            {
+                case SDLK_t:
+                    state = TEST_LEVELS;
+                    break;
+            }
+        }
         else
             GameState::ProcessInput();
     }
@@ -36,7 +45,7 @@ void PlanetChoiceMenu::Update()
         pair.second->HandleMouseMovement(mousePosition);
     }
 
-    if(state == MENU || state == BLUE_PLANET_LEVELS || state == RED_PLANET_LEVELS)
+    if(state == MENU || state == BLUE_PLANET_LEVELS || state == RED_PLANET_LEVELS || state == TEST_LEVELS)
     {
         m_running = false;
     }

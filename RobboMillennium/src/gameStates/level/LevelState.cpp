@@ -53,8 +53,10 @@ LevelState::LevelState(Window *window, GameStateName planet) : GameState(window)
             this->planet = "red";
             break;
         case BLUE_PLANET_LEVELS:
-        default:
             this->planet = "blue";
+            break;
+        default:
+            this->planet = "test";
             break;
     }
     this->lives = 5;

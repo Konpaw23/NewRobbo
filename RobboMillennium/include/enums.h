@@ -6,6 +6,7 @@ enum GameStateName
     PLANET_MENU,
     BLUE_PLANET_LEVELS,
     RED_PLANET_LEVELS,
+    TEST_LEVELS,
     EXIT,
 };
 

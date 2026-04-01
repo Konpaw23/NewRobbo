@@ -9,7 +9,7 @@ Surprise::Surprise(Coordinates position, Level *level) : GameObject(SURPRISE, po
 
 void Surprise::Destroy()
 {
-    this->Open();
+    this->SetToOpen();
 }
 
 void Surprise::Destroy(GameObjectName source)
@@ -20,8 +20,33 @@ void Surprise::Destroy(GameObjectName source)
     }
     else
     {
-        GameObject::Destroy();
+        Destroy();
     }
+}
+
+bool Surprise::IsOpening()
+{
+    return isOpening;
+}
+
+void Surprise::Run()
+{
+    if(this->isOpening)
+    {
+        if(openDelay <= 0)
+        {
+            this->Open();
+        }
+        else
+        {
+            openDelay--;
+        }
+    }
+}
+
+void Surprise::SetToOpen()
+{
+    this->isOpening = true;
 }
 
 void Surprise::Open()

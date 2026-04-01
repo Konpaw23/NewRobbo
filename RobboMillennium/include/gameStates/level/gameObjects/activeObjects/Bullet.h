@@ -4,7 +4,6 @@
 #include "../MovingObject.h"
 #include "../RotatingObject.h"
 
-//TODO bullets can be moved by Robbo!!! Fix this
 class Bullet : public ActiveObject, public MovingObject, public RotatingObject
 {
 public:

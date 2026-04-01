@@ -3,6 +3,7 @@
 #include "LevelHeaders.h"
 #include <optional>
 
+//TODO create vector for objects with active timer (surprise, bomb) not to call them every frame as ActiveObject
 class Level
 {
 public:

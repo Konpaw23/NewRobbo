@@ -176,6 +176,7 @@ void Level::CreateObject(GameObjectName name, int x, int y)
             break;
         case SURPRISE:
             fields[y][x] = new Surprise(Coordinates(x,y), this);
+            AddToActiveObjects(dynamic_cast<ActiveObject*>(fields[y][x]));
             break;
         case SCREW:
             fields[y][x] = new Screw(Coordinates(x,y), this);
@@ -471,7 +472,6 @@ std::optional<Coordinates> Level::GetNextPosition(Coordinates current, Direction
 std::vector<Coordinates> Level::GetFieldsAround(Coordinates position)
 {
     std::vector<Coordinates> vector = {};
-    //TODO write cleaner code
     Direction pattern[4] = {LEFT, RIGHT, UP, DOWN};
     std::optional<Coordinates> next_cords;
     for(int i = 0; i < 4; i++)
@@ -617,6 +617,13 @@ void Level::PutLevelPicture()
                     PutObject(objName, j, i, ship->IsOpen());
                 }
 
+                if(objName == SURPRISE)
+                {
+                    Surprise* surprise = dynamic_cast<Surprise*>(obj);
+                    PutObject(objName, j, i, surprise->IsOpening());
+                    continue;
+                }
+
                 RotatingObject* rotatingObject = dynamic_cast<RotatingObject*>(obj);
                 if(rotatingObject != nullptr)
                 {
@@ -636,11 +643,13 @@ void Level::PutLevelPicture()
         }
     }
 }
+
 void Level::PutEmptyField(int x, int y)
 {
     Coordinates renderPosition = GetFieldPositionInPixelsOnScreen(x,y);
     m_window->PutTexture(LEVEL_FLOOR, renderPosition.x, renderPosition.y);
 }
+
 void Level::PutObject(GameObjectName name, int x, int y)
 {
     Coordinates renderPosition = GetFieldPositionInPixelsOnScreen(x,y);
@@ -729,6 +738,17 @@ void Level::PutObject(GameObjectName name, int x, int y, int frame)
             else
             {
                 m_window->PutTexture(LEVEL_SHIP_OPEN, renderPosition.x, renderPosition.y);
+            }
+            break;
+        case SURPRISE:
+            //surprise disappearing when opening
+            if(frame == 0)
+            {
+                m_window->PutTexture(LEVEL_SURPRISE, renderPosition.x, renderPosition.y);
+            }
+            else
+            {
+                m_window->PutTexture(LEVEL_FLOOR, renderPosition.x, renderPosition.y);
             }
             break;
         default:

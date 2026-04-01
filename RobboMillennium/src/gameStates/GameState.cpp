@@ -12,7 +12,7 @@ GameState::GameState(Window* window) : m_running(true), m_window(window)
     SDL_GetCurrentDisplayMode(0, &dm);
     refreshRate = dm.refresh_rate;
 
-    vsync = false;
+    vsync = true;
 }
 
 GameState::GameState(Window *window, bool vsync) : GameState(window)
