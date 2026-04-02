@@ -16,6 +16,10 @@ Mirror::~Mirror()
     {
         delete connectedMirrors;
     }
+    if(teleportingRobbo != nullptr)
+    {
+        teleportingRobbo->Destroy();
+    }
 }
 
 void Mirror::Enter(Robbo *robbo, Direction out)

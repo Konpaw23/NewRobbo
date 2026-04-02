@@ -107,6 +107,7 @@ bool Robbo::Move(Direction dir)
 bool Robbo::Teleport(Coordinates newPosition)
 {
     //Robbo should be teleported only if he is hidden (after entering mirror)
+
     if(!level->IsRobboVisible())
     {
         this->position = newPosition;
