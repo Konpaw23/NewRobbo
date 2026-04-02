@@ -1,11 +1,12 @@
 #pragma once
 #include "../StaticObject.h"
+#include "../ActiveObject.h"
 
 class Robbo;
 class MirrorGroup;
 
 //TODO teleporting still can have problems when all ways blocked after entering mirror
-class Mirror : public StaticObject
+class Mirror : public StaticObject, public ActiveObject
 {
 public:
     Mirror(Coordinates position, Level* level, MirrorGroup* group);
@@ -13,8 +14,14 @@ public:
     void Enter(Robbo* robbo, Direction out);
     bool Exit(Robbo* robbo, Direction out);
 
+    void Run() override;
+    void Destroy() override;
+
 private:
     MirrorGroup* connectedMirrors;
-    //every group of mirrors contains teleports with different id
-    int id;
+
+    Robbo* teleportingRobbo = nullptr;
+    int ticksToTeleport = 0;
+    int teleportingDelay = 5;
+    Coordinates exitPosition = {0,0};
 };

@@ -10,7 +10,7 @@ public:
     void SetAction(RobboAction action);
 
     bool Move(Direction dir) override;
-    void Teleport(Coordinates position);
+    bool Teleport(Coordinates position);
     void GiveScrew();
     void GiveKey();
     int GetKeysNumber();
@@ -20,9 +20,13 @@ public:
     void AddAmmo();
     void Shot(Direction dir);
 
+    void DisableMoving();
+    void EnableMoving();
+
     void Run() override;
     void Destroy() override;
 private:
+    bool canMove = true;
     int keys;
     int ammo;
     int shootDelay;

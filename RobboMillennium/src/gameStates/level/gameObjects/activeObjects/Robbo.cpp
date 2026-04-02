@@ -16,6 +16,11 @@ void Robbo::SetAction(RobboAction action)
 
 bool Robbo::Move(Direction dir)
 {
+    if(!canMove)
+    {
+        return false;
+    }
+
     Coordinates initPos = position;
 
     if(!MovingObject::Move(dir))
@@ -99,13 +104,13 @@ bool Robbo::Move(Direction dir)
     return false;
 }
 
-void Robbo::Teleport(Coordinates newPosition)
+bool Robbo::Teleport(Coordinates newPosition)
 {
     //Robbo should be teleported only if he is hidden (after entering mirror)
     if(!level->IsRobboVisible())
     {
         this->position = newPosition;
-        this->level->ShowRobbo();
+        return this->level->ShowRobbo();
     }
 }
 
@@ -158,6 +163,16 @@ void Robbo::Shot(Direction dir)
         shootDelay += 3;
         level->SpawnBullet(position.GetNext(dir), dir);
     }
+}
+
+void Robbo::DisableMoving()
+{
+    this->canMove = false;
+}
+
+void Robbo::EnableMoving()
+{
+    this->canMove = true;
 }
 
 void Robbo::Run()

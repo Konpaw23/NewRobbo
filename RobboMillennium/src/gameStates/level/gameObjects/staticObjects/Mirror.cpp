@@ -3,18 +3,15 @@
 #include "../../../../../include/gameStates/level/gameObjects/activeObjects/Robbo.h"
 #include "../../../../../include/gameStates/level/Level.h"
 
-
-//TODO mirror can be destroyed by bomb!!! so I must make deleting mirror object during game safe
 Mirror::Mirror(Coordinates position, Level* level, MirrorGroup* group) :
     GameObject(MIRROR, position, false, true, level), connectedMirrors(group)
 {
-    this->id = connectedMirrors->GetGroupSize();
     this->connectedMirrors->AddMirror(this);
 }
 
 Mirror::~Mirror()
 {
-    connectedMirrors->RemoveMirror(this->id);
+    connectedMirrors->RemoveMirror(this);
     if(connectedMirrors->GetGroupSize() == 0)
     {
         delete connectedMirrors;
@@ -24,7 +21,7 @@ Mirror::~Mirror()
 void Mirror::Enter(Robbo *robbo, Direction out)
 {
     this->level->HideRobbo();
-    this->connectedMirrors->TeleportToNext(robbo, id, out);
+    this->connectedMirrors->TeleportToNext(robbo, this, out);
 }
 
 bool Mirror::Exit(Robbo *robbo, Direction out)
@@ -63,9 +60,33 @@ bool Mirror::Exit(Robbo *robbo, Direction out)
         std::optional<Coordinates> outPosition = this->level->GetNextPosition(this->position, possibleFields[i]);
         if(outPosition.has_value() && this->level->GetObjectFromPosition(*outPosition) == nullptr)
         {
-            robbo->Teleport(*outPosition);
+            this->teleportingRobbo = robbo;
+            this->ticksToTeleport = teleportingDelay;
+            this->exitPosition = *outPosition;
             return true;
         }
     }
     return false;
+}
+
+void Mirror::Run()
+{
+    if(teleportingRobbo != nullptr)
+    {
+        if(ticksToTeleport <= 0)
+        {
+            if(teleportingRobbo->Teleport(this->exitPosition))
+                teleportingRobbo = nullptr;
+        }
+        else
+        {
+            ticksToTeleport--;
+        }
+    }
+}
+
+void Mirror::Destroy()
+{
+    this->connectedMirrors->RemoveMirror(this);
+    GameObject::Destroy();
 }

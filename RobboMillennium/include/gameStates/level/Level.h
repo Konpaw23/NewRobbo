@@ -41,7 +41,7 @@ public:
     //to make sure only robbo can call this function
     void DeselectRobbo(class Robbo* robbo);
     void HideRobbo();
-    void ShowRobbo();
+    bool ShowRobbo();
     bool IsRobboVisible();
     Coordinates GetRobboPosition();
     void FinishLevel();

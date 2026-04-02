@@ -415,19 +415,24 @@ void Level::HideRobbo()
     Coordinates pos = this->player->GetPosition();
     if(this->player == this->fields[pos.y][pos.x])
     {
+        this->player->DisableMoving();
         this->fields[pos.y][pos.x] = nullptr;
         this->isRobboVisible = false;
     }
 }
 
-void Level::ShowRobbo()
+bool Level::ShowRobbo()
 {
     Coordinates pos = this->player->GetPosition();
     if(this->fields[pos.y][pos.x] == nullptr)
     {
+        this->player->EnableMoving();
         this->fields[pos.y][pos.x] = this->player;
         this->isRobboVisible = true;
+        return true;
     }
+    else
+        return false;
 }
 
 bool Level::IsRobboVisible()
@@ -1337,5 +1342,7 @@ void Level::DeleteDestroyedObjects()
 
 void Level::CreateMirror(int x, int y, MirrorGroup* group)
 {
-    fields[y][x] = new Mirror(Coordinates(x,y), this, group);
+    Mirror* newMirror = new Mirror(Coordinates(x,y), this, group);
+    fields[y][x] = newMirror;
+    AddToActiveObjects(newMirror);
 }
