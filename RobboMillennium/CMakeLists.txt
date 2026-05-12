@@ -1,11 +1,27 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 4.2.2)
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 project(RobboMillennium)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
 
-set(SDL2_PATH "${CMAKE_SOURCE_DIR}/SDL2-devel-2.30.10-mingw/SDL2-2.30.10/x86_64-w64-mingw32")
-set(SDL2TTF_PATH "${CMAKE_SOURCE_DIR}/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32")
+include(FetchContent)
+
+FetchContent_Declare(
+        SDL2
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_TAG release-2.30.10
+)
+
+FetchContent_Declare(
+        SDL2_ttf
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
+        GIT_TAG release-2.24.0
+)
+
+FetchContent_MakeAvailable(SDL2)
+FetchContent_MakeAvailable(SDL2_ttf)
+
 
 add_executable(RobboMillennium main.cpp
         src/gameStates/GameState.cpp
@@ -22,7 +38,6 @@ add_executable(RobboMillennium main.cpp
         src/gameStates/level/LevelState.cpp
         include/gameStates/level/LevelState.h
         include/enums.h
-        main.cpp
         src/gameStates/level/Level.cpp
         include/gameStates/level/Level.h
         include/basicProjectHeaders.h
@@ -119,25 +134,16 @@ add_executable(RobboMillennium main.cpp
 )
 
 include_directories(
-        "${SDL2_PATH}/include/SDL2"
-        "${SDL2TTF_PATH}/include/SDL2"
         "${CMAKE_SOURCE_DIR}/include"
 )
 
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/levels)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(RobboMillennium PRIVATE
         mingw32
-        "${SDL2_PATH}/lib/libSDL2main.a"
-        "${SDL2_PATH}/lib/libSDL2.a"
-        "${SDL2TTF_PATH}/lib/libSDL2_ttf.a"
-
-        setupapi
-        imm32
-        winmm
-        version
-        rpcrt4
-        cfgmgr32
+        SDL2::SDL2main
+        SDL2::SDL2-static
+        SDL2_ttf
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
